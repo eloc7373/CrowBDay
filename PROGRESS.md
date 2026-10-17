@@ -1,6 +1,6 @@
 # DM Toolkit — Progress
 
-_Last updated: 2026-10-17 (end of Phase 3)_
+_Last updated: 2026-10-17 (end of Phase 4)_
 
 > Working mode: the user asked for the remaining phases to be done without check-ins. Decisions the
 > spec says to ask about are made here and listed under each phase's **Decisions** for review.
@@ -13,7 +13,7 @@ _Last updated: 2026-10-17 (end of Phase 3)_
 | 1     | Map Creator core (canvas, grid, tools, layers, undo, shortcuts) | ✅ Done                                 |
 | 2     | Tilesets, props, asset library                                  | ✅ Done                                 |
 | 3     | Procedural generation                                           | ✅ Done                                 |
-| 4     | Export (PNG, PDF, JSON package, VTT notes)                      | ⏳ Not started                          |
+| 4     | Export (PNG, PDF, JSON package, VTT notes)                      | ✅ Done                                 |
 | 5     | DM Board                                                        | ⏳ Not started (placeholder route only) |
 | 5B    | Combat Mode (map ↔ initiative integration)                      | ⏳ Planned (added 2026-10-17)           |
 | 6     | Polish & packaging                                              | ⏳ Not started                          |
@@ -204,3 +204,48 @@ Scripts: `dev`, `build`, `preview`, `lint`, `format`, `format:check`, `test`, `t
 
 - The cave generator uses a sampled closest-pair search on very large maps when tunnelling, so tunnels are near-shortest rather than guaranteed shortest.
 - Village buildings are single-room interiors.
+
+## Phase 4 — Export ✅
+
+### Completed
+
+- **PNG export (VTT-ready)**, Export → Image:
+  - Options: cell size (default = map cell size), 1×/2× scale, background colour or transparent, grid, walls & doors, objects, tokens (off by default; hidden tokens never exported), notes/room numbers (off), secret doors shown or drawn as plain wall (player copy), and a fog-of-war placeholder (a matching black mask PNG). The dialog shows the output size and filename, and blocks sizes browsers can't create.
+  - **Grid-aligned:** exact integer px per cell, A1 at pixel (0,0), no padding. Grid lines are pixel rectangles starting at multiples of the cell size. The maths is documented at the top of `export/layout.ts`.
+  - Filename: `{map-name}_{width}x{height}_{cell}px.png`.
+- **Print PDF** (jsPDF), Export → Print: Letter, A4 or custom (mm), margin, orientation chosen automatically, map scaled to fit on white, title, "1 square = 5 ft · mm per square", and a scale bar in feet with one segment per square.
+- **Map package JSON:** versioned `{ format: "dmtk-map", version: 1, id, name, seed, width, height, grid, layers, tiles, walls, props, notes, assets, createdAt, updatedAt }`.
+  - JSON Schema in `src/data/map-package.schema.json`, validated with Ajv on import, plus bounds and id checks the schema can't express. Errors read like `props.x.rotation: must be one of 0, 90, 180, 270.`
+  - `migratePackage()` has a migration table (empty for now), refuses files from newer versions, and accepts files without `assets`.
+- **Maps dialog** (map library): lists every map saved in this browser, with open and delete, plus "Import map file…". Importing never overwrites a saved map: if the id exists, the map comes in as "… (imported)".
+- **Foundry scene JSON (experimental stretch goal):** collinear wall edges are merged into segments; doors map to Foundry doors and secret doors to secret doors; grid size and distance are filled in. Marked "verify in your Foundry version".
+- **`docs/vtt-export.md`:** Foundry, Roll20 and Owlbear Rodeo import steps, general tips and printing notes, with uncertain menu details marked "verify in current version".
+
+### Acceptance results
+
+| Criterion                                                               | Result                                                                                                                                                                                                  |
+| ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| A 30×20 map at 70 px exports at exactly 2100×1400 at 1×                 | ✅ unit (layout) + e2e: the downloaded PNG's header says 2100×1400; 2× gives 4200×2800 at 140 px                                                                                                        |
+| Round-trip export JSON → import JSON → identical map (deep equal)       | ✅ unit: a generated dungeon with tokens, layer and grid settings round-trips through `JSON.stringify` → `parsePackage` deep-equal; e2e: export via the UI, import into another map, contents identical |
+| PNG test checks dimensions and grid lines on multiples of the cell size | ✅ e2e decodes the exported PNG and samples pixels: black at x = 0, 70, 140, 700, 2030 and the right/bottom edges; white at 35, 69, 71, 105, 2065. Unit test checks `gridLineOffsets`                   |
+
+### Test results
+
+- `npm test`: **75/75 passed** (adds 11 export tests: sizes and filenames, grid offsets, canvas limits, PDF fit and scale bar, JSON round-trip, validation messages, bounds/id checks, migration, Foundry wall merging and pixel coordinates).
+- e2e: **4 new tests passed** (PNG dims + pixel grid check, JSON round-trip via UI, invalid file errors, PDF header + Foundry walls).
+
+### Decisions
+
+1. The package adds `format`, `id`, `width`, `height` and `assets` to the fields listed in the spec. Width and height are required to place anything; `assets` carries the movement/sight flags.
+2. Exports skip layers that are hidden in the editor and respect layer opacity.
+3. The PDF rasterises the map at about 200 dpi for the printed size (an integer px per cell, capped at 140).
+4. Custom tileset images are not embedded in the map JSON (it would bloat files). Missing art shows as a placeholder until the tileset is re-imported. This is noted in the dialog and the docs.
+
+### Bug fixed during this phase
+
+- **Autosave could lose recent edits when switching maps.** Creating, opening or importing another map within 0.8 s of an edit dropped the previous map's last changes, because only the newest document was saved after the debounce. The outgoing map is now saved immediately when the map changes. (Found by the round-trip e2e test.)
+
+### Open issues
+
+- Multi-page, true 1-inch battle-mat printing is not implemented.
+- Foundry export covers walls and doors only (no lights or tokens) and has not been tested in a real Foundry install. **Please verify it.**

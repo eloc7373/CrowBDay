@@ -55,6 +55,12 @@ Select a token with the Select tool (V) to give it a name, size (Large is 2×2 a
 AC, speed, initiative bonus and conditions. You can also apply quick damage or healing, which
 uses up temporary HP first. All of these edits can be undone.
 
+## Generating and exporting maps
+
+- **Generate** (toolbar): cave, dungeon, tavern/building or village/town from a seed. The same seed and settings always give the same map. The seed is shown in the toolbar with a copy button. Generating is one undo step.
+- **Export** (toolbar): grid-aligned PNG for VTTs (each cell is an exact number of pixels; the filename says how many), print-ready PDF with a scale bar, the full map as a `.dmtk-map.json` file, or an experimental Foundry VTT scene with walls. See [docs/vtt-export.md](docs/vtt-export.md) for importing into Foundry, Roll20 and Owlbear Rodeo.
+- **Maps** (toolbar): every map saved in this browser, plus import of `.dmtk-map.json` files. The file format is defined by [src/data/map-package.schema.json](src/data/map-package.schema.json).
+
 ## Adding a tileset
 
 The built-in art is a simple procedural placeholder. To use real art, open **Asset library →
