@@ -7,11 +7,13 @@ import { restoreLastMap, startAutosave } from './store/persistence'
 import { loadInstalledTilesets } from './tilesets/install'
 import { AssetLibrary } from './ui/AssetLibrary'
 import { GridPanel } from './ui/GridPanel'
+import { ExportDialog } from './ui/ExportDialog'
 import { GenerateDialog } from './ui/GenerateDialog'
 import { HelpDialog } from './ui/HelpDialog'
 import { ImportTilesetDialog } from './ui/ImportTilesetDialog'
 import { LabelDialog } from './ui/LabelDialog'
 import { LayersPanel } from './ui/LayersPanel'
+import { MapsDialog } from './ui/MapsDialog'
 import { NewMapDialog } from './ui/NewMapDialog'
 import { handleKeyDown, handleKeyUp } from './ui/shortcuts'
 import { StatusBar } from './ui/StatusBar'
@@ -77,6 +79,8 @@ export default function MapCreatorPage() {
       <LabelDialog />
       <ImportTilesetDialog />
       <GenerateDialog />
+      <ExportDialog />
+      <MapsDialog />
     </div>
   )
 }

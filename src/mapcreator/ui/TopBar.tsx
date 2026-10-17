@@ -1,5 +1,7 @@
 import {
   Copy,
+  Download,
+  FolderOpen,
   FilePlus2,
   Grid3x3,
   HelpCircle,
@@ -33,11 +35,17 @@ export function TopBar() {
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
+      <Button onClick={() => set({ mapsOpen: true })} aria-label="Maps">
+        <FolderOpen size={16} aria-hidden /> Maps
+      </Button>
       <Button onClick={() => set({ newMapOpen: true })} aria-label="New map">
         <FilePlus2 size={16} aria-hidden /> New
       </Button>
       <Button onClick={() => set({ generateOpen: true })} aria-label="Generate map">
         <WandSparkles size={16} aria-hidden /> Generate
+      </Button>
+      <Button onClick={() => set({ exportOpen: true })} aria-label="Export map">
+        <Download size={16} aria-hidden /> Export
       </Button>
       <div className="mx-1 h-5 w-px bg-zinc-300 dark:bg-zinc-700" />
       <Button
