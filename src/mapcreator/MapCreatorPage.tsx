@@ -4,9 +4,11 @@ import { MapCanvas } from './canvas/MapCanvas'
 import { useEditorStore } from './store/editorStore'
 import { useMapStore } from './store/mapStore'
 import { restoreLastMap, startAutosave } from './store/persistence'
-import { AssetPalette } from './ui/AssetPalette'
+import { loadInstalledTilesets } from './tilesets/install'
+import { AssetLibrary } from './ui/AssetLibrary'
 import { GridPanel } from './ui/GridPanel'
 import { HelpDialog } from './ui/HelpDialog'
+import { ImportTilesetDialog } from './ui/ImportTilesetDialog'
 import { LabelDialog } from './ui/LabelDialog'
 import { LayersPanel } from './ui/LayersPanel'
 import { NewMapDialog } from './ui/NewMapDialog'
@@ -14,17 +16,21 @@ import { handleKeyDown, handleKeyUp } from './ui/shortcuts'
 import { StatusBar } from './ui/StatusBar'
 import { ToolBar } from './ui/ToolBar'
 import { ToolOptions } from './ui/ToolOptions'
+import { TokenPanel } from './ui/TokenPanel'
 import { TopBar } from './ui/TopBar'
 
 export default function MapCreatorPage() {
   useEffect(() => {
     let stop: (() => void) | undefined
     let cancelled = false
-    restoreLastMap().then(() => {
-      if (cancelled) return
-      requestAnimationFrame(fitToScreen)
-      stop = startAutosave()
-    })
+    // Tilesets first, so the restored map renders with its custom art.
+    loadInstalledTilesets()
+      .then(restoreLastMap)
+      .then(() => {
+        if (cancelled) return
+        requestAnimationFrame(fitToScreen)
+        stop = startAutosave()
+      })
     const onBlur = () => useEditorStore.getState().set({ spaceHeld: false })
     window.addEventListener('keydown', handleKeyDown)
     window.addEventListener('keyup', handleKeyUp)
@@ -58,8 +64,9 @@ export default function MapCreatorPage() {
           className="w-72 shrink-0 overflow-y-auto border-l border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900"
         >
           <ToolOptions />
+          <TokenPanel />
           <LayersPanel />
-          <AssetPalette />
+          <AssetLibrary />
           <GridPanel />
         </aside>
       </div>
@@ -67,6 +74,7 @@ export default function MapCreatorPage() {
       <HelpDialog />
       <NewMapDialog />
       <LabelDialog />
+      <ImportTilesetDialog />
     </div>
   )
 }

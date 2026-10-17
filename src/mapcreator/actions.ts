@@ -5,6 +5,7 @@ import { canEdit, cancelOperation } from './canvas/controller'
 import { fitView } from './canvas/viewport'
 import { useEditorStore, type ToolId } from './store/editorStore'
 import { useMapStore } from './store/mapStore'
+import type { AssetDef } from './tilesets/types'
 import { deleteSelection, reorientProps, transformSelection } from './tools/select'
 
 const editor = () => useEditorStore.getState()
@@ -39,6 +40,21 @@ export function zoomBy(factor: number) {
 
 export function selectTool(tool: ToolId) {
   editor().setTool(tool)
+}
+
+const PAINT_TOOLS: ToolId[] = ['brush', 'fill', 'rect', 'ellipse']
+
+/** Arms the right tool for an asset: tiles → paint tools, props/tokens → Stamp. */
+export function chooseAsset(def: AssetDef) {
+  const ed = editor()
+  if (def.kind === 'tile') {
+    ed.set({ terrainId: def.id })
+    if (!PAINT_TOOLS.includes(ed.tool)) selectTool('brush')
+  } else {
+    ed.set({ stampId: def.id })
+    selectTool('stamp')
+  }
+  ed.pushRecent(def.id)
 }
 
 export const undo = () => {

@@ -1,6 +1,7 @@
 import { FlipHorizontal2, RotateCw } from 'lucide-react'
 import type { ReactNode } from 'react'
 import { Button, Panel } from '../../app/ui'
+import { CREATURE_SIZES, SIZE_SQUARES, type CreatureSize } from '../layers/model'
 import { useEditorStore, type WallMode } from '../store/editorStore'
 import { getAsset } from '../tilesets/registry'
 import { DIAGONAL_RULE_LABELS, type DiagonalRule } from '../tools/measure'
@@ -112,28 +113,51 @@ export function ToolOptions() {
       )
       break
     case 'stamp':
-      body = (
-        <Row>
-          <p>
-            {getAsset(s.stampId)?.name} · {s.rotation}°{s.mirrored ? ' · mirrored' : ''}
-          </p>
-          <div className="flex gap-2">
-            <Button
-              onClick={() => s.set({ rotation: ((s.rotation + 90) % 360) as typeof s.rotation })}
-              aria-label="Rotate stamp (R)"
-            >
-              <RotateCw size={14} aria-hidden /> Rotate (R)
-            </Button>
-            <Button
-              onClick={() => s.set({ mirrored: !s.mirrored })}
-              aria-label="Mirror stamp (F)"
-              aria-pressed={s.mirrored}
-            >
-              <FlipHorizontal2 size={14} aria-hidden /> Mirror (F)
-            </Button>
-          </div>
-        </Row>
-      )
+      body =
+        getAsset(s.stampId)?.kind === 'token' ? (
+          <Row>
+            <p>{getAsset(s.stampId)?.name} token</p>
+            <label className="flex items-center gap-2">
+              Creature size
+              <select
+                aria-label="Token size"
+                className="flex-1 rounded border border-zinc-300 bg-white px-1 py-0.5 dark:border-zinc-600 dark:bg-zinc-800"
+                value={s.tokenSize}
+                onChange={(e) => s.set({ tokenSize: e.target.value as CreatureSize })}
+              >
+                {CREATURE_SIZES.map((z) => (
+                  <option key={z} value={z}>
+                    {z[0].toUpperCase() + z.slice(1)} ({SIZE_SQUARES[z]}×{SIZE_SQUARES[z]})
+                  </option>
+                ))}
+              </select>
+            </label>
+            <p className="text-zinc-500 dark:text-zinc-400">
+              Click to place. Select a token (V) to set its name, HP, AC and more.
+            </p>
+          </Row>
+        ) : (
+          <Row>
+            <p>
+              {getAsset(s.stampId)?.name} · {s.rotation}°{s.mirrored ? ' · mirrored' : ''}
+            </p>
+            <div className="flex gap-2">
+              <Button
+                onClick={() => s.set({ rotation: ((s.rotation + 90) % 360) as typeof s.rotation })}
+                aria-label="Rotate stamp (R)"
+              >
+                <RotateCw size={14} aria-hidden /> Rotate (R)
+              </Button>
+              <Button
+                onClick={() => s.set({ mirrored: !s.mirrored })}
+                aria-label="Mirror stamp (F)"
+                aria-pressed={s.mirrored}
+              >
+                <FlipHorizontal2 size={14} aria-hidden /> Mirror (F)
+              </Button>
+            </div>
+          </Row>
+        )
       break
     case 'wall':
       body = (
