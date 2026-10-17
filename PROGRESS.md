@@ -1,14 +1,17 @@
 # DM Toolkit — Progress
 
-_Last updated: 2026-10-17 (end of Phase 1)_
+_Last updated: 2026-10-17 (end of Phase 2)_
+
+> Working mode: the user asked for the remaining phases to be done without check-ins. Decisions the
+> spec says to ask about are made here and listed under each phase's **Decisions** for review.
 
 ## Status by phase
 
 | Phase | Scope                                                           | Status                                  |
 | ----- | --------------------------------------------------------------- | --------------------------------------- |
 | 0     | Scaffold, git, lint/format, test setup                          | ✅ Done                                 |
-| 1     | Map Creator core (canvas, grid, tools, layers, undo, shortcuts) | ✅ Done (awaiting review)               |
-| 2     | Tilesets, props, asset library                                  | ⏳ Not started                          |
+| 1     | Map Creator core (canvas, grid, tools, layers, undo, shortcuts) | ✅ Done                                 |
+| 2     | Tilesets, props, asset library                                  | ✅ Done                                 |
 | 3     | Procedural generation                                           | ⏳ Not started                          |
 | 4     | Export (PNG, PDF, JSON package, VTT notes)                      | ⏳ Not started                          |
 | 5     | DM Board                                                        | ⏳ Not started (placeholder route only) |
@@ -109,11 +112,57 @@ Scripts: `dev`, `build`, `preview`, `lint`, `format`, `format:check`, `test`, `t
 - Maps over ~32M terrain pixels (e.g. 100×100 at 70 px) render terrain chunks at reduced resolution to cap memory. They look slightly soft when zoomed far in. Export (Phase 4) will render at full resolution separately.
 - Select works on the active layer only (no cross-layer selection).
 - No "open saved map" list yet; only the last map is restored. A map library arrives with JSON import/export in Phase 4.
-- The tile art is a deliberately simple placeholder. Edge-matching/autotile comes in Phase 2.
+- The tile art is a deliberately simple placeholder. (Edge-matching now exists for user tilesets; see Phase 2.)
 
-### Next steps (Phase 2)
+## Phase 2 — Tilesets, props and assets ✅
 
-- Full tile/prop catalogue (all categories in spec §3.2) with placeholder art.
-- `tileset.json` format and loader (tile size, columns, rows, named tiles, autotile rules) plus a PNG import dialog.
-- Searchable/filterable asset library with drag-to-canvas and a recently-used list.
-- README section on adding tilesets (CC0 sources: Kenney.nl, OpenGameArt; not bundled).
+### Completed
+
+- **Catalogue (45 built-in assets, all procedural placeholder art):**
+  - Terrain (12): stone floor, wood floor, dirt, grass, shallow/deep water, lava, ice, sand, rubble, mud, solid rock.
+  - Dungeon (7): pit, chasm, bridge, stairs up, stairs down, altar (2×1), trapdoor.
+  - Props (14): table (2×1), chair, barrel, crate, bed (1×2), bookshelf (2×1), pillar, statue, campfire, cart (2×1), tree (2×2), boulder, tent (2×2), chest.
+  - Town (6): cobblestone, tavern (4×3 building), shop counter (3×1), market stall (2×2), well, fence.
+  - Tokens (4): PC, ally, monster, NPC.
+  - Every asset has id, name, category, footprint, `blocksMovement`, `blocksSight`, `difficultTerrain` and tags.
+- **Flags stored in the map:** each map has an `assets` table holding the metadata and flags of every asset it uses. It is filled in automatically as part of the same undoable edit, and maps saved by Phase 1 are back-filled on load.
+- **`tileset.json` format + loader** (`src/mapcreator/tilesets/tilesetFormat.ts`):
+  - Grid settings: tile size (or width/height), columns/rows (measured from the image if omitted), margin and spacing.
+  - Tile entries: named tiles by `index` or `col`/`row`, kind, category, multi-cell footprints, random variants, flags and tags.
+  - Optional `edge4` autotile rules: the frame is picked from the N/E/S/W neighbour mask, and changing a cell redraws its neighbours.
+  - Validation lists every error with its location, e.g. `tiles[0].index: 8 is outside the sheet (4 columns × 2 rows = 8 tiles, indices 0–7)`.
+- **Import dialog:** drop a PNG (auto-sliced on a grid with a live preview; transparent cells are skipped; import cells as tiles, 1×1 props or tokens) or a PNG + `tileset.json`. Shows installed tilesets with a remove button. Tilesets persist in IndexedDB (Dexie v2 `tilesets` table) and reload on startup. If a tileset is removed, maps keep their layout and show a magenta placeholder.
+- **Asset library panel:** ranked search over names, tags, category and source; category, tag and source filters; a recently-used row (persisted per browser); click to arm Brush or Stamp; drag onto the canvas (tiles paint the cell, props and tokens are stamped centred on it); flag info in tooltips.
+- **Tokens (pulled forward for Combat Mode):** optional creature data on tokens: name, side, size, HP (current/max/temp), AC, speed, initiative bonus, conditions, hidden. Size sets the footprint (Large 2×2, Huge 3×3, Gargantuan 4×4). Tokens are auto-numbered ("Monster 1"), and the Stamp tool has a creature-size picker. Selecting a token opens the **Token panel**, with quick Damage/Heal (damage uses up temporary HP first). Rendering shows initials, an HP bar with a temp-HP strip, a red cross at 0 HP, and hidden tokens faded with a dashed ring. All edits are undoable.
+- `docs/tileset-example.json` and a README section "Adding a tileset" (CC0/permissive sources listed, nothing bundled).
+
+### Acceptance results
+
+| Criterion                                                                     | Result                                                                                                                                                                              |
+| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| All categories populated with placeholder art                                 | ✅ unit test checks every asset named in the spec; e2e checks each category's count and that thumbnails render                                                                      |
+| Dropping a custom tileset PNG via the import dialog makes its tiles available | ✅ e2e: a PNG generated in the browser is imported through the dialog, its 7 non-empty cells become searchable tiles, one is painted, and both the tileset and map survive a reload |
+| Searching "stone" returns the stone floor and related tiles                   | ✅ unit + e2e: Stone floor ranks first, followed by rubble, rock, pillar, cobblestone, statue, …; grass is excluded                                                                 |
+
+### Test results
+
+- `npm test`: **43/43 passed** (adds catalogue, search, tileset parsing incl. margin/spacing/variants/footprints/autotile/error messages, registry replace/remove, asset metadata undo, legacy back-fill, token footprints and initials).
+- `npm run test:e2e`: **17/17 passed** (Phase 1 suite + 7 Phase 2 tests: categories, search, PNG import + reload, tileset.json import, invalid JSON errors, drag-and-drop + recently used, token data + undo). Performance unchanged: 144 fps at 2,000 and 10,000 tiles.
+- Lint and type-check clean.
+
+### Decisions
+
+1. **Schema changes made now, while they're cheap** (the spec asks to check before changing the schema after Phase 2):
+   - `PlacedProp.token?: TokenInfo` holds creature data on the token. Combat Mode will link initiative entries to token ids, so HP lives in one place and HP edits are undoable map edits.
+   - `MapDoc.assets: Record<assetId, AssetMeta>` stores the movement/sight flags needed for export.
+2. Asset art is a union: `procedural` (built-in) or `image` frames from a sprite sheet. Custom asset ids are namespaced `tilesetId:tileId`, and the tileset id is the slugified name. Re-importing a tileset with the same name replaces it.
+3. Flags on built-ins follow common table conventions: pits and chasms block movement but not sight; ice, mud, rubble and water are difficult terrain; lava is tagged `hazard` and does not block movement. These are DM aids, not rules.
+4. The well appears once, under Town (the spec lists it under both Props and Town). Tags make it findable from either.
+5. Search is a small ranked matcher rather than Fuse.js: it's predictable for short asset names and needs no dependency. Fuse.js will be used for the DM Board rules search as the spec says.
+6. Tokens never rotate or mirror; their footprint comes from creature size.
+
+### Open issues
+
+- Autotile supports only the 16-mask `edge4` mode (no 47-tile "blob" corners). Map edges count as non-matching neighbours.
+- Custom sprites are scaled to the map's cell size with smooth interpolation. Pixel-art sheets may look soft when zoomed in, so a `pixelArt` option could be added.
+- The asset library shows at most 200 results at once (with a note); very large sheets should be narrowed with search.

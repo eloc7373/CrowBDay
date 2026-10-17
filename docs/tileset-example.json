@@ -1,0 +1,60 @@
+{
+  "format": "dmtk-tileset@1",
+  "name": "Example Dungeon",
+  "image": "example-dungeon.png",
+  "tileSize": 64,
+  "columns": 8,
+  "rows": 4,
+  "margin": 0,
+  "spacing": 0,
+  "author": "Your name",
+  "license": "CC0-1.0",
+  "url": "https://example.com/where-you-got-it",
+  "defaults": { "kind": "tile", "category": "terrain" },
+  "tiles": [
+    {
+      "id": "floor",
+      "name": "Flagstone floor",
+      "index": 0,
+      "variants": [1, 2, 3],
+      "tags": ["stone", "floor"]
+    },
+    { "id": "water", "name": "Water", "index": 8, "difficultTerrain": true, "tags": ["water"] },
+    {
+      "id": "rock",
+      "name": "Rock wall",
+      "index": 4,
+      "blocksMovement": true,
+      "blocksSight": true,
+      "tags": ["stone", "wall"]
+    },
+    {
+      "id": "pit",
+      "name": "Pit",
+      "category": "dungeon",
+      "index": 5,
+      "blocksMovement": true,
+      "tags": ["trap"]
+    },
+    {
+      "id": "table",
+      "name": "Long table",
+      "kind": "prop",
+      "category": "props",
+      "col": 0,
+      "row": 3,
+      "footprint": [2, 1],
+      "blocksMovement": true,
+      "tags": ["furniture"]
+    },
+    { "id": "goblin", "name": "Goblin", "kind": "token", "category": "tokens", "index": 31 }
+  ],
+  "autotile": [
+    {
+      "tile": "water",
+      "mode": "edge4",
+      "matches": [],
+      "masks": { "0": 16, "1": 17, "4": 18, "5": 19, "2": 20, "8": 21, "10": 22, "15": 23 }
+    }
+  ]
+}
