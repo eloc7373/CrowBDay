@@ -2,7 +2,9 @@ import { expect, test } from '@playwright/test'
 import { clickCell, freshMap, getDoc, historyLength } from './helpers'
 
 test.describe('Phase 3 acceptance', () => {
-  test('generate a dungeon from a typed seed; same seed reproduces it; undo restores the map', async ({ page }) => {
+  test('generate a dungeon from a typed seed; same seed reproduces it; undo restores the map', async ({
+    page,
+  }) => {
     await freshMap(page, 20, 15)
     await page.locator('[data-testid="asset-results"] [data-asset="grass"]').click()
     await clickCell(page, 3.5, 3.5)
@@ -26,7 +28,9 @@ test.describe('Phase 3 acceptance', () => {
     expect(first.seed).toBe('crypt-of-e2e')
     expect(first.width).toBe(36)
     expect(Object.keys(first.tiles)).toHaveLength(36 * 28)
-    expect(Object.values(first.notes).some((n) => (n as { text: string }).text === 'Entrance')).toBe(true)
+    expect(
+      Object.values(first.notes).some((n) => (n as { text: string }).text === 'Entrance'),
+    ).toBe(true)
     await expect(page.getByTestId('map-seed')).toHaveText('crypt-of-e2e')
     expect((await historyLength(page)).past).toBe(2) // paint + generate
 
