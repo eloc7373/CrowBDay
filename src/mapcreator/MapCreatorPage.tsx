@@ -7,6 +7,7 @@ import { restoreLastMap, startAutosave } from './store/persistence'
 import { loadInstalledTilesets } from './tilesets/install'
 import { AssetLibrary } from './ui/AssetLibrary'
 import { GridPanel } from './ui/GridPanel'
+import { GenerateDialog } from './ui/GenerateDialog'
 import { HelpDialog } from './ui/HelpDialog'
 import { ImportTilesetDialog } from './ui/ImportTilesetDialog'
 import { LabelDialog } from './ui/LabelDialog'
@@ -75,6 +76,7 @@ export default function MapCreatorPage() {
       <NewMapDialog />
       <LabelDialog />
       <ImportTilesetDialog />
+      <GenerateDialog />
     </div>
   )
 }

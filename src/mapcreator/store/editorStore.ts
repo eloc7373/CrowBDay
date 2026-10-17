@@ -96,6 +96,7 @@ export interface EditorState {
   /** Recently used asset ids, most recent first. */
   recent: string[]
   tilesetDialogOpen: boolean
+  generateOpen: boolean
 
   setTool(tool: ToolId): void
   /** Records an asset as recently used (persisted per browser). */
@@ -152,6 +153,7 @@ export const useEditorStore = create<EditorState>()((set) => ({
   tokenSize: 'medium',
   recent: typeof localStorage === 'undefined' ? [] : loadRecent(),
   tilesetDialogOpen: false,
+  generateOpen: false,
 
   setTool: (tool) =>
     set((s) => ({

@@ -1,4 +1,14 @@
-import { FilePlus2, Grid3x3, HelpCircle, Maximize, Redo2, Undo2 } from 'lucide-react'
+import {
+  Copy,
+  FilePlus2,
+  Grid3x3,
+  HelpCircle,
+  Maximize,
+  Redo2,
+  Undo2,
+  WandSparkles,
+} from 'lucide-react'
+import { copyText } from '../../lib/clipboard'
 import { Button, inputClass } from '../../app/ui'
 import { fitToScreen, redo, toggleGrid, undo } from '../actions'
 import { useEditorStore } from '../store/editorStore'
@@ -12,6 +22,7 @@ export function TopBar() {
   const undoLabel = useMapStore((s) => s.past[s.past.length - 1]?.label)
   const redoLabel = useMapStore((s) => s.future[s.future.length - 1]?.label)
   const gridOn = useMapStore((s) => s.doc.grid.visible)
+  const seed = useMapStore((s) => s.doc.seed)
   const set = useEditorStore((s) => s.set)
 
   return (
@@ -24,6 +35,9 @@ export function TopBar() {
       />
       <Button onClick={() => set({ newMapOpen: true })} aria-label="New map">
         <FilePlus2 size={16} aria-hidden /> New
+      </Button>
+      <Button onClick={() => set({ generateOpen: true })} aria-label="Generate map">
+        <WandSparkles size={16} aria-hidden /> Generate
       </Button>
       <div className="mx-1 h-5 w-px bg-zinc-300 dark:bg-zinc-700" />
       <Button
@@ -63,6 +77,24 @@ export function TopBar() {
         <Maximize size={16} aria-hidden />
       </Button>
       <div className="flex-1" />
+      {seed && (
+        <span className="flex items-center gap-1 text-xs text-zinc-500 dark:text-zinc-400">
+          Seed{' '}
+          <code data-testid="map-seed" className="font-mono text-zinc-800 dark:text-zinc-200">
+            {seed}
+          </code>
+          <button
+            type="button"
+            aria-label="Copy map seed"
+            className="rounded p-1 hover:bg-zinc-200 dark:hover:bg-zinc-800"
+            onClick={() =>
+              void copyText(seed).then((ok) => ok && useEditorStore.getState().flash('Seed copied'))
+            }
+          >
+            <Copy size={13} aria-hidden />
+          </button>
+        </span>
+      )}
       <Button
         variant="ghost"
         onClick={() => set({ helpOpen: true })}

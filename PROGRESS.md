@@ -1,6 +1,6 @@
 # DM Toolkit — Progress
 
-_Last updated: 2026-10-17 (end of Phase 2)_
+_Last updated: 2026-10-17 (end of Phase 3)_
 
 > Working mode: the user asked for the remaining phases to be done without check-ins. Decisions the
 > spec says to ask about are made here and listed under each phase's **Decisions** for review.
@@ -12,7 +12,7 @@ _Last updated: 2026-10-17 (end of Phase 2)_
 | 0     | Scaffold, git, lint/format, test setup                          | ✅ Done                                 |
 | 1     | Map Creator core (canvas, grid, tools, layers, undo, shortcuts) | ✅ Done                                 |
 | 2     | Tilesets, props, asset library                                  | ✅ Done                                 |
-| 3     | Procedural generation                                           | ⏳ Not started                          |
+| 3     | Procedural generation                                           | ✅ Done                                 |
 | 4     | Export (PNG, PDF, JSON package, VTT notes)                      | ⏳ Not started                          |
 | 5     | DM Board                                                        | ⏳ Not started (placeholder route only) |
 | 5B    | Combat Mode (map ↔ initiative integration)                      | ⏳ Planned (added 2026-10-17)           |
@@ -166,3 +166,41 @@ Scripts: `dev`, `build`, `preview`, `lint`, `format`, `format:check`, `test`, `t
 - Autotile supports only the 16-mask `edge4` mode (no 47-tile "blob" corners). Map edges count as non-matching neighbours.
 - Custom sprites are scaled to the map's cell size with smooth interpolation. Pixel-art sheets may look soft when zoomed in, so a `pixelArt` option could be added.
 - The asset library shows at most 200 results at once (with a note); very large sheets should be narrowed with search.
+
+## Phase 3 — Procedural generation ✅
+
+### Completed
+
+- **Generate dialog** (toolbar "Generate"): choose Cave, Dungeon, Tavern / building or Village / town; edit its parameters with a live preview; enter or roll a **seed** (dice button) and **copy** it. The current map's seed is shown in the top bar with a copy button.
+- **Merge modes:** _Replace_ resizes the map to the result and replaces all content. _Overlay_ draws the result from the top-left, clipped to the current map, and continues room numbers after existing markers. Either way it is **one undo step**, including the map size and seed.
+- **Cave** (cellular automata, `generation/cave.ts`): width, height, fill % (default 45), smoothing passes (default 4), minimum cave size, connect-all toggle. Tunnels join each remaining cave to the nearest connected one. Output: dirt floor with a sprinkle of rubble, rock terrain, and walls on every floor/rock boundary.
+- **Dungeon** (BSP, `generation/dungeon.ts`): width, height, min/max room size, corridor width 1 or 2, door probability, 0–3 secret doors, stairs toggle. Each split is joined by an L-shaped corridor between its closest rooms, so all rooms connect. Doorways where corridors meet rooms get a door or stay open; secret doors are picked among them. Rooms are numbered by walking distance from the entrance (room 1 = "Entrance") and get room-marker notes. Stairs go up at the entrance and down in the farthest room.
+- **Tavern / building** (`generation/tavern.ts`): room count 1–6, footprint, bar counter, hearth, tables. A common room at the front, with side rooms (kitchen, storage, bedrooms, office) each having a door into it. Front door onto a cobbled street; furniture is placed without overlaps.
+- **Village / town** (`generation/village.ts`): block count, main road width, building density. A grid of blocks with cobbled main streets, a plaza with a well, dirt side paths through each block, and lots with buildings (walls, door facing the path, a little furniture, numbered/named markers such as Tavern, Smithy, Temple), trees or fenced gardens.
+- All generators are pure `(params, seed) → GenResult` functions using the seeded RNG (`lib/rng.ts`, mulberry32 + FNV hash; namespaced per generator).
+
+### Acceptance results
+
+| Criterion                                                     | Result                                                                                                                                                  |
+| ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Same seed + params → identical output; different seeds differ | ✅ unit test for all 4 generators (plus "different params differ"); e2e generates the same dungeon twice from a typed seed and compares tiles and walls |
+| Dungeon: flood fill from the entrance reaches every room      | ✅ unit test over 25 seeds × both corridor widths with 3 secret doors (doors passable, walls not); also checks no rock cell is reachable                |
+| Generate-then-undo returns the map to its prior state         | ✅ unit test for all 4 generators × replace/overlay (deep-equal after undo); e2e confirms with Ctrl+Z                                                   |
+
+### Test results
+
+- `npm test`: **64/64 passed** (adds 21 generation tests: determinism, reachability, secret doors and stairs, room-size limits, cave connectivity and minimum size, tavern rooms/furniture/reachability, village streets/buildings/doors, merge + undo for every generator and mode).
+- e2e: **2 new tests passed** (seeded dungeon + undo + reproduce; every generator applies in overlay mode).
+
+### Decisions
+
+1. Map `width`/`height` became undoable metadata so a _Replace_ generation, including its resize, is a single undo step.
+2. Dungeons and caves fill non-floor with the "Solid rock" tile (blocks movement and sight), so exports carry correct flags. Doors use the existing wall-edge door flags.
+3. A corridor running _alongside_ a room (rather than entering it) is left open instead of getting a door. This keeps every room reachable without strange long doors.
+4. In _Overlay_ mode, generated content is anchored at the map's top-left and clipped. Placing it at an arbitrary offset is a possible later addition.
+5. "Tables" in the tavern controls the common room only; side rooms (e.g. the kitchen) keep their own furniture.
+
+### Open issues
+
+- The cave generator uses a sampled closest-pair search on very large maps when tunnelling, so tunnels are near-shortest rather than guaranteed shortest.
+- Village buildings are single-room interiors.
