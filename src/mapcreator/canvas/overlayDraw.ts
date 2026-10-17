@@ -125,17 +125,19 @@ export function drawOverlay(
     case 'stamp': {
       const def = getAsset(preview.defId)
       if (!def) break
-      const r = propRect({ ...preview, id: '', layer: 'objects' })
+      const r = { x: preview.x, y: preview.y, w: preview.w, h: preview.h }
+      const isToken = def.kind === 'token'
+      // Tokens scale to creature size and never rotate; props use their own footprint.
+      const dw = (isToken ? r.w : def.footprint.w) * cell
+      const dh = (isToken ? r.h : def.footprint.h) * cell
       ctx.save()
       ctx.globalAlpha = 0.6
       ctx.translate((r.x + r.w / 2) * cell, (r.y + r.h / 2) * cell)
-      ctx.rotate((preview.rotation * Math.PI) / 180)
-      if (preview.mirrored) ctx.scale(-1, 1)
-      ctx.drawImage(
-        getSprite(def, cell),
-        (-def.footprint.w * cell) / 2,
-        (-def.footprint.h * cell) / 2,
-      )
+      if (!isToken) {
+        ctx.rotate((preview.rotation * Math.PI) / 180)
+        if (preview.mirrored) ctx.scale(-1, 1)
+      }
+      ctx.drawImage(getSprite(def, cell), -dw / 2, -dh / 2, dw, dh)
       ctx.restore()
       ctx.strokeStyle = preview.valid ? '#22c55e' : '#ef4444'
       ctx.lineWidth = 2 * px

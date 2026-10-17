@@ -3,15 +3,11 @@
 
 import { parseCellKey } from '../../lib/geometry'
 import { hashCoords } from '../../lib/rng'
-import {
-  parseEdgeKey,
-  rotatedFootprint,
-  type MapNote,
-  type PlacedProp,
-  type WallEdge,
-} from '../layers/model'
+import { parseEdgeKey, type MapNote, type PlacedProp, type WallEdge } from '../layers/model'
 import { getAsset } from '../tilesets/registry'
-import { getSprite, TILE_VARIANTS } from '../tilesets/spriteCache'
+import { getSprite, missingAsset } from '../tilesets/spriteCache'
+import { edgeMask } from '../tilesets/tilesetFormat'
+import { propRect } from '../tools/paint'
 
 type Ctx = CanvasRenderingContext2D
 
@@ -40,10 +36,11 @@ export function drawTerrainChunk(
   const ox = chunkX * CHUNK_CELLS
   const oy = chunkY * CHUNK_CELLS
   for (const key of keys) {
-    const def = getAsset(tiles[key])
-    if (!def) continue
+    const id = tiles[key]
+    const def = getAsset(id) ?? missingAsset(id)
     const c = parseCellKey(key)
-    const sprite = getSprite(def, cellPx, hashCoords(c.x, c.y) % TILE_VARIANTS)
+    const mask = def.autotile ? edgeMask(tiles, c.x, c.y, def.autotile.matches) : undefined
+    const sprite = getSprite(def, cellPx, hashCoords(c.x, c.y), mask)
     ctx.drawImage(sprite, (c.x - ox) * cellPx, (c.y - oy) * cellPx)
   }
 }
@@ -119,28 +116,101 @@ export function drawWalls(
   ctx.restore()
 }
 
-export function drawProps(ctx: Ctx, props: PlacedProp[], cell: number) {
+/** Short label for a token: "Goblin Boss" → "GB", "Monster 3" → "M3". */
+export function tokenInitials(name: string): string {
+  const words = name.trim().split(/\s+/).filter(Boolean)
+  if (!words.length) return '?'
+  if (words.length === 1) return words[0].slice(0, 2).toUpperCase()
+  const last = words[words.length - 1]
+  return (words[0][0] + (/^\d+$/.test(last) ? last : last[0])).toUpperCase().slice(0, 3)
+}
+
+function hpColor(ratio: number) {
+  return ratio > 0.5 ? '#22c55e' : ratio > 0.25 ? '#f59e0b' : '#ef4444'
+}
+
+export interface PropStyle {
+  /** Draw hidden tokens (faded) — the DM view does, a player view would not. */
+  showHidden: boolean
+}
+
+export function drawProps(
+  ctx: Ctx,
+  props: PlacedProp[],
+  cell: number,
+  style: PropStyle = { showHidden: true },
+) {
   for (const p of props) {
-    const def = getAsset(p.defId)
-    if (!def) continue
-    const fp = rotatedFootprint(def.footprint, p.rotation)
+    const r = propRect(p)
+    const def = getAsset(p.defId) ?? missingAsset(p.defId, { w: r.w, h: r.h })
+    const t = p.token
+    if (t?.hidden && !style.showHidden) continue
     const sprite = getSprite(def, cell)
+    // Unrotated draw size: tokens scale to their creature size.
+    const dw = t ? r.w * cell : def.footprint.w * cell
+    const dh = t ? r.h * cell : def.footprint.h * cell
     ctx.save()
-    ctx.translate((p.x + fp.w / 2) * cell, (p.y + fp.h / 2) * cell)
-    ctx.rotate((p.rotation * Math.PI) / 180)
-    if (p.mirrored) ctx.scale(-1, 1)
-    ctx.drawImage(sprite, (-def.footprint.w * cell) / 2, (-def.footprint.h * cell) / 2)
-    ctx.restore()
-    if (def.kind === 'token') {
-      const text = (p.label || def.name).slice(0, 2).toUpperCase()
-      ctx.save()
-      ctx.fillStyle = def.art.colors[1] ?? '#fff'
-      ctx.font = `bold ${Math.round(cell * 0.32)}px sans-serif`
-      ctx.textAlign = 'center'
-      ctx.textBaseline = 'middle'
-      ctx.fillText(text, (p.x + 0.5) * cell, (p.y + 0.52) * cell)
-      ctx.restore()
+    if (t?.hidden) ctx.globalAlpha = 0.45
+    ctx.translate((r.x + r.w / 2) * cell, (r.y + r.h / 2) * cell)
+    if (!t) {
+      ctx.rotate((p.rotation * Math.PI) / 180)
+      if (p.mirrored) ctx.scale(-1, 1)
     }
+    ctx.drawImage(sprite, -dw / 2, -dh / 2, dw, dh)
+    ctx.restore()
+    if (def.kind !== 'token') continue
+
+    const cx = (r.x + r.w / 2) * cell
+    const cy = (r.y + r.h / 2) * cell
+    const name = t?.name || p.label || def.name
+    ctx.save()
+    ctx.textAlign = 'center'
+    ctx.textBaseline = 'middle'
+    ctx.fillStyle = def.art.type === 'procedural' ? (def.art.colors[1] ?? '#fff') : '#fff'
+    ctx.font = `bold ${Math.round(cell * 0.3 * Math.min(r.w, 2))}px sans-serif`
+    if (def.art.type !== 'procedural') {
+      ctx.strokeStyle = '#000'
+      ctx.lineWidth = Math.max(2, cell * 0.05)
+      ctx.strokeText(tokenInitials(name), cx, cy)
+    }
+    ctx.fillText(tokenInitials(name), cx, cy + cell * 0.02)
+    if (t?.hidden) {
+      ctx.setLineDash([cell * 0.08, cell * 0.06])
+      ctx.strokeStyle = '#a855f7'
+      ctx.lineWidth = Math.max(2, cell * 0.04)
+      ctx.beginPath()
+      ctx.arc(cx, cy, (Math.min(r.w, r.h) * cell) / 2 - cell * 0.03, 0, Math.PI * 2)
+      ctx.stroke()
+      ctx.setLineDash([])
+    }
+    if (t?.hp && t.hp.max > 0) {
+      const ratio = Math.max(0, Math.min(1, t.hp.current / t.hp.max))
+      const bw = r.w * cell * 0.8
+      const bh = Math.max(3, cell * 0.09)
+      const bx = cx - bw / 2
+      const by = (r.y + r.h) * cell - bh - cell * 0.03
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.7)'
+      ctx.fillRect(bx - 1, by - 1, bw + 2, bh + 2)
+      ctx.fillStyle = hpColor(ratio)
+      ctx.fillRect(bx, by, bw * ratio, bh)
+      if (t.hp.temp > 0) {
+        ctx.fillStyle = '#38bdf8'
+        ctx.fillRect(bx, by - bh * 0.6, bw * Math.min(1, t.hp.temp / t.hp.max), bh * 0.5)
+      }
+      if (t.hp.current <= 0) {
+        // Down: a red cross over the token.
+        const k = (Math.min(r.w, r.h) * cell) / 2 - cell * 0.12
+        ctx.strokeStyle = '#ef4444'
+        ctx.lineWidth = Math.max(3, cell * 0.08)
+        ctx.beginPath()
+        ctx.moveTo(cx - k, cy - k)
+        ctx.lineTo(cx + k, cy + k)
+        ctx.moveTo(cx + k, cy - k)
+        ctx.lineTo(cx - k, cy + k)
+        ctx.stroke()
+      }
+    }
+    ctx.restore()
   }
 }
 

@@ -2,7 +2,8 @@
 
 import { create } from 'zustand'
 import type { Cell, Rect, ShapeMode } from '../../lib/geometry'
-import type { LayerId, PropRotation } from '../layers/model'
+import type { CreatureSize, LayerId, PropRotation } from '../layers/model'
+import { propFootprint } from '../tools/paint'
 import { getAsset } from '../tilesets/registry'
 import type { DiagonalRule } from '../tools/measure'
 import { EMPTY_SELECTION, type Selection } from '../tools/select'
@@ -51,6 +52,8 @@ export type Preview =
       defId: string
       x: number
       y: number
+      w: number
+      h: number
       rotation: PropRotation
       mirrored: boolean
       valid: boolean
@@ -88,8 +91,15 @@ export interface EditorState {
   newMapOpen: boolean
   labelDraft: LabelDraft | null
   spaceHeld: boolean
+  /** Size used when stamping creature tokens. */
+  tokenSize: CreatureSize
+  /** Recently used asset ids, most recent first. */
+  recent: string[]
+  tilesetDialogOpen: boolean
 
   setTool(tool: ToolId): void
+  /** Records an asset as recently used (persisted per browser). */
+  pushRecent(id: string): void
   set(patch: Partial<EditorState>): void
   flash(status: string): void
 }
@@ -97,6 +107,24 @@ export interface EditorState {
 /** Stamps of tokens go on the Tokens layer; everything else on Objects. */
 export const stampLayer = (stampId: string): 'objects' | 'tokens' =>
   getAsset(stampId)?.kind === 'token' ? 'tokens' : 'objects'
+
+/** Footprint of the armed stamp (tokens are sized by creature size). */
+export function stampFootprint(s: Pick<EditorState, 'stampId' | 'rotation' | 'tokenSize'>) {
+  const isToken = getAsset(s.stampId)?.kind === 'token'
+  return propFootprint(s.stampId, s.rotation, isToken ? { size: s.tokenSize } : null)
+}
+
+const RECENT_KEY = 'dmtk.recentAssets'
+const RECENT_MAX = 10
+
+function loadRecent(): string[] {
+  try {
+    const v = JSON.parse(localStorage.getItem(RECENT_KEY) ?? '[]')
+    return Array.isArray(v) ? v.filter((x) => typeof x === 'string').slice(0, RECENT_MAX) : []
+  } catch {
+    return []
+  }
+}
 
 let statusTimer: ReturnType<typeof setTimeout> | undefined
 
@@ -121,6 +149,9 @@ export const useEditorStore = create<EditorState>()((set) => ({
   newMapOpen: false,
   labelDraft: null,
   spaceHeld: false,
+  tokenSize: 'medium',
+  recent: typeof localStorage === 'undefined' ? [] : loadRecent(),
+  tilesetDialogOpen: false,
 
   setTool: (tool) =>
     set((s) => ({
@@ -129,6 +160,17 @@ export const useEditorStore = create<EditorState>()((set) => ({
       activeLayer: tool === 'stamp' ? stampLayer(s.stampId) : (TOOL_LAYER[tool] ?? s.activeLayer),
     })),
   set: (patch) => set(patch),
+  pushRecent: (id) =>
+    set((s) => {
+      if (s.recent[0] === id) return s
+      const recent = [id, ...s.recent.filter((r) => r !== id)].slice(0, RECENT_MAX)
+      try {
+        localStorage.setItem(RECENT_KEY, JSON.stringify(recent))
+      } catch {
+        // Storage unavailable: the list just won't persist.
+      }
+      return { recent }
+    }),
   flash: (status) => {
     set({ status })
     clearTimeout(statusTimer)

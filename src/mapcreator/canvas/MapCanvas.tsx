@@ -5,10 +5,14 @@ import { useTheme } from '../../app/theme'
 import { setCanvasSize } from '../actions'
 import { useEditorStore, type View } from '../store/editorStore'
 import { useMapStore } from '../store/mapStore'
-import { pointerDown, pointerLeave, pointerMove, pointerUp, wheel } from './controller'
+import { useAssetStore } from '../tilesets/registry'
+import { dropAsset, pointerDown, pointerLeave, pointerMove, pointerUp, wheel } from './controller'
 import { drawNotes, drawProps, drawWalls } from './draw'
 import { drawScreenGrid } from './gridDraw'
 import { drawOverlay } from './overlayDraw'
+
+/** MIME type used when dragging assets from the library onto the canvas. */
+export const ASSET_DRAG_TYPE = 'application/x-dmtk-asset'
 import { TerrainGroup } from './TerrainGroup'
 
 type SceneFn = (ctx: Konva.Context) => void
@@ -55,6 +59,7 @@ export function MapCanvas() {
   const view = useEditorStore((s) => s.view)
   const tool = useEditorStore((s) => s.tool)
   const spaceHeld = useEditorStore((s) => s.spaceHeld)
+  const assetsVersion = useAssetStore((s) => s.version)
 
   useEffect(() => {
     const el = containerRef.current
@@ -89,7 +94,9 @@ export function MapCanvas() {
     const objects = all.filter((p) => p.layer === 'objects')
     const tokens = all.filter((p) => p.layer === 'tokens')
     return [(k) => drawProps(k._context, objects, cell), (k) => drawProps(k._context, tokens, cell)]
-  }, [doc.props, cell])
+    // assetsVersion: custom tileset art may have changed.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [doc.props, cell, assetsVersion])
   const notesFn = useMemo<SceneFn>(() => {
     const notes = Object.values(doc.notes)
     return (k) => drawNotes(k._context, notes, cell)
@@ -126,6 +133,18 @@ export function MapCanvas() {
       onPointerCancel={(e) => pointerUp(e, e.currentTarget)}
       onPointerLeave={pointerLeave}
       onContextMenu={(e) => e.preventDefault()}
+      onDragOver={(e) => {
+        if (e.dataTransfer.types.includes(ASSET_DRAG_TYPE)) {
+          e.preventDefault()
+          e.dataTransfer.dropEffect = 'copy'
+        }
+      }}
+      onDrop={(e) => {
+        const id = e.dataTransfer.getData(ASSET_DRAG_TYPE)
+        if (!id) return
+        e.preventDefault()
+        dropAsset(id, e, e.currentTarget)
+      }}
     >
       {/* Four canvases: map content, screen-space grid, tokens + notes, tool overlay.
           The fixed layer order is Terrain → Walls → Objects → (grid) → Tokens → Notes. */}
@@ -139,6 +158,7 @@ export function MapCanvas() {
             visible={L.terrain.visible}
             opacity={L.terrain.opacity}
             background={theme === 'dark' ? '#3a3631' : '#f4efe4'}
+            assetsVersion={assetsVersion}
           />
           <Shape sceneFunc={wallsFn} visible={L.walls.visible} opacity={L.walls.opacity} />
           <Shape sceneFunc={objectsFn} visible={L.objects.visible} opacity={L.objects.opacity} />

@@ -6,9 +6,13 @@ import {
   cellEdgeKeys,
   edgeKey,
   rotatedFootprint,
+  SIZE_SQUARES,
+  type CreatureSize,
+  type Footprint,
   type LayerId,
   type MapDoc,
   type PlacedProp,
+  type PropRotation,
 } from '../layers/model'
 import { compact, setChange, type Change } from '../store/history'
 import { getAsset } from '../tilesets/registry'
@@ -22,9 +26,21 @@ export function paintChanges(doc: MapDoc, cells: Cell[], tileId: string): Change
   )
 }
 
-export function propRect(p: PlacedProp) {
-  const def = getAsset(p.defId)
-  const fp = rotatedFootprint(def?.footprint ?? { w: 1, h: 1 }, p.rotation)
+/** Cells covered by a prop: tokens use creature size, other props their rotated footprint. */
+export function propFootprint(
+  defId: string,
+  rotation: PropRotation,
+  token?: { size: CreatureSize } | null,
+): Footprint {
+  if (token) {
+    const n = SIZE_SQUARES[token.size]
+    return { w: n, h: n }
+  }
+  return rotatedFootprint(getAsset(defId)?.footprint ?? { w: 1, h: 1 }, rotation)
+}
+
+export function propRect(p: Pick<PlacedProp, 'defId' | 'x' | 'y' | 'rotation' | 'token'>) {
+  const fp = propFootprint(p.defId, p.rotation, p.token)
   return { x: p.x, y: p.y, w: fp.w, h: fp.h }
 }
 

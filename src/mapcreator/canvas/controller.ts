@@ -18,10 +18,12 @@ import {
   LAYER_NAMES,
   nearestEdge,
   parseEdgeKey,
+  defaultTokenInfo,
   type LayerId,
+  type TokenInfo,
   type WallEdge,
 } from '../layers/model'
-import { useEditorStore, stampLayer, type Preview } from '../store/editorStore'
+import { stampFootprint, stampLayer, useEditorStore, type Preview } from '../store/editorStore'
 import { compact, setChange } from '../store/history'
 import { useMapStore } from '../store/mapStore'
 import { getAsset } from '../tilesets/registry'
@@ -130,7 +132,64 @@ function eyedrop(cell: Cell) {
   const def = getAsset(id)
   if (def?.kind === 'tile') ed.set({ terrainId: id })
   else ed.set({ stampId: id })
+  if (def) ed.pushRecent(id)
   ed.flash(`Sampled ${def?.name ?? id}`)
+}
+
+/** Places the given prop/token centred on a cell (Stamp tool and drag-and-drop). */
+export function placeStamp(defId: string, cell: Cell): boolean {
+  const ed = editor()
+  const doc = map().doc
+  const def = getAsset(defId)
+  if (!def || def.kind === 'tile') return false
+  const layer = stampLayer(defId)
+  if (!canEdit(layer)) return false
+  const a = stampAnchor(doc, stampFootprint({ ...ed, stampId: defId }), cell.x, cell.y)
+  if (!a.valid) {
+    ed.flash('That does not fit inside the map here')
+    return false
+  }
+  const id = newId(def.kind === 'token' ? 'token' : 'prop')
+  let token: TokenInfo | undefined
+  if (def.kind === 'token') {
+    // Auto-number creatures: "Monster 1", "Monster 2", …
+    const n = Object.values(doc.props).filter((q) => q.defId === defId).length + 1
+    token = { ...defaultTokenInfo(`${def.name} ${n}`, def.tokenSide), size: ed.tokenSize }
+  }
+  map().commit(
+    def.kind === 'token' ? 'Add token' : 'Stamp',
+    compact([
+      setChange(doc, 'props', id, {
+        id,
+        layer,
+        defId,
+        x: a.x,
+        y: a.y,
+        rotation: def.kind === 'token' ? 0 : ed.rotation,
+        mirrored: def.kind === 'token' ? false : ed.mirrored,
+        ...(token ? { token } : {}),
+      }),
+    ]),
+  )
+  ed.pushRecent(defId)
+  return true
+}
+
+/** Drop from the asset library: tiles paint the cell, props/tokens are stamped. */
+export function dropAsset(defId: string, e: { clientX: number; clientY: number }, el: HTMLElement) {
+  const def = getAsset(defId)
+  if (!def) return
+  const { cell } = point(e, el)
+  const doc = map().doc
+  if (cell.x < 0 || cell.y < 0 || cell.x >= doc.width || cell.y >= doc.height) return
+  if (def.kind === 'tile') {
+    if (!canEdit('terrain')) return
+    map().commit('Paint', paintChanges(doc, [cell], defId))
+    editor().set({ terrainId: defId })
+    editor().pushRecent(defId)
+  } else if (placeStamp(defId, cell)) {
+    editor().set({ stampId: defId })
+  }
 }
 
 /** Hover preview when no drag is in progress. */
@@ -151,12 +210,14 @@ function hoverPreview(p: Point) {
     case 'label':
       return setPreview({ kind: 'cells', cells: [p.cell] })
     case 'stamp': {
-      const a = stampAnchor(doc, ed.stampId, ed.rotation, p.cell.x, p.cell.y)
+      const a = stampAnchor(doc, stampFootprint(ed), p.cell.x, p.cell.y)
       return setPreview({
         kind: 'stamp',
         defId: ed.stampId,
         x: a.x,
         y: a.y,
+        w: a.w,
+        h: a.h,
         rotation: ed.rotation,
         mirrored: ed.mirrored,
         valid: a.valid,
@@ -230,25 +291,7 @@ export function pointerDown(e: PointerLike, el: HTMLElement) {
       return
     case 'stamp': {
       if (e.altKey) return eyedrop(p.cell)
-      const layer = stampLayer(ed.stampId)
-      if (!canEdit(layer)) return
-      const a = stampAnchor(doc, ed.stampId, ed.rotation, p.cell.x, p.cell.y)
-      if (!a.valid) return ed.flash('Stamp does not fit inside the map here')
-      const id = newId('prop')
-      map().commit(
-        'Stamp',
-        compact([
-          setChange(doc, 'props', id, {
-            id,
-            layer,
-            defId: ed.stampId,
-            x: a.x,
-            y: a.y,
-            rotation: ed.rotation,
-            mirrored: ed.mirrored,
-          }),
-        ]),
-      )
+      placeStamp(ed.stampId, p.cell)
       return
     }
     case 'wall':

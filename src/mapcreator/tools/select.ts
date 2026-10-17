@@ -6,15 +6,14 @@ import {
   edgeKey,
   nearestEdge,
   parseEdgeKey,
-  rotatedFootprint,
+  type Footprint,
   type LayerId,
   type MapDoc,
   type PlacedProp,
   type PropRotation,
 } from '../layers/model'
 import { compact, setChange, type Change } from '../store/history'
-import { getAsset } from '../tilesets/registry'
-import { propRect } from './paint'
+import { propFootprint, propRect } from './paint'
 
 export interface Selection {
   layer: LayerId
@@ -231,7 +230,7 @@ export function reorientProps(
       const p = doc.props[id]
       if (!p) return null
       const rotation = ((((p.rotation + turns * 90) % 360) + 360) % 360) as PropRotation
-      const fp = rotatedFootprint(getAsset(p.defId)?.footprint ?? { w: 1, h: 1 }, rotation)
+      const fp = propFootprint(p.defId, rotation, p.token)
       const next: PlacedProp = {
         ...p,
         rotation,
@@ -245,14 +244,7 @@ export function reorientProps(
 }
 
 /** Top-left cell for placing a footprint centred under the cursor, clamped to the map. */
-export function stampAnchor(
-  doc: MapDoc,
-  defId: string,
-  rotation: PropRotation,
-  cx: number,
-  cy: number,
-) {
-  const fp = rotatedFootprint(getAsset(defId)?.footprint ?? { w: 1, h: 1 }, rotation)
+export function stampAnchor(doc: MapDoc, fp: Footprint, cx: number, cy: number) {
   const x = cx - Math.floor((fp.w - 1) / 2)
   const y = cy - Math.floor((fp.h - 1) / 2)
   const valid =
