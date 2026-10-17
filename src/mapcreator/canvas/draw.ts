@@ -33,8 +33,18 @@ export function drawTerrainChunk(
   cellPx: number,
 ) {
   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
-  const ox = chunkX * CHUNK_CELLS
-  const oy = chunkY * CHUNK_CELLS
+  drawTiles(ctx, tiles, keys, chunkX * CHUNK_CELLS, chunkY * CHUNK_CELLS, cellPx)
+}
+
+/** Draws tiles with cell (ox, oy) at the canvas origin. Used by chunks and export. */
+export function drawTiles(
+  ctx: Ctx,
+  tiles: Record<string, string>,
+  keys: Iterable<string>,
+  ox: number,
+  oy: number,
+  cellPx: number,
+) {
   for (const key of keys) {
     const id = tiles[key]
     const def = getAsset(id) ?? missingAsset(id)

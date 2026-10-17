@@ -1,0 +1,206 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://dm-toolkit.local/schemas/map-package-v1.json",
+  "title": "DM Toolkit map package",
+  "description": "A complete map saved by DM Toolkit. Coordinates are in grid cells; (0,0) is the top-left cell.",
+  "type": "object",
+  "required": [
+    "format",
+    "version",
+    "id",
+    "name",
+    "seed",
+    "width",
+    "height",
+    "grid",
+    "layers",
+    "tiles",
+    "walls",
+    "props",
+    "notes",
+    "assets",
+    "createdAt",
+    "updatedAt"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "format": { "const": "dmtk-map" },
+    "version": { "type": "integer", "minimum": 1 },
+    "id": { "type": "string", "minLength": 1 },
+    "name": { "type": "string" },
+    "seed": { "type": ["string", "null"] },
+    "width": { "type": "integer", "minimum": 1, "maximum": 200 },
+    "height": { "type": "integer", "minimum": 1, "maximum": 200 },
+    "grid": {
+      "type": "object",
+      "required": ["cellSize", "feetPerCell", "visible", "color", "opacity"],
+      "additionalProperties": false,
+      "properties": {
+        "cellSize": { "type": "integer", "minimum": 10, "maximum": 400 },
+        "feetPerCell": { "type": "number", "exclusiveMinimum": 0 },
+        "visible": { "type": "boolean" },
+        "color": { "type": "string" },
+        "opacity": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    },
+    "layers": {
+      "type": "object",
+      "required": ["terrain", "walls", "objects", "tokens", "notes"],
+      "additionalProperties": false,
+      "properties": {
+        "terrain": { "$ref": "#/definitions/layer" },
+        "walls": { "$ref": "#/definitions/layer" },
+        "objects": { "$ref": "#/definitions/layer" },
+        "tokens": { "$ref": "#/definitions/layer" },
+        "notes": { "$ref": "#/definitions/layer" }
+      }
+    },
+    "tiles": {
+      "description": "Terrain layer: \"x,y\" → asset id.",
+      "type": "object",
+      "propertyNames": { "pattern": "^\\d+,\\d+$" },
+      "additionalProperties": { "type": "string", "minLength": 1 }
+    },
+    "walls": {
+      "description": "Unit wall segments. \"h:x,y\" is the top edge of cell (x,y); \"v:x,y\" is its left edge.",
+      "type": "object",
+      "propertyNames": { "pattern": "^[hv]:\\d+,\\d+$" },
+      "additionalProperties": {
+        "type": "object",
+        "required": ["door", "secret"],
+        "additionalProperties": false,
+        "properties": { "door": { "type": "boolean" }, "secret": { "type": "boolean" } }
+      }
+    },
+    "props": {
+      "type": "object",
+      "additionalProperties": { "$ref": "#/definitions/prop" }
+    },
+    "notes": {
+      "type": "object",
+      "additionalProperties": { "$ref": "#/definitions/note" }
+    },
+    "assets": {
+      "description": "Metadata (incl. movement/sight flags) of every asset the map references.",
+      "type": "object",
+      "additionalProperties": { "$ref": "#/definitions/assetMeta" }
+    },
+    "createdAt": { "type": "string" },
+    "updatedAt": { "type": "string" }
+  },
+  "definitions": {
+    "layer": {
+      "type": "object",
+      "required": ["visible", "locked", "opacity"],
+      "additionalProperties": false,
+      "properties": {
+        "visible": { "type": "boolean" },
+        "locked": { "type": "boolean" },
+        "opacity": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    },
+    "prop": {
+      "type": "object",
+      "required": ["id", "layer", "defId", "x", "y", "rotation", "mirrored"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "layer": { "enum": ["objects", "tokens"] },
+        "defId": { "type": "string", "minLength": 1 },
+        "x": { "type": "integer", "minimum": 0 },
+        "y": { "type": "integer", "minimum": 0 },
+        "rotation": { "enum": [0, 90, 180, 270] },
+        "mirrored": { "type": "boolean" },
+        "label": { "type": "string" },
+        "token": { "$ref": "#/definitions/token" }
+      }
+    },
+    "token": {
+      "type": "object",
+      "required": [
+        "name",
+        "side",
+        "size",
+        "hp",
+        "ac",
+        "speed",
+        "initiativeBonus",
+        "conditions",
+        "hidden"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string" },
+        "side": { "enum": ["pc", "ally", "enemy", "neutral"] },
+        "size": { "enum": ["tiny", "small", "medium", "large", "huge", "gargantuan"] },
+        "hp": {
+          "oneOf": [
+            { "type": "null" },
+            {
+              "type": "object",
+              "required": ["current", "max", "temp"],
+              "additionalProperties": false,
+              "properties": {
+                "current": { "type": "integer" },
+                "max": { "type": "integer", "minimum": 0 },
+                "temp": { "type": "integer", "minimum": 0 }
+              }
+            }
+          ]
+        },
+        "ac": { "type": ["integer", "null"] },
+        "speed": { "type": ["integer", "null"] },
+        "initiativeBonus": { "type": ["integer", "null"] },
+        "conditions": { "type": "array", "items": { "type": "string" } },
+        "hidden": { "type": "boolean" }
+      }
+    },
+    "note": {
+      "type": "object",
+      "required": ["id", "kind", "x", "y", "text"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "kind": { "enum": ["label", "room"] },
+        "x": { "type": "integer", "minimum": 0 },
+        "y": { "type": "integer", "minimum": 0 },
+        "text": { "type": "string" },
+        "number": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "assetMeta": {
+      "type": "object",
+      "required": [
+        "name",
+        "kind",
+        "category",
+        "footprint",
+        "blocksMovement",
+        "blocksSight",
+        "difficultTerrain",
+        "tags",
+        "source"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string" },
+        "kind": { "enum": ["tile", "prop", "token"] },
+        "category": { "type": "string" },
+        "footprint": {
+          "type": "object",
+          "required": ["w", "h"],
+          "additionalProperties": false,
+          "properties": {
+            "w": { "type": "integer", "minimum": 1 },
+            "h": { "type": "integer", "minimum": 1 }
+          }
+        },
+        "blocksMovement": { "type": "boolean" },
+        "blocksSight": { "type": "boolean" },
+        "difficultTerrain": { "type": "boolean" },
+        "tags": { "type": "array", "items": { "type": "string" } },
+        "source": { "type": "string" }
+      }
+    }
+  }
+}
