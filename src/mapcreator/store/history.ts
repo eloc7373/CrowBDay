@@ -34,6 +34,8 @@ interface MetaValues {
   name: string
   seed: string | null
   grid: GridSettings
+  width: number
+  height: number
 }
 export type MetaKey = keyof MetaValues
 
