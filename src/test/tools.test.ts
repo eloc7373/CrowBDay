@@ -153,7 +153,13 @@ describe('selection', () => {
 
   it('centres stamps on the cursor and validates bounds', () => {
     const doc = createEmptyMap({ width: 5, height: 5 })
-    expect(stampAnchor(doc, 'tree', 0, 2, 2)).toMatchObject({ x: 2, y: 2, w: 2, h: 2, valid: true })
-    expect(stampAnchor(doc, 'tree', 0, 4, 4).valid).toBe(false)
+    expect(stampAnchor(doc, { w: 2, h: 2 }, 2, 2)).toMatchObject({
+      x: 2,
+      y: 2,
+      w: 2,
+      h: 2,
+      valid: true,
+    })
+    expect(stampAnchor(doc, { w: 2, h: 2 }, 4, 4).valid).toBe(false)
   })
 })

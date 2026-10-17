@@ -21,18 +21,18 @@ test.describe('Phase 1 acceptance', () => {
     expect(Object.keys(blank.tiles)).toHaveLength(0)
 
     // Paint a stroke of grass with a 2-cell brush.
-    await page.locator('[data-asset="grass"]').click()
+    await page.locator('[data-testid="asset-results"] [data-asset="grass"]').click()
     await page.keyboard.press(']')
     await dragCells(page, [2.5, 2.5], [10.5, 6.5])
     // Fill the rest of the map with stone (one undo step).
-    await page.locator('[data-asset="stone-floor"]').click()
+    await page.locator('[data-testid="asset-results"] [data-asset="stone-floor"]').click()
     await page.keyboard.press('g')
     await clickCell(page, 25.5, 15.5)
 
     // Stamp a 2×2 tree, rotated table.
-    await page.locator('[data-asset="tree"]').click()
+    await page.locator('[data-testid="asset-results"] [data-asset="tree"]').click()
     await clickCell(page, 15.5, 10.5)
-    await page.locator('[data-asset="table"]').click()
+    await page.locator('[data-testid="asset-results"] [data-asset="table"]').click()
     await page.keyboard.press('r')
     await clickCell(page, 20.5, 4.5)
 
@@ -216,10 +216,10 @@ test.describe('Phase 1 acceptance', () => {
 
   test('rubber-band select and drag-move terrain; eyedropper; pan', async ({ page }) => {
     await freshMap(page, 20, 12)
-    await page.locator('[data-asset="sand"]').click()
+    await page.locator('[data-testid="asset-results"] [data-asset="sand"]').click()
     await page.keyboard.press('r')
     await dragCells(page, [2.5, 2.5], [4.5, 3.5]) // 3×2 sand block
-    await page.locator('[data-asset="grass"]').click()
+    await page.locator('[data-testid="asset-results"] [data-asset="grass"]').click()
 
     // Alt+click samples sand back as the active terrain tile.
     await page.keyboard.press('b')
@@ -283,7 +283,7 @@ test.describe('Phase 1 acceptance', () => {
 
   test('autosave restores the map after reload', async ({ page }) => {
     await freshMap(page, 12, 8)
-    await page.locator('[data-asset="water-deep"]').click()
+    await page.locator('[data-testid="asset-results"] [data-asset="water-deep"]').click()
     await page.keyboard.press('g')
     await clickCell(page, 1.5, 1.5)
     await page.waitForTimeout(1200) // autosave debounce
