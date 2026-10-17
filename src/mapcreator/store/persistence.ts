@@ -67,6 +67,12 @@ export function startAutosave(): () => void {
   let last = useMapStore.getState().doc
   const unsubscribe = useMapStore.subscribe((s) => {
     if (s.doc === last) return
+    // Switching to another map (new/open/import): save the outgoing one now, or
+    // its edits from the last debounce window would be lost.
+    if (s.doc.id !== last.id) {
+      clearTimeout(timer)
+      saveMap(last).catch((err) => console.warn('Autosave failed', err))
+    }
     last = s.doc
     clearTimeout(timer)
     timer = setTimeout(() => {
@@ -77,4 +83,45 @@ export function startAutosave(): () => void {
     unsubscribe()
     clearTimeout(timer)
   }
+}
+
+export interface MapSummary {
+  id: string
+  name: string
+  width: number
+  height: number
+  updatedAt: string
+}
+
+/** Saved maps, most recently edited first. */
+export async function listMaps(): Promise<MapSummary[]> {
+  const all = await db.maps.orderBy('updatedAt').reverse().toArray()
+  return all
+    .filter((m) => looksLikeMap(m.doc))
+    .map((m) => ({
+      id: m.id,
+      name: m.name,
+      width: m.doc.width,
+      height: m.doc.height,
+      updatedAt: m.updatedAt,
+    }))
+}
+
+/** Saves the current map, then opens another saved one. */
+export async function openMap(id: string): Promise<boolean> {
+  await saveMap(useMapStore.getState().doc)
+  const saved = await db.maps.get(id)
+  if (!saved || !looksLikeMap(saved.doc)) return false
+  useMapStore.getState().loadDoc(normalizeDoc(saved.doc))
+  await db.settings.put({ key: LAST_MAP_KEY, value: id })
+  return true
+}
+
+export async function deleteMap(id: string): Promise<void> {
+  await db.maps.delete(id)
+}
+
+/** Whether a map with this id is already stored (used to avoid overwriting on import). */
+export async function mapExists(id: string): Promise<boolean> {
+  return (await db.maps.get(id)) !== undefined
 }
