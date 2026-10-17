@@ -7,7 +7,25 @@ import {
   type MapDoc,
   type NewMapOptions,
 } from '../layers/model'
+import { assetMeta, getAsset } from '../tilesets/registry'
 import { applyChanges, pushEntry, Transaction, type Change, type HistoryEntry } from './history'
+
+/**
+ * Appends metadata changes for assets newly referenced by tiles/props, so the map
+ * always carries the flags of what it uses. They are part of the same undo step.
+ */
+export function withAssetMeta(doc: MapDoc, changes: Change[]): Change[] {
+  const extra: Change[] = []
+  const seen = new Set<string>()
+  for (const ch of changes) {
+    const id = ch.coll === 'tiles' ? ch.after : ch.coll === 'props' ? ch.after?.defId : undefined
+    if (!id || seen.has(id) || doc.assets[id]) continue
+    seen.add(id)
+    const def = getAsset(id)
+    if (def) extra.push({ coll: 'assets', key: id, before: undefined, after: assetMeta(def) })
+  }
+  return extra.length ? [...changes, ...extra] : changes
+}
 
 export interface MapState {
   doc: MapDoc
@@ -51,6 +69,7 @@ export const useMapStore = create<MapState>()((set, get) => ({
     if (get().tx) get().endTx()
     if (changes.length === 0) return
     const { doc, past } = get()
+    changes = withAssetMeta(doc, changes)
     set({
       doc: applyChanges(doc, changes, 'forward'),
       past: pushEntry(past, { label, changes }),
@@ -66,6 +85,7 @@ export const useMapStore = create<MapState>()((set, get) => ({
   txApply: (changes) => {
     const { tx, doc } = get()
     if (!tx || changes.length === 0) return
+    changes = withAssetMeta(doc, changes)
     tx.add(changes)
     set({ doc: applyChanges(doc, changes, 'forward') })
   },

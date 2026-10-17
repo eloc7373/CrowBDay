@@ -48,6 +48,81 @@ export interface PlacedProp {
   rotation: PropRotation
   mirrored: boolean
   label?: string
+  /** Creature data; present on tokens (Tokens layer). */
+  token?: TokenInfo
+}
+
+// ---- Tokens -------------------------------------------------------------
+// Creature data lives on the token so HP/conditions edits are undoable map edits.
+// Combat Mode (Phase 5B) links initiative entries to tokens by id.
+
+export const TOKEN_SIDES = ['pc', 'ally', 'enemy', 'neutral'] as const
+export type TokenSide = (typeof TOKEN_SIDES)[number]
+
+export const CREATURE_SIZES = ['tiny', 'small', 'medium', 'large', 'huge', 'gargantuan'] as const
+export type CreatureSize = (typeof CREATURE_SIZES)[number]
+
+/** Squares occupied on a 5 ft grid. Tiny creatures are shown in one square. */
+export const SIZE_SQUARES: Record<CreatureSize, number> = {
+  tiny: 1,
+  small: 1,
+  medium: 1,
+  large: 2,
+  huge: 3,
+  gargantuan: 4,
+}
+
+export interface TokenHp {
+  current: number
+  max: number
+  temp: number
+}
+
+export interface TokenInfo {
+  name: string
+  side: TokenSide
+  size: CreatureSize
+  hp: TokenHp | null
+  ac: number | null
+  /** Walking speed in feet. */
+  speed: number | null
+  /** Added to initiative rolls; also the Dex tiebreak in the tracker. */
+  initiativeBonus: number | null
+  conditions: string[]
+  /** Hidden from the (future) player view. */
+  hidden: boolean
+}
+
+export function defaultTokenInfo(name: string, side: TokenSide = 'neutral'): TokenInfo {
+  return {
+    name,
+    side,
+    size: 'medium',
+    hp: null,
+    ac: null,
+    speed: null,
+    initiativeBonus: null,
+    conditions: [],
+    hidden: false,
+  }
+}
+
+// ---- Asset metadata ---------------------------------------------------------
+
+/**
+ * Copy of an asset's definition stored in the map, so movement/sight flags are
+ * exportable and maps stay readable if a custom tileset is later removed.
+ */
+export interface AssetMeta {
+  name: string
+  kind: 'tile' | 'prop' | 'token'
+  category: string
+  footprint: Footprint
+  blocksMovement: boolean
+  blocksSight: boolean
+  difficultTerrain: boolean
+  tags: string[]
+  source: string
 }
 
 export interface MapNote {
@@ -76,6 +151,8 @@ export interface MapDoc {
   props: Record<string, PlacedProp>
   /** Notes layer. */
   notes: Record<string, MapNote>
+  /** Metadata of every asset referenced by tiles/props (maintained automatically). */
+  assets: Record<string, AssetMeta>
   createdAt: string
   updatedAt: string
 }
@@ -127,6 +204,7 @@ export function createEmptyMap(opts: NewMapOptions = {}): MapDoc {
     walls: {},
     props: {},
     notes: {},
+    assets: {},
     createdAt: now,
     updatedAt: now,
   }

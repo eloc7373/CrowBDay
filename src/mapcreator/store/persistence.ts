@@ -1,5 +1,6 @@
 import { db } from '../../lib/db'
 import type { MapDoc } from '../layers/model'
+import { assetMeta, getAsset } from '../tilesets/registry'
 import { useMapStore } from './mapStore'
 
 const LAST_MAP_KEY = 'lastMapId'
@@ -19,6 +20,24 @@ function looksLikeMap(doc: unknown): doc is MapDoc {
   )
 }
 
+/**
+ * Upgrades maps saved by earlier builds: adds the `assets` metadata table and
+ * back-fills entries for every referenced asset that is installed.
+ */
+export function normalizeDoc(doc: MapDoc): MapDoc {
+  const assets = { ...(doc.assets ?? {}) }
+  const ids = new Set([
+    ...Object.values(doc.tiles),
+    ...Object.values(doc.props).map((p) => p.defId),
+  ])
+  for (const id of ids) {
+    if (assets[id]) continue
+    const def = getAsset(id)
+    if (def) assets[id] = assetMeta(def)
+  }
+  return { ...doc, assets }
+}
+
 /** Loads the most recently edited map, if any. */
 export async function restoreLastMap(): Promise<boolean> {
   try {
@@ -26,7 +45,7 @@ export async function restoreLastMap(): Promise<boolean> {
     if (typeof last?.value !== 'string') return false
     const saved = await db.maps.get(last.value)
     if (!saved || !looksLikeMap(saved.doc)) return false
-    useMapStore.getState().loadDoc(saved.doc)
+    useMapStore.getState().loadDoc(normalizeDoc(saved.doc))
     return true
   } catch (err) {
     console.warn('Could not restore the last map', err)

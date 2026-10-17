@@ -1,7 +1,14 @@
 // Undo/redo engine. Every edit is a list of Changes; each Change records the
 // value before and after (undefined = absent), so it is trivially reversible.
 
-import type { GridSettings, MapDoc, MapNote, PlacedProp, WallEdge } from '../layers/model'
+import type {
+  AssetMeta,
+  GridSettings,
+  MapDoc,
+  MapNote,
+  PlacedProp,
+  WallEdge,
+} from '../layers/model'
 
 export const HISTORY_CAP = 200
 
@@ -10,6 +17,7 @@ interface CollectionValues {
   walls: WallEdge
   props: PlacedProp
   notes: MapNote
+  assets: AssetMeta
 }
 export type Collection = keyof CollectionValues
 
