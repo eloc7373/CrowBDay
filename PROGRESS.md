@@ -12,9 +12,36 @@ _Last updated: 2026-10-17 (end of Phase 1)_
 | 3     | Procedural generation                                           | ⏳ Not started                          |
 | 4     | Export (PNG, PDF, JSON package, VTT notes)                      | ⏳ Not started                          |
 | 5     | DM Board                                                        | ⏳ Not started (placeholder route only) |
+| 5B    | Combat Mode (map ↔ initiative integration)                      | ⏳ Planned (added 2026-10-17)           |
 | 6     | Polish & packaging                                              | ⏳ Not started                          |
 
 ---
+
+## Phase 5B — Combat Mode (planned, approved 2026-10-17)
+
+Runs after Phase 5 (it needs the initiative tracker) and before Phase 6 polish. It mostly reuses data
+the map already stores: tokens, walls, and the terrain movement/sight flags.
+
+1. **Linked tokens.** Placing a creature token can add it to initiative. The active creature is
+   highlighted on the map. Clicking a token selects its initiative row, and the reverse.
+   _The token schema change for this is done in Phase 2 (see Phase 2 decisions)._
+2. **HP and condition badges on tokens.** HP bar or ring, condition icons, and a "down" marker at 0 HP.
+3. **Movement tracking.** Dragging the active token shows the path and feet used against its speed,
+   counting difficult terrain. Turns red past the creature's speed.
+4. **Area-of-effect templates.** Cone, sphere, cube, line and cylinder at a chosen size. Highlights
+   the affected squares and lists the tokens inside.
+5. **Reach and range rings** around the selected token.
+6. **Batch damage.** Apply damage to several creatures at once, with an optional half for those who saved.
+7. **Group rolls.** Roll initiative or a save for a whole group, each result applied to its own row.
+8. **Turn reminders.** Start/end-of-turn prompts for conditions and effects, and duration
+   countdowns in rounds.
+9. **Automatic concentration prompt** when a concentrating creature takes damage, showing the DC.
+10. **Combat log** of damage, healing, conditions and rolls, with undo.
+
+Stretch goals: a player view (a second window showing only what players should see), line of sight
+and cover estimates, and fog of war. Anything rules-based (template squares, cover, concentration DCs)
+will be labelled as a DM aid and follow SRD 5.1 wording. It must never be presented as an official
+ruling.
 
 ## Phase 0 — Scaffold ✅
 
