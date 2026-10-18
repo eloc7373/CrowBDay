@@ -1,12 +1,15 @@
-import { Map as MapIcon, Moon, ScrollText, Sun } from 'lucide-react'
+import { Map as MapIcon, Moon, Play, ScrollText, Sun } from 'lucide-react'
 import { lazy, Suspense } from 'react'
 import { HashRouter, Navigate, NavLink, Route, Routes } from 'react-router-dom'
+import { EntryViewer } from '../board/ui/EntryViewer'
+import { SearchPalette } from '../board/ui/SearchPalette'
 import { ErrorBoundary } from './ErrorBoundary'
 import { ThemeProvider, useTheme } from './theme'
 
 // Each area is its own chunk so the board doesn't load Konva and vice versa.
 const MapCreatorPage = lazy(() => import('../mapcreator/MapCreatorPage'))
-const BoardPage = lazy(() => import('../board/BoardPage'))
+const BoardPage = lazy(() => import('../board/ui/BoardPage'))
+const ShowcasePage = lazy(() => import('../showcase/ShowcasePage'))
 
 function Nav() {
   const { theme, toggle } = useTheme()
@@ -27,6 +30,9 @@ function Nav() {
         </NavLink>
         <NavLink to="/board" className={link}>
           <ScrollText size={15} aria-hidden /> DM Board
+        </NavLink>
+        <NavLink to="/showcase" className={link}>
+          <Play size={14} aria-hidden /> Showcase
         </NavLink>
       </nav>
       <div className="flex-1" />
@@ -68,11 +74,24 @@ export default function App() {
                     </ErrorBoundary>
                   }
                 />
+                <Route
+                  path="/showcase"
+                  element={
+                    <ErrorBoundary name="Showcase">
+                      <ShowcasePage />
+                    </ErrorBoundary>
+                  }
+                />
                 <Route path="*" element={<Navigate to="/map" replace />} />
               </Routes>
             </Suspense>
           </div>
         </div>
+        {/* Global: Ctrl+K or "/" searches rules from any page. */}
+        <ErrorBoundary name="Search">
+          <SearchPalette />
+          <EntryViewer />
+        </ErrorBoundary>
       </HashRouter>
     </ThemeProvider>
   )

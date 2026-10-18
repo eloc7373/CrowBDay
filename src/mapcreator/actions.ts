@@ -165,3 +165,26 @@ export function changeBrushSize(delta: number) {
   editor().set({ brushSize: size })
   editor().flash(`Brush size ${size}`)
 }
+
+/** Centres the view on a note (e.g. a room marker linked from session notes) and selects it. */
+export function focusNote(noteId: string): boolean {
+  const { doc } = map()
+  const n = doc.notes[noteId]
+  if (!n) return false
+  const { view } = editor()
+  const scale = Math.max(view.scale, 0.6)
+  const cell = doc.grid.cellSize
+  editor().set({
+    view: {
+      scale,
+      x: canvasSize.w / 2 - (n.x + 0.5) * cell * scale,
+      y: canvasSize.h / 2 - (n.y + 0.5) * cell * scale,
+    },
+    tool: 'select',
+    activeLayer: 'notes',
+    selection: { layer: 'notes', ids: [noteId] },
+    preview: null,
+  })
+  editor().flash(n.kind === 'room' ? `Room ${n.number}: ${n.text}` : n.text)
+  return true
+}

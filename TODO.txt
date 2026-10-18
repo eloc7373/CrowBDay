@@ -1,0 +1,73 @@
+DM TOOLKIT: REMAINING WORK
+==========================
+Updated 2026-10-17. Phases 0-5B are implemented in the current worktree.
+
+1. PHASES 0-5B: CORE APP (IMPLEMENTED)
+-------------------------------------
+[x] Map editor, layers, tools, undo/redo, autosave and keyboard shortcuts.
+[x] Asset library, user tilesets, procedural map generation and exports.
+[x] DM Board: manual combat tracking, conditions, notes, rules search and quick tools.
+[x] Combat Mode: linked tokens, movement, templates, batch damage, turn
+    reminders, concentration prompts, manual turn notes and undoable combat log.
+    Dice are rolled outside the toolkit.
+
+2. PHASE 6: DM CAMPAIGN WORKFLOW (IMPLEMENTED)
+----------------------------------------------
+[x] Encounter library: save and reuse combat rosters; associate encounters with
+    saved maps; start an encounter with its token links and initiative setup.
+[x] NPC and creature templates: save reusable creature stats and token defaults;
+    quickly add a template to initiative or place it on a map.
+[x] Session log: record dates, recaps, decisions and open plot threads; link
+    entries to notes, NPCs, encounters and map rooms.
+[x] Party and quest tracker: maintain lightweight party-member and objective
+    records, and link them from session notes.
+[x] Character roster: keep player/class/level and combat-relevant stats; add a
+    saved character directly to initiative.
+[x] Manual combat mode: let the DM enter battle details and initiative, track
+    turns and actions, and prominently show who is next.
+[x] Keep dice rolls outside the program; manually enter initiative, damage,
+    and save outcomes instead of rolling in the combat UI.
+[x] Rest and recovery checklist: let the DM choose which tracked resources,
+    conditions and effects to reset for a short or long rest; keep edition/rule
+    assumptions visible and changes undoable.
+[x] Treasure and loot notes: track items, holders and where they were found;
+    connect entries to sessions and encounters.
+[x] Keep campaign data local in IndexedDB and provide JSON export/import before
+    considering any synchronization service.
+
+3. PHASE 7: POLISH AND PACKAGING (IN PROGRESS)
+---------------------------------------------
+[x] Add a self-playing product showcase with keyboard and playback controls.
+[ ] First-run onboarding: create a sample map and load sample rules.
+[ ] Add error boundaries around Map Creator side panels and dialogs.
+[ ] Accessibility pass: keyboard reachability, icon-button labels and WCAG AA
+    contrast in both themes.
+[ ] Re-run the 100x100 / 10,000-tile performance test.
+[ ] Build and preview with networking disabled; confirm no external requests.
+[ ] Finish README coverage for setup, features, imports, licensing and limits.
+
+4. USER VERIFICATION / DECISIONS
+-------------------------------
+[ ] Choose the default diagonal measurement rule (currently alternating 5/10 ft;
+    5 ft per diagonal is the PHB default and alternating is a DMG variant).
+[ ] Walk through campaign/combat end-to-end: save/reload characters, templates
+    and encounters; add characters to initiative; record turns/actions; verify
+    next-up order, undoable updates, and JSON export/import.
+[ ] Verify current Foundry, Roll20 and Owlbear Rodeo import steps.
+[ ] Test experimental Foundry scene JSON in a real Foundry installation.
+[ ] Check placeholder rule, condition, spell, travel and DC summaries against
+    the table's chosen edition/SRD. Quick-add monster stats are original.
+
+5. OTHER OPEN ISSUES
+--------------------
+[ ] Wheel/trackpad heuristic may misread high-resolution mouse wheels.
+[ ] Very large maps render terrain at reduced resolution in the editor.
+[ ] Selection only works on the active layer.
+[ ] Autotile supports edge4 (16 masks); custom art has no nearest-neighbour
+    scaling option.
+[ ] Generator overlays anchor at top-left; village buildings are single-room.
+[ ] Multi-page 1-inch battle-mat PDF printing is not implemented.
+[ ] Custom tileset images are not embedded in exported map JSON.
+[ ] Pinned notes sort first but have no separate section.
+[ ] Rules are loaded with the search palette instead of lazily.
+[ ] Add e2e coverage for session-note room-link navigation.

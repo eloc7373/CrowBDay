@@ -38,8 +38,12 @@ export function normalizeDoc(doc: MapDoc): MapDoc {
   return { ...doc, assets }
 }
 
-/** Loads the most recently edited map, if any. */
+let restored = false
+
+/** Loads the most recently edited map, if any. Only runs once per session. */
 export async function restoreLastMap(): Promise<boolean> {
+  if (restored) return false
+  restored = true
   try {
     const last = await db.settings.get(LAST_MAP_KEY)
     if (typeof last?.value !== 'string') return false
@@ -65,23 +69,27 @@ export async function saveMap(doc: MapDoc): Promise<void> {
 export function startAutosave(): () => void {
   let timer: ReturnType<typeof setTimeout> | undefined
   let last = useMapStore.getState().doc
+  let pending = false
+  const flush = () => {
+    clearTimeout(timer)
+    if (!pending) return
+    pending = false
+    saveMap(last).catch((err) => console.warn('Autosave failed', err))
+  }
   const unsubscribe = useMapStore.subscribe((s) => {
     if (s.doc === last) return
     // Switching to another map (new/open/import): save the outgoing one now, or
     // its edits from the last debounce window would be lost.
-    if (s.doc.id !== last.id) {
-      clearTimeout(timer)
-      saveMap(last).catch((err) => console.warn('Autosave failed', err))
-    }
+    if (s.doc.id !== last.id) flush()
     last = s.doc
+    pending = true
     clearTimeout(timer)
-    timer = setTimeout(() => {
-      saveMap(last).catch((err) => console.warn('Autosave failed', err))
-    }, AUTOSAVE_MS)
+    timer = setTimeout(flush, AUTOSAVE_MS)
   })
   return () => {
     unsubscribe()
-    clearTimeout(timer)
+    // Leaving the page within the debounce window must not drop the last edit.
+    flush()
   }
 }
 
@@ -124,4 +132,31 @@ export async function deleteMap(id: string): Promise<void> {
 /** Whether a map with this id is already stored (used to avoid overwriting on import). */
 export async function mapExists(id: string): Promise<boolean> {
   return (await db.maps.get(id)) !== undefined
+}
+
+export interface RoomMarkerRef {
+  mapId: string
+  mapName: string
+  noteId: string
+  number: number
+  text: string
+}
+
+/** Every numbered room marker in every saved map (for linking session notes). */
+export async function listRoomMarkers(): Promise<RoomMarkerRef[]> {
+  const maps = await db.maps.orderBy('updatedAt').reverse().toArray()
+  return maps.flatMap((m) =>
+    looksLikeMap(m.doc)
+      ? Object.values(m.doc.notes)
+          .filter((n) => n.kind === 'room')
+          .sort((a, b) => (a.number ?? 0) - (b.number ?? 0))
+          .map((n) => ({
+            mapId: m.id,
+            mapName: m.name,
+            noteId: n.id,
+            number: n.number ?? 0,
+            text: n.text,
+          }))
+      : [],
+  )
 }

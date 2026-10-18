@@ -26,3 +26,7 @@ dist-ssr
 # Test output
 test-results
 playwright-report
+
+# Source books and page scans (personal copies, not redistributed)
+*.pdf
+/Monster Manual/

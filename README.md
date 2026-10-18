@@ -2,8 +2,9 @@
 
 An offline web app for running D&D 5th Edition sessions:
 
-- **Map Creator**: a grid-based battle/dungeon/town map editor with VTT-friendly export (export arrives in Phase 4).
-- **DM Board**: rules lookup, conditions, initiative, notes and dice (Phase 5).
+- **Map Creator**: a grid-based battle/dungeon/town map editor with VTT-friendly export.
+- **DM Board**: rules lookup, conditions, manual initiative/combat tracking and notes.
+- **Showcase**: an interactive, no-audio product tour. Edit map tiles, advance combat, and save a sample player sheet without changing campaign data; open the live Map Creator or DM Board from any scene. Download the shareable MP4 from the Showcase page (`public/dm-toolkit-showcase.mp4`).
 
 No backend, no accounts, no analytics. Everything is stored locally in your browser (IndexedDB).
 
@@ -104,6 +105,23 @@ bundled with the app, so download them yourself and check each pack's licence:
 - [Kenney.nl](https://kenney.nl/assets): CC0 packs (e.g. "Roguelike/RPG pack", "Tiny Dungeon")
 - [OpenGameArt.org](https://opengameart.org/): mixed licences. Filter by CC0 or CC-BY and credit the authors
 - [itch.io free asset packs](https://itch.io/game-assets/free/tag-tileset): check each pack's licence
+
+## DM Board
+
+Open **DM Board** in the top bar. Cards can be dragged and resized; **Reset layout** restores the default.
+
+- **Initiative**: add creatures (or quick-add generic monsters), then press Next. State survives a refresh.
+- **Monster & player options**: import a personal JSON compendium, search monsters and player features together, and add monsters directly to initiative. Imported entries stay in this browser's IndexedDB.
+- **Combat**: enter initiative and battle results manually; the turn tracker highlights who's acting and who's next, and the combat log records turns, map movement, damage, healing, conditions, and DM-entered action notes. Roll dice outside the toolkit.
+- **Session notes**: markdown, autosaved every 2 s. Use "Link a map room" to insert a link that opens the map and centres that room marker.
+- **Rules**: press Ctrl+K or `/` to search. The bundled rules are original placeholder summaries.
+- **Importing rules**: Rules → Import rules JSON, using `{ "name", "notice", "entries": [ ... ] }`. The entry format is in `src/data/srd/README.md`. Imported content stays in your browser.
+- **Campaign**: save reusable creature templates, encounter rosters, dated session recaps, player character sheets, quests and loot. Character sheets include identity, ability scores, proficiencies, combat resources, equipment, features and spells, and can be edited or added to initiative. Session logs can link to notes, map rooms, campaign records and encounters. Rest recovery is a DM-controlled, undoable checklist; it does not enforce edition-specific rest rules.
+- **Campaign backup**: use JSON / Import in the Campaign card to export or merge campaign templates, encounters, sessions and records. Data remains in this browser's IndexedDB; backups do not include maps, tilesets, rules or standalone session notes.
+
+The compendium's JSON format is documented in [docs/compendium-json.md](docs/compendium-json.md). The app does not bundle material from the Player's Handbook or Monster Manual; import personal-use data you have prepared, or use SRD data under its license.
+
+Personal use only: if you import text from a book you own (e.g. the Player's Handbook), it stays in your browser and must not be redistributed. SRD 5.1 content is CC-BY-4.0; if you add it, include the SRD attribution statement.
 
 ## Licensing notes
 

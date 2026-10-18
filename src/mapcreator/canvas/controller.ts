@@ -10,6 +10,10 @@ import {
   rectFromCells,
   type Cell,
 } from '../../lib/geometry'
+import { useCombatStore } from '../../board/initiative/store'
+import { addMovement } from '../../combat/actions'
+import { addTokenToInitiative, combatantForToken } from '../../combat/links'
+import { movePath } from '../../combat/movement'
 import { newId } from '../../lib/id'
 import {
   constrainVertex,
@@ -23,10 +27,17 @@ import {
   type TokenInfo,
   type WallEdge,
 } from '../layers/model'
-import { stampFootprint, stampLayer, useEditorStore, type Preview } from '../store/editorStore'
+import {
+  stampFootprint,
+  stampLayer,
+  useEditorStore,
+  type MoveTrail,
+  type Preview,
+} from '../store/editorStore'
 import { compact, setChange } from '../store/history'
 import { useMapStore } from '../store/mapStore'
 import { getAsset } from '../tilesets/registry'
+import { measure } from '../tools/measure'
 import { eraseChanges, fillChanges, paintChanges, sampleAt } from '../tools/paint'
 import { clampDelta, hitTest, itemsInRect, stampAnchor, transformSelection } from '../tools/select'
 import { isMouseWheel, screenToWorld, zoomAt } from './viewport'
@@ -48,6 +59,7 @@ type Drag =
   | { kind: 'move'; start: Cell; dx: number; dy: number }
   | { kind: 'rubber'; start: Cell; additive: boolean }
   | { kind: 'label'; cell: Cell }
+  | { kind: 'template'; start: Cell }
 
 let drag: Drag | null = null
 /** End of the previous brush stroke, for Shift+click straight lines. */
@@ -154,7 +166,12 @@ export function placeStamp(defId: string, cell: Cell): boolean {
   if (def.kind === 'token') {
     // Auto-number creatures: "Monster 1", "Monster 2", …
     const n = Object.values(doc.props).filter((q) => q.defId === defId).length + 1
-    token = { ...defaultTokenInfo(`${def.name} ${n}`, def.tokenSide), size: ed.tokenSize }
+    token = {
+      ...defaultTokenInfo(`${def.name} ${n}`, def.tokenSide),
+      size: ed.pendingTokenTemplate?.size ?? ed.tokenSize,
+      ...ed.pendingTokenTemplate,
+      name: ed.pendingTokenTemplate?.name || `${def.name} ${n}`,
+    }
   }
   map().commit(
     def.kind === 'token' ? 'Add token' : 'Stamp',
@@ -171,6 +188,19 @@ export function placeStamp(defId: string, cell: Cell): boolean {
       }),
     ]),
   )
+  if (token && ed.autoInitiative) {
+    addTokenToInitiative(doc.id, {
+      id,
+      layer,
+      defId,
+      x: a.x,
+      y: a.y,
+      rotation: 0,
+      mirrored: false,
+      token,
+    })
+  }
+  if (ed.pendingTokenTemplate) ed.set({ pendingTokenTemplate: null })
   ed.pushRecent(defId)
   return true
 }
@@ -321,11 +351,65 @@ export function pointerDown(e: PointerLike, el: HTMLElement) {
       drag = { kind: 'measure', start: p.cell }
       setPreview({ kind: 'measure', from: p.cell, to: p.cell })
       return
+    case 'template': {
+      drag = { kind: 'template', start: p.cell }
+      ed.set({
+        template: {
+          shape: ed.templateShape,
+          sizeFt: ed.templateSize,
+          widthFt: ed.templateWidth,
+          origin: p.cell,
+          target: p.cell,
+        },
+      })
+      return
+    }
     case 'label':
       // The dialog opens on pointer-up: opening it here would let the browser's
       // mousedown default action steal focus back from the dialog's text field.
       if (canEdit('notes')) drag = { kind: 'label', cell: p.cell }
       return
+  }
+}
+
+/** The combatant for the single token being dragged, if it is the active, linked creature. */
+function activeMover() {
+  const ed = editor()
+  const doc = map().doc
+  if (ed.selection.layer !== 'tokens' || ed.selection.ids.length !== 1) return null
+  const prop = doc.props[ed.selection.ids[0]]
+  const state = useCombatStore.getState().state
+  const c = prop && combatantForToken(state, doc.id, prop.id)
+  if (!prop || !c || c.id !== state.activeId) return null
+  return { prop, c }
+}
+
+/** Route and feet for dragging the active creature's token by (dx, dy), or null for anything else. */
+function trailFor(dx: number, dy: number): MoveTrail | null {
+  const m = activeMover()
+  if (!m || (!dx && !dy)) return null
+  const doc = map().doc
+  const rule = editor().diagonalRule
+  const from = { x: m.prop.x, y: m.prop.y }
+  const to = { x: from.x + dx, y: from.y + dy }
+  const path = movePath(doc, from, to, rule)
+  const straight = !path
+  return {
+    cells: path?.cells ?? [from, to],
+    feet: path ? path.feet : measure(from, to, rule, doc.grid.feetPerCell).feet,
+    used: m.c.movedFt ?? 0,
+    speed: m.c.speed ?? null,
+    straight,
+  }
+}
+
+/** Adds the dragged distance to the creature's feet moved this turn. */
+function recordMovement(trail: MoveTrail) {
+  const m = activeMover()
+  if (!m) return
+  useCombatStore.getState().update((s) => addMovement(s, m.c.id, trail.feet))
+  if (trail.speed !== null && trail.used + trail.feet > trail.speed) {
+    editor().flash(`${m.c.name} is ${trail.used + trail.feet - trail.speed} ft over speed`)
   }
 }
 
@@ -384,8 +468,18 @@ export function pointerMove(e: PointerLike, el: HTMLElement) {
       if (d.dx !== drag.dx || d.dy !== drag.dy) {
         drag.dx = d.dx
         drag.dy = d.dy
-        setPreview({ kind: 'move', dx: d.dx, dy: d.dy })
+        setPreview({ kind: 'move', dx: d.dx, dy: d.dy, trail: trailFor(d.dx, d.dy) ?? undefined })
       }
+      return
+    }
+    case 'template': {
+      const t = ed.template
+      if (!t) return
+      // Cones and lines are aimed from a fixed origin; other shapes follow the pointer.
+      const aimed = t.shape === 'cone' || t.shape === 'line'
+      ed.set({
+        template: aimed ? { ...t, target: p.cell } : { ...t, origin: p.cell, target: p.cell },
+      })
       return
     }
     case 'rubber':
@@ -444,11 +538,15 @@ export function pointerUp(e: PointerLike, el: HTMLElement) {
     }
     case 'move':
       if (d.dx || d.dy) {
+        const trail = trailFor(d.dx, d.dy)
         const { changes, selection } = transformSelection(doc, ed.selection, d.dx, d.dy, false)
         map().commit('Move', changes)
         ed.set({ selection })
+        if (trail) recordMovement(trail)
       }
       break
+    case 'template':
+      return // keep the template on screen
     case 'rubber': {
       const r = rectFromCells(d.start, p.cell)
       const layer = ed.activeLayer
@@ -469,12 +567,16 @@ export function pointerLeave() {
 }
 
 /** Escape: abort the current gesture; with nothing in progress, clear the selection. */
-export function cancelOperation() {
+export function cancelOperation(clearTemplate = false) {
   const ed = editor()
   if (drag) {
     if (drag.kind === 'paint') map().cancelTx()
     drag = null
     setPreview(null)
+    return
+  }
+  if (clearTemplate && ed.template) {
+    ed.set({ template: null })
     return
   }
   ed.set({ preview: null, selection: { layer: ed.selection.layer, ids: [] } })

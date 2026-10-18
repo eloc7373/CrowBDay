@@ -1,0 +1,553 @@
+{
+  "id": "sample",
+  "name": "Sample rules (original placeholder)",
+  "notice": "Short summaries written from scratch for DM Toolkit so the board is usable before you add real content. They are NOT official rules text and may simplify edge cases. Verify against the 5e SRD 5.1 (CC-BY-4.0) or your own books. Replace or supplement them by importing a rules JSON file.",
+  "entries": [
+    {
+      "id": "rules/combat/opportunity-attack",
+      "title": "Opportunity attack",
+      "category": "combat",
+      "summary": "When a hostile creature you can see leaves your reach, you can use your reaction to make one melee attack against it.",
+      "body": "- Triggered when a hostile creature you can see **moves out of your reach**.\n- Costs your **reaction**; you make **one melee attack** just before it leaves.\n- Taking the **Disengage** action avoids opportunity attacks for the rest of that turn.\n- No attack is provoked by teleporting, or by being moved without using movement, an action or a reaction (for example, being shoved).",
+      "source": {
+        "book": "DM Toolkit sample (original placeholder)",
+        "license": "Original text, CC0-1.0"
+      },
+      "tags": ["reaction", "melee", "movement", "reach", "disengage"],
+      "related": ["rules/combat/dash-disengage-dodge"]
+    },
+    {
+      "id": "rules/combat/cover",
+      "title": "Cover",
+      "category": "combat",
+      "summary": "Obstacles between attacker and target grant half (+2), three-quarters (+5) or total cover.",
+      "body": "| Cover | Effect |\n| --- | --- |\n| Half | +2 to AC and Dexterity saving throws |\n| Three-quarters | +5 to AC and Dexterity saving throws |\n| Total | Can't be targeted directly by an attack or spell |\n\n- Only the most protective cover applies; the bonuses don't add together.\n- Low walls, furniture and other creatures commonly give half cover.",
+      "source": {
+        "book": "DM Toolkit sample (original placeholder)",
+        "license": "Original text, CC0-1.0"
+      },
+      "tags": ["ac", "defense", "obstacle", "ranged", "dexterity save"],
+      "related": []
+    },
+    {
+      "id": "rules/combat/advantage-disadvantage",
+      "title": "Advantage and disadvantage",
+      "category": "combat",
+      "summary": "Roll two d20s and use the higher (advantage) or the lower (disadvantage).",
+      "body": "- Applies to attack rolls, ability checks and saving throws.\n- Several sources of advantage don't stack: you still roll only two dice.\n- If you have both advantage and disadvantage, they cancel and you roll one d20, however many sources of each there are.\n- Rerolls and similar effects let you reroll only one of the two dice.",
+      "source": {
+        "book": "DM Toolkit sample (original placeholder)",
+        "license": "Original text, CC0-1.0"
+      },
+      "tags": ["d20", "roll", "attack", "check", "save"],
+      "related": ["rules/other/passive-checks"]
+    },
+    {
+      "id": "rules/combat/grappling",
+      "title": "Grappling",
+      "category": "combat",
+      "summary": "Replace one attack with a Strength (Athletics) check contested by the target's Athletics or Acrobatics to grab it.",
+      "body": "- Uses one attack from the **Attack action**; you need a free hand.\n- The target can be at most **one size larger** than you and must be within reach.\n- Contest: your Strength (Athletics) vs. the target's Strength (Athletics) or Dexterity (Acrobatics), the target's choice.\n- On success the target is **grappled** (speed 0).\n- The target can use its action to escape with the same contest.\n- You can drag or carry the grappled creature, but your speed is halved (unless it is two or more sizes smaller).",
+      "source": {
+        "book": "DM Toolkit sample (original placeholder)",
+        "license": "Original text, CC0-1.0"
+      },
+      "tags": ["grapple", "athletics", "acrobatics", "contest", "grappled"],
+      "related": ["rules/combat/shoving", "rules/social/contests"]
+    },
+    {
+      "id": "rules/combat/shoving",
+      "title": "Shoving a creature",
+      "category": "combat",
+      "summary": "Replace one attack with an Athletics contest to knock a creature prone or push it 5 feet away.",
+      "body": "- Uses one attack from the **Attack action**.\n- The target can be at most **one size larger** than you and must be within reach.\n- Contest: your Strength (Athletics) vs. the target's Athletics or Acrobatics (its choice).\n- On success, choose: the target is knocked **prone**, or pushed **5 feet** away from you.",
+      "source": {
+        "book": "DM Toolkit sample (original placeholder)",
+        "license": "Original text, CC0-1.0"
+      },
+      "tags": ["shove", "push", "prone", "athletics", "contest"],
+      "related": ["rules/combat/grappling"]
+    },
+    {
+      "id": "rules/combat/two-weapon-fighting",
+      "title": "Two-weapon fighting",
+      "category": "combat",
+      "summary": "After attacking with a light melee weapon, you can attack with a different light melee weapon in your other hand as a bonus action.",
+      "body": "- Requires taking the **Attack action** with a **light** melee weapon held in one hand.\n- The bonus action attack must use a different light melee weapon held in the other hand.\n- Don't add your ability modifier to the bonus attack's damage unless it is negative.\n- A light weapon can be thrown for this attack if it has the thrown property.",
+      "source": {
+        "book": "DM Toolkit sample (original placeholder)",
+        "license": "Original text, CC0-1.0"
+      },
+      "tags": ["bonus action", "dual wield", "light weapon", "offhand"],
+      "related": []
+    },
+    {
+      "id": "rules/combat/surprise",
+      "title": "Surprise",
+      "category": "combat",
+      "summary": "Creatures that don't notice a threat at the start of combat lose their first turn and can't react until it ends.",
+      "body": "- The DM decides who might be surprised, usually by comparing the hiders' Dexterity (Stealth) checks with each creature's passive Wisdom (Perception).\n- A surprised creature **can't move or take an action on its first turn**, and **can't take a reaction until that turn ends**.\n- Members of a group can be surprised individually; one alert sentry may not be.",
+      "source": {
+        "book": "DM Toolkit sample (original placeholder)",
+        "license": "Original text, CC0-1.0"
+      },
+      "tags": ["initiative", "stealth", "ambush", "perception"],
+      "related": ["rules/other/passive-checks"]
+    },
+    {
+      "id": "rules/combat/death-saving-throws",
+      "title": "Death saving throws",
+      "category": "combat",
+      "summary": "At 0 hit points, roll a d20 each turn: 10+ succeeds, below 10 fails; three of either decides your fate.",
+      "body": "- Roll at the **start of each of your turns** while at 0 HP (no modifiers unless a feature says so).\n- **10 or higher** = success; **9 or lower** = failure.\n- **3 successes**: you become stable. **3 failures**: you die. Tallies reset when you regain HP or become stable.\n- **Natural 1** counts as two failures. **Natural 20**: you regain 1 hit point.\n- Taking damage at 0 HP is a failure (two failures if it was a critical hit).\n- **Massive damage:** if the damage left over after reaching 0 HP equals or exceeds your hit point maximum, you die outright.\n- A DC 10 Wisdom (Medicine) check as an action stabilizes a dying creature.",
+      "source": {
+        "book": "DM Toolkit sample (original placeholder)",
+        "license": "Original text, CC0-1.0"
+      },
+      "tags": ["dying", "0 hp", "unconscious", "stabilize", "medicine"],
+      "related": ["rules/combat/critical-hits"]
+    },
+    {
+      "id": "rules/combat/critical-hits",
+      "title": "Critical hits",
+      "category": "combat",
+      "summary": "A natural 20 on an attack roll always hits and doubles the damage dice.",
+      "body": "- A natural 20 hits regardless of modifiers or AC; a natural 1 always misses.\n- On a critical hit, roll **all of the attack's damage dice twice** and add them together, then add modifiers **once**.\n- Extra dice from features such as Sneak Attack are doubled too.",
+      "source": {
+        "book": "DM Toolkit sample (original placeholder)",
+        "license": "Original text, CC0-1.0"
+      },
+      "tags": ["crit", "natural 20", "damage", "attack"],
+      "related": []
+    },
+    {
+      "id": "rules/combat/actions-in-combat",
+      "title": "Your turn: movement, action, bonus action, reaction",
+      "category": "combat",
+      "summary": "On your turn you can move up to your speed and take one action; some features give a bonus action; you get one reaction per round.",
+      "body": "- **Movement:** up to your speed, which you can split around your action.\n- **Action:** Attack, Cast a Spell, Dash, Disengage, Dodge, Help, Hide, Ready, Search, Use an Object, or something improvised.\n- **Bonus action:** only if a feature, spell or ability gives you one.\n- **Reaction:** one per round, regained at the start of your turn (e.g. an opportunity attack).\n- **Free object interaction:** one simple interaction during your move or action (draw a sword, open a door).",
+      "source": {
+        "book": "DM Toolkit sample (original placeholder)",
+        "license": "Original text, CC0-1.0"
+      },
+      "tags": ["turn", "action economy", "bonus action", "reaction", "movement"],
+      "related": ["rules/combat/dash-disengage-dodge", "rules/combat/help-and-ready"]
+    },
+    {
+      "id": "rules/combat/dash-disengage-dodge",
+      "title": "Dash, Disengage and Dodge",
+      "category": "combat",
+      "summary": "Dash doubles your movement, Disengage stops opportunity attacks, Dodge makes you harder to hit.",
+      "body": "- **Dash:** gain extra movement equal to your speed (after modifiers) for this turn.\n- **Disengage:** your movement doesn't provoke opportunity attacks for the rest of the turn.\n- **Dodge:** until your next turn, attacks against you have disadvantage if you can see the attacker, and you make Dexterity saving throws with advantage. You lose this if you are incapacitated or your speed drops to 0.",
+      "source": {
+        "book": "DM Toolkit sample (original placeholder)",
+        "license": "Original text, CC0-1.0"
+      },
+      "tags": ["action", "movement", "defense", "opportunity attack"],
+      "related": ["rules/combat/opportunity-attack"]
+    },
+    {
+      "id": "rules/combat/help-and-ready",
+      "title": "Help and Ready",
+      "category": "combat",
+      "summary": "Help gives an ally advantage; Ready lets you act on a trigger using your reaction.",
+      "body": "- **Help:** an ally gets advantage on their next ability check for a task you're helping with, or on their next attack roll against a creature within 5 feet of you, before your next turn.\n- **Ready:** choose a perceivable trigger and an action (or a move). When the trigger occurs before your next turn, you can use your reaction to do it.\n- Readying a spell: you cast it now (spending the slot), hold its energy with **concentration**, and release it with your reaction when triggered.",
+      "source": {
+        "book": "DM Toolkit sample (original placeholder)",
+        "license": "Original text, CC0-1.0"
+      },
+      "tags": ["action", "reaction", "trigger", "advantage", "teamwork"],
+      "related": ["rules/spellcasting/concentration"]
+    },
+    {
+      "id": "rules/combat/unseen-attackers",
+      "title": "Unseen attackers and targets",
+      "category": "combat",
+      "summary": "Attacking something you can't see has disadvantage; attacking while unseen has advantage.",
+      "body": "- If you can't see the target, your attack roll has **disadvantage** (and you must guess its location).\n- If the target can't see you, your attack roll has **advantage**.\n- Attacking reveals your location whether you hit or miss, unless you're hidden and a feature says otherwise.",
+      "source": {
+        "book": "DM Toolkit sample (original placeholder)",
+        "license": "Original text, CC0-1.0"
+      },
+      "tags": ["hidden", "invisible", "darkness", "stealth", "attack"],
+      "related": ["rules/exploration/vision-and-light"]
+    },
+    {
+      "id": "rules/spellcasting/concentration",
+      "title": "Concentration",
+      "category": "spellcasting",
+      "summary": "Some spells last only while you concentrate; damage forces a Constitution save to keep them.",
+      "body": "- You can concentrate on **only one spell at a time**; casting another concentration spell ends the first.\n- When you take damage, make a **Constitution saving throw**: DC **10 or half the damage taken**, whichever is higher. Separate damage sources need separate saves.\n- Concentration also ends if you are **incapacitated** or killed.\n- You can end concentration at any time (no action required).",
+      "source": {
+        "book": "DM Toolkit sample (original placeholder)",
+        "license": "Original text, CC0-1.0"
+      },
+      "tags": ["spell", "constitution save", "damage", "duration"],
+      "related": ["rules/combat/help-and-ready"]
+    },
+    {
+      "id": "rules/spellcasting/save-dc-and-attack",
+      "title": "Spell save DC and spell attack bonus",
+      "category": "spellcasting",
+      "summary": "Save DC = 8 + proficiency bonus + spellcasting ability modifier; spell attack = proficiency bonus + that modifier.",
+      "body": "- **Spell save DC** = 8 + your proficiency bonus + your spellcasting ability modifier.\n- **Spell attack modifier** = your proficiency bonus + your spellcasting ability modifier.\n- The spellcasting ability depends on the class (e.g. Intelligence, Wisdom or Charisma).",
+      "source": {
+        "book": "DM Toolkit sample (original placeholder)",
+        "license": "Original text, CC0-1.0"
+      },
+      "tags": ["dc", "spell attack", "proficiency", "formula"],
+      "related": []
+    },
+    {
+      "id": "rules/spellcasting/bonus-action-spells",
+      "title": "Casting a spell as a bonus action",
+      "category": "spellcasting",
+      "summary": "If you cast a spell with a bonus action, the only other spell you can cast that turn is a cantrip with a casting time of one action.",
+      "body": "- Applies to spells you *cast*, not to magic items or other features.\n- Example: after casting *healing word* as a bonus action, you may still cast a cantrip like *fire bolt* with your action, but not a levelled spell.",
+      "source": {
+        "book": "DM Toolkit sample (original placeholder)",
+        "license": "Original text, CC0-1.0"
+      },
+      "tags": ["bonus action", "cantrip", "spell", "action economy"],
+      "related": []
+    },
+    {
+      "id": "rules/spellcasting/components",
+      "title": "Spell components (V, S, M)",
+      "category": "spellcasting",
+      "summary": "Verbal needs speech, somatic needs a free hand, material needs the listed item or a focus.",
+      "body": "- **Verbal (V):** you must be able to speak (no casting while gagged or in magical silence).\n- **Somatic (S):** you need at least one free hand to gesture.\n- **Material (M):** you need the listed material, or a component pouch or spellcasting focus instead, **unless** the material has a listed cost or is consumed.",
+      "source": {
+        "book": "DM Toolkit sample (original placeholder)",
+        "license": "Original text, CC0-1.0"
+      },
+      "tags": ["verbal", "somatic", "material", "focus", "silence"],
+      "related": []
+    },
+    {
+      "id": "rules/spellcasting/ritual-casting",
+      "title": "Ritual casting",
+      "category": "spellcasting",
+      "summary": "Spells with the ritual tag can be cast without a slot by adding 10 minutes to the casting time.",
+      "body": "- Only spells with the **ritual** tag, and only if you have a feature that allows ritual casting.\n- Takes **10 minutes longer** than normal and **doesn't expend a spell slot**.\n- A ritual can't be cast at a higher level.",
+      "source": {
+        "book": "DM Toolkit sample (original placeholder)",
+        "license": "Original text, CC0-1.0"
+      },
+      "tags": ["ritual", "spell slot", "casting time", "utility"],
+      "related": []
+    },
+    {
+      "id": "rules/exploration/travel-pace",
+      "title": "Travel pace",
+      "category": "exploration",
+      "summary": "Fast, normal or slow pace trade speed for awareness and stealth.",
+      "body": "| Pace | Per minute | Per hour | Per day | Effect |\n| --- | --- | --- | --- | --- |\n| Fast | 400 ft | 4 miles | 30 miles | −5 to passive Wisdom (Perception) |\n| Normal | 300 ft | 3 miles | 24 miles | — |\n| Slow | 200 ft | 2 miles | 18 miles | Able to use stealth |\n\n- A travel day assumes 8 hours of travel.\n- **Difficult terrain** halves travel distance.\n- **Forced march:** each hour beyond 8, every traveller makes a Constitution save (DC 10 + 1 per extra hour) or gains a level of exhaustion.\n\nUse the Travel pace calculator in Quick tools.",
+      "source": {
+        "book": "DM Toolkit sample (original placeholder)",
+        "license": "Original text, CC0-1.0"
+      },
+      "tags": ["travel", "overland", "miles", "forced march", "exhaustion"],
+      "related": ["rules/rest/long-rest"]
+    },
+    {
+      "id": "rules/exploration/falling",
+      "title": "Falling",
+      "category": "exploration",
+      "summary": "Take 1d6 bludgeoning damage per 10 feet fallen (max 20d6) and land prone.",
+      "body": "- **1d6 bludgeoning damage for every 10 feet**, to a maximum of **20d6**.\n- The creature lands **prone** unless it avoids taking damage from the fall.",
+      "source": {
+        "book": "DM Toolkit sample (original placeholder)",
+        "license": "Original text, CC0-1.0"
+      },
+      "tags": ["damage", "pit", "height", "prone", "hazard"],
+      "related": []
+    },
+    {
+      "id": "rules/exploration/suffocating",
+      "title": "Suffocating",
+      "category": "exploration",
+      "summary": "Hold your breath for 1 + Con modifier minutes (min 30 seconds), then you have Con modifier rounds (min 1) before dropping to 0 HP.",
+      "body": "- A creature can hold its breath for **1 + Constitution modifier minutes** (minimum 30 seconds).\n- When it runs out of breath or is choking, it survives for **Constitution modifier rounds** (minimum 1).\n- At the start of its next turn after that, it drops to **0 hit points** and is dying; it can't regain HP or be stabilized until it can breathe again.",
+      "source": {
+        "book": "DM Toolkit sample (original placeholder)",
+        "license": "Original text, CC0-1.0"
+      },
+      "tags": ["drowning", "underwater", "breath", "hazard", "constitution"],
+      "related": ["rules/combat/death-saving-throws"]
+    },
+    {
+      "id": "rules/exploration/vision-and-light",
+      "title": "Vision, light and darkvision",
+      "category": "exploration",
+      "summary": "Dim light lightly obscures (disadvantage on sight-based Perception); darkness heavily obscures (effectively blinded).",
+      "body": "- **Bright light:** normal vision.\n- **Dim light** (twilight, edge of a torch) is *lightly obscured*: disadvantage on Wisdom (Perception) checks that rely on sight.\n- **Darkness** is *heavily obscured*: a creature is effectively **blinded** when trying to see into it.\n- **Darkvision:** within range, dim light counts as bright and darkness as dim (in shades of grey).\n- Common light sources: a torch gives bright light in a 20-ft radius and dim light for 20 ft beyond it.",
+      "source": {
+        "book": "DM Toolkit sample (original placeholder)",
+        "license": "Original text, CC0-1.0"
+      },
+      "tags": ["darkvision", "darkness", "dim light", "perception", "obscured", "torch"],
+      "related": ["rules/combat/unseen-attackers"]
+    },
+    {
+      "id": "rules/exploration/jumping",
+      "title": "Jumping",
+      "category": "exploration",
+      "summary": "Long jump covers your Strength score in feet and high jump is 3 + Strength modifier feet, each halved without a 10-foot run-up.",
+      "body": "- **Long jump:** up to your **Strength score** in feet with a 10-foot running start; half that from a standing start.\n- **High jump:** **3 + Strength modifier** feet with a 10-foot run-up; half from standing.\n- Each foot jumped costs a foot of movement.",
+      "source": {
+        "book": "DM Toolkit sample (original placeholder)",
+        "license": "Original text, CC0-1.0"
+      },
+      "tags": ["movement", "strength", "athletics", "long jump", "high jump"],
+      "related": []
+    },
+    {
+      "id": "rules/rest/short-rest",
+      "title": "Short rest",
+      "category": "rest",
+      "summary": "At least 1 hour of light activity; spend Hit Dice to heal.",
+      "body": "- Lasts **at least 1 hour** of eating, drinking, reading or tending wounds.\n- You can spend any number of **Hit Dice**: roll each and add your Constitution modifier, regaining that many hit points.\n- Some class features recharge on a short rest.",
+      "source": {
+        "book": "DM Toolkit sample (original placeholder)",
+        "license": "Original text, CC0-1.0"
+      },
+      "tags": ["rest", "hit dice", "healing", "recovery"],
+      "related": ["rules/rest/long-rest"]
+    },
+    {
+      "id": "rules/rest/long-rest",
+      "title": "Long rest",
+      "category": "rest",
+      "summary": "At least 8 hours (mostly sleep) restores all hit points and up to half of your Hit Dice.",
+      "body": "- Lasts **at least 8 hours**, sleeping at least 6; up to 2 hours of light activity is fine.\n- **Interrupted** by at least 1 hour of strenuous activity such as walking, fighting or casting spells; you must start over.\n- At the end you regain **all lost hit points** and spent **Hit Dice up to half your total** (minimum one).\n- You need at least 1 hit point at the start, and you can benefit from only **one long rest per 24 hours**.\n- With food and drink, it also reduces **exhaustion** by one level.",
+      "source": {
+        "book": "DM Toolkit sample (original placeholder)",
+        "license": "Original text, CC0-1.0"
+      },
+      "tags": ["rest", "sleep", "hit dice", "healing", "exhaustion"],
+      "related": ["rules/rest/short-rest"]
+    },
+    {
+      "id": "rules/social/contests",
+      "title": "Contests (opposed checks)",
+      "category": "social",
+      "summary": "Both sides make ability checks; the higher total wins and a tie leaves things as they were.",
+      "body": "- Used when two creatures directly oppose each other (arm wrestling, grabbing an item, sneaking past a guard).\n- Both make the appropriate ability check; **the higher total wins**.\n- On a **tie**, the situation stays as it was before the contest.",
+      "source": {
+        "book": "DM Toolkit sample (original placeholder)",
+        "license": "Original text, CC0-1.0"
+      },
+      "tags": ["ability check", "opposed", "tie", "grapple"],
+      "related": ["rules/combat/grappling"]
+    },
+    {
+      "id": "rules/social/influencing-npcs",
+      "title": "Influencing NPCs",
+      "category": "social",
+      "summary": "An NPC's attitude (friendly, indifferent, hostile) shapes how hard Charisma checks are.",
+      "body": "- Decide the NPC's starting attitude: **friendly**, **indifferent** or **hostile**.\n- Let roleplay set the approach, then call for Charisma (Persuasion, Deception or Intimidation) when the outcome is uncertain.\n- Good arguments, leverage or appealing to the NPC's goals can move the attitude or lower the DC.\n- Some requests are impossible no matter the roll.",
+      "source": {
+        "book": "DM Toolkit sample (original placeholder)",
+        "license": "Original text, CC0-1.0"
+      },
+      "tags": ["persuasion", "deception", "intimidation", "charisma", "roleplay", "attitude"],
+      "related": ["rules/other/difficulty-classes"]
+    },
+    {
+      "id": "rules/equipment/donning-armor",
+      "title": "Putting on and taking off armor",
+      "category": "equipment",
+      "summary": "Light armor: 1 minute on/off; medium: 5 minutes on, 1 off; heavy: 10 minutes on, 5 off; shield: 1 action.",
+      "body": "| Category | Don | Doff |\n| --- | --- | --- |\n| Light | 1 minute | 1 minute |\n| Medium | 5 minutes | 1 minute |\n| Heavy | 10 minutes | 5 minutes |\n| Shield | 1 action | 1 action |",
+      "source": {
+        "book": "DM Toolkit sample (original placeholder)",
+        "license": "Original text, CC0-1.0"
+      },
+      "tags": ["armor", "don", "doff", "shield", "ambush"],
+      "related": []
+    },
+    {
+      "id": "rules/equipment/improvised-weapons",
+      "title": "Improvised weapons",
+      "category": "equipment",
+      "summary": "Objects not meant as weapons deal 1d4 damage and usually don't add proficiency.",
+      "body": "- An object that resembles a weapon can be treated as that weapon at the DM's discretion.\n- Otherwise it deals **1d4** damage of a type the DM chooses, and you don't add your proficiency bonus (unless a feature says so).\n- Thrown improvised weapons have a range of **20/60 feet**.",
+      "source": {
+        "book": "DM Toolkit sample (original placeholder)",
+        "license": "Original text, CC0-1.0"
+      },
+      "tags": ["weapon", "damage", "thrown", "tavern brawl"],
+      "related": []
+    },
+    {
+      "id": "rules/other/difficulty-classes",
+      "title": "Typical difficulty classes",
+      "category": "other",
+      "summary": "Very easy 5, easy 10, medium 15, hard 20, very hard 25, nearly impossible 30.",
+      "body": "| Task | DC |\n| --- | --- |\n| Very easy | 5 |\n| Easy | 10 |\n| Medium | 15 |\n| Hard | 20 |\n| Very hard | 25 |\n| Nearly impossible | 30 |\n\nSee the DC table in Quick tools.",
+      "source": {
+        "book": "DM Toolkit sample (original placeholder)",
+        "license": "Original text, CC0-1.0"
+      },
+      "tags": ["dc", "difficulty", "ability check", "target number"],
+      "related": ["rules/other/passive-checks"]
+    },
+    {
+      "id": "rules/other/passive-checks",
+      "title": "Passive checks",
+      "category": "other",
+      "summary": "A passive check total is 10 + all modifiers, +5 with advantage or −5 with disadvantage.",
+      "body": "- Used for repeated attempts or secret checks, most often passive Wisdom (Perception).\n- **Total = 10 + all modifiers** that would normally apply.\n- Advantage adds **+5**; disadvantage subtracts **−5**.",
+      "source": {
+        "book": "DM Toolkit sample (original placeholder)",
+        "license": "Original text, CC0-1.0"
+      },
+      "tags": ["perception", "passive perception", "stealth", "secret check"],
+      "related": ["rules/combat/surprise"]
+    },
+    {
+      "id": "rules/other/inspiration",
+      "title": "Inspiration",
+      "category": "other",
+      "summary": "The DM awards inspiration for good roleplay; a player spends it for advantage on one roll.",
+      "body": "- Awarded by the DM, often for playing to a character's traits, ideals, bonds or flaws.\n- A character either has inspiration or doesn't; it doesn't stack.\n- Spend it to gain **advantage on one attack roll, saving throw or ability check**.\n- You can give your inspiration to another player.",
+      "source": {
+        "book": "DM Toolkit sample (original placeholder)",
+        "license": "Original text, CC0-1.0"
+      },
+      "tags": ["advantage", "roleplay", "reward"],
+      "related": ["rules/combat/advantage-disadvantage"]
+    },
+    {
+      "id": "spells/fire-bolt",
+      "title": "Fire Bolt (cantrip)",
+      "category": "spellcasting",
+      "summary": "Evocation cantrip: ranged spell attack at 120 ft for 1d10 fire, scaling with character level.",
+      "body": "- **Casting time:** 1 action · **Range:** 120 feet · **Components:** V, S · **Duration:** instantaneous\n- Ranged spell attack; on a hit, **1d10 fire** damage. Unattended flammable objects ignite.\n- Damage rises to 2d10 at 5th level, 3d10 at 11th and 4d10 at 17th.",
+      "source": {
+        "book": "DM Toolkit sample (original placeholder)",
+        "license": "Original text, CC0-1.0"
+      },
+      "tags": ["spell", "cantrip", "evocation", "fire", "attack"],
+      "related": ["rules/spellcasting/save-dc-and-attack"]
+    },
+    {
+      "id": "spells/magic-missile",
+      "title": "Magic Missile (1st level)",
+      "category": "spellcasting",
+      "summary": "Three darts that each automatically hit for 1d4 + 1 force damage.",
+      "body": "- **Casting time:** 1 action · **Range:** 120 feet · **Components:** V, S · **Duration:** instantaneous\n- Creates **three darts**; each hits a creature you can see for **1d4 + 1 force** damage. They can target one or several creatures.\n- **Higher levels:** one extra dart per slot level above 1st.\n- Blocked entirely by the *shield* spell.",
+      "source": {
+        "book": "DM Toolkit sample (original placeholder)",
+        "license": "Original text, CC0-1.0"
+      },
+      "tags": ["spell", "level 1", "evocation", "force", "auto-hit"],
+      "related": ["spells/shield"]
+    },
+    {
+      "id": "spells/cure-wounds",
+      "title": "Cure Wounds (1st level)",
+      "category": "spellcasting",
+      "summary": "Touch: a creature regains 1d8 + spellcasting modifier hit points.",
+      "body": "- **Casting time:** 1 action · **Range:** touch · **Components:** V, S · **Duration:** instantaneous\n- The creature regains **1d8 + your spellcasting ability modifier** HP.\n- No effect on undead or constructs.\n- **Higher levels:** +1d8 per slot level above 1st.",
+      "source": {
+        "book": "DM Toolkit sample (original placeholder)",
+        "license": "Original text, CC0-1.0"
+      },
+      "tags": ["spell", "level 1", "healing", "evocation", "touch"],
+      "related": ["spells/healing-word"]
+    },
+    {
+      "id": "spells/healing-word",
+      "title": "Healing Word (1st level)",
+      "category": "spellcasting",
+      "summary": "Bonus action, 60 ft: a creature you can see regains 1d4 + spellcasting modifier hit points.",
+      "body": "- **Casting time:** 1 bonus action · **Range:** 60 feet · **Components:** V · **Duration:** instantaneous\n- A creature you can see regains **1d4 + your spellcasting ability modifier** HP. No effect on undead or constructs.\n- **Higher levels:** +1d4 per slot level above 1st.\n- Great for getting a dying ally back up from range.",
+      "source": {
+        "book": "DM Toolkit sample (original placeholder)",
+        "license": "Original text, CC0-1.0"
+      },
+      "tags": ["spell", "level 1", "healing", "bonus action", "evocation"],
+      "related": ["rules/spellcasting/bonus-action-spells", "spells/cure-wounds"]
+    },
+    {
+      "id": "spells/shield",
+      "title": "Shield (1st level)",
+      "category": "spellcasting",
+      "summary": "Reaction: +5 AC until the start of your next turn, including against the triggering attack.",
+      "body": "- **Casting time:** 1 reaction, when you're hit by an attack or targeted by *magic missile* · **Range:** self · **Components:** V, S · **Duration:** 1 round\n- +5 bonus to AC until the start of your next turn, **including against the triggering attack** (which may now miss).\n- You take no damage from *magic missile*.",
+      "source": {
+        "book": "DM Toolkit sample (original placeholder)",
+        "license": "Original text, CC0-1.0"
+      },
+      "tags": ["spell", "level 1", "abjuration", "reaction", "ac", "defense"],
+      "related": ["spells/magic-missile"]
+    },
+    {
+      "id": "spells/bless",
+      "title": "Bless (1st level)",
+      "category": "spellcasting",
+      "summary": "Concentration: up to three creatures add 1d4 to attack rolls and saving throws.",
+      "body": "- **Casting time:** 1 action · **Range:** 30 feet · **Components:** V, S, M · **Duration:** concentration, up to 1 minute\n- Up to **three creatures** you choose add **1d4** to each attack roll and saving throw.\n- **Higher levels:** one additional creature per slot level above 1st.",
+      "source": {
+        "book": "DM Toolkit sample (original placeholder)",
+        "license": "Original text, CC0-1.0"
+      },
+      "tags": ["spell", "level 1", "enchantment", "buff", "concentration"],
+      "related": ["rules/spellcasting/concentration"]
+    },
+    {
+      "id": "spells/mage-armor",
+      "title": "Mage Armor (1st level)",
+      "category": "spellcasting",
+      "summary": "A willing creature not wearing armor has a base AC of 13 + Dexterity modifier for 8 hours.",
+      "body": "- **Casting time:** 1 action · **Range:** touch · **Components:** V, S, M · **Duration:** 8 hours\n- Base AC becomes **13 + Dexterity modifier** (shields still add their bonus).\n- Ends early if the target puts on armor or you dismiss it.",
+      "source": {
+        "book": "DM Toolkit sample (original placeholder)",
+        "license": "Original text, CC0-1.0"
+      },
+      "tags": ["spell", "level 1", "abjuration", "ac", "defense"],
+      "related": []
+    },
+    {
+      "id": "spells/hold-person",
+      "title": "Hold Person (2nd level)",
+      "category": "spellcasting",
+      "summary": "Concentration: a humanoid makes a Wisdom save or is paralyzed, repeating the save each turn.",
+      "body": "- **Casting time:** 1 action · **Range:** 60 feet · **Components:** V, S, M · **Duration:** concentration, up to 1 minute\n- A **humanoid** you can see makes a **Wisdom saving throw** or is **paralyzed**.\n- It repeats the save at the end of each of its turns, ending the effect on a success.\n- **Higher levels:** one additional humanoid per slot level above 2nd (all within 30 feet of each other).",
+      "source": {
+        "book": "DM Toolkit sample (original placeholder)",
+        "license": "Original text, CC0-1.0"
+      },
+      "tags": ["spell", "level 2", "enchantment", "paralyzed", "control", "concentration"],
+      "related": ["rules/spellcasting/concentration"]
+    },
+    {
+      "id": "spells/fireball",
+      "title": "Fireball (3rd level)",
+      "category": "spellcasting",
+      "summary": "20-foot-radius explosion: 8d6 fire damage, Dexterity save for half.",
+      "body": "- **Casting time:** 1 action · **Range:** 150 feet · **Components:** V, S, M · **Duration:** instantaneous\n- Each creature in a **20-foot-radius sphere** makes a **Dexterity saving throw**: **8d6 fire** damage on a failure, half on a success.\n- The fire spreads around corners and ignites unattended flammable objects.\n- **Higher levels:** +1d6 per slot level above 3rd.",
+      "source": {
+        "book": "DM Toolkit sample (original placeholder)",
+        "license": "Original text, CC0-1.0"
+      },
+      "tags": ["spell", "level 3", "evocation", "fire", "area", "dexterity save"],
+      "related": ["rules/combat/cover"]
+    },
+    {
+      "id": "spells/counterspell",
+      "title": "Counterspell (3rd level)",
+      "category": "spellcasting",
+      "summary": "Reaction: interrupt a creature casting a spell within 60 ft; 3rd level or lower simply fails.",
+      "body": "- **Casting time:** 1 reaction, when you see a creature within 60 feet casting a spell · **Components:** S · **Duration:** instantaneous\n- A spell of **3rd level or lower** fails automatically.\n- For a higher-level spell, make a spellcasting ability check against **DC 10 + the spell's level**; on a success it fails.\n- **Higher levels:** casting with a higher slot automatically stops spells of that slot's level or lower.",
+      "source": {
+        "book": "DM Toolkit sample (original placeholder)",
+        "license": "Original text, CC0-1.0"
+      },
+      "tags": ["spell", "level 3", "abjuration", "reaction", "counter"],
+      "related": []
+    }
+  ]
+}

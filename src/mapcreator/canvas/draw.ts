@@ -220,8 +220,59 @@ export function drawProps(
         ctx.stroke()
       }
     }
+    if (t && t.conditions.length) drawConditionBadges(ctx, t.conditions, r, cell)
     ctx.restore()
   }
+}
+
+const CONDITION_COLORS = [
+  '#dc2626',
+  '#9333ea',
+  '#0891b2',
+  '#ca8a04',
+  '#db2777',
+  '#4f46e5',
+  '#059669',
+]
+
+/** Colour for a condition name; the same name always gets the same colour. */
+export function conditionColor(name: string): string {
+  let h = 0
+  for (const ch of name.toLowerCase()) h = (h * 31 + ch.charCodeAt(0)) >>> 0
+  return CONDITION_COLORS[h % CONDITION_COLORS.length]
+}
+
+/** Small lettered discs along the top of a token, one per condition (up to four, then "+n"). */
+function drawConditionBadges(
+  ctx: Ctx,
+  conditions: string[],
+  r: { x: number; y: number; w: number; h: number },
+  cell: number,
+) {
+  const d = cell * 0.3
+  const shown = conditions.slice(0, 4)
+  const extra = conditions.length - shown.length
+  const maxPerRow = Math.max(1, Math.floor((r.w * cell) / (d * 0.9)))
+  ctx.textAlign = 'center'
+  ctx.textBaseline = 'middle'
+  ctx.font = `bold ${Math.round(d * 0.58)}px sans-serif`
+  const items = [...shown.map((c) => ({ text: c.slice(0, 2), color: conditionColor(c) }))]
+  if (extra > 0) items.push({ text: `+${extra}`, color: '#52525b' })
+  items.forEach((it, i) => {
+    const col = i % maxPerRow
+    const row = Math.floor(i / maxPerRow)
+    const cx = r.x * cell + d / 2 + col * d * 0.9
+    const cy = r.y * cell + d / 2 + row * d * 0.9
+    ctx.beginPath()
+    ctx.arc(cx, cy, d / 2, 0, Math.PI * 2)
+    ctx.fillStyle = it.color
+    ctx.fill()
+    ctx.lineWidth = Math.max(1, cell * 0.025)
+    ctx.strokeStyle = '#ffffff'
+    ctx.stroke()
+    ctx.fillStyle = '#ffffff'
+    ctx.fillText(it.text, cx, cy + d * 0.04)
+  })
 }
 
 export function drawNotes(ctx: Ctx, notes: MapNote[], cell: number) {

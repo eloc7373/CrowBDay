@@ -1,26 +1,61 @@
 # DM Toolkit — Progress
 
-_Last updated: 2026-10-17 (end of Phase 4)_
+_Last updated: 2026-10-17 (Phase 6 implemented; not test-verified in this pass)_
 
 > Working mode: the user asked for the remaining phases to be done without check-ins. Decisions the
 > spec says to ask about are made here and listed under each phase's **Decisions** for review.
 
 ## Status by phase
 
-| Phase | Scope                                                           | Status                                  |
-| ----- | --------------------------------------------------------------- | --------------------------------------- |
-| 0     | Scaffold, git, lint/format, test setup                          | ✅ Done                                 |
-| 1     | Map Creator core (canvas, grid, tools, layers, undo, shortcuts) | ✅ Done                                 |
-| 2     | Tilesets, props, asset library                                  | ✅ Done                                 |
-| 3     | Procedural generation                                           | ✅ Done                                 |
-| 4     | Export (PNG, PDF, JSON package, VTT notes)                      | ✅ Done                                 |
-| 5     | DM Board                                                        | ⏳ Not started (placeholder route only) |
-| 5B    | Combat Mode (map ↔ initiative integration)                      | ⏳ Planned (added 2026-10-17)           |
-| 6     | Polish & packaging                                              | ⏳ Not started                          |
+| Phase | Scope                                                           | Status                        |
+| ----- | --------------------------------------------------------------- | ----------------------------- |
+| 0     | Scaffold, git, lint/format, test setup                          | ✅ Done                       |
+| 1     | Map Creator core (canvas, grid, tools, layers, undo, shortcuts) | ✅ Done                       |
+| 2     | Tilesets, props, asset library                                  | ✅ Done                       |
+| 3     | Procedural generation                                           | ✅ Done                       |
+| 4     | Export (PNG, PDF, JSON package, VTT notes)                      | ✅ Done                       |
+| 5     | DM Board                                                        | ✅ Done (see Phase 5 section) |
+| 5B    | Combat Mode (map ↔ initiative integration)                      | ✅ Implemented                |
+| 6     | DM campaign workflow                                           | ✅ Implemented                |
+| 7     | Polish & packaging                                              | 🚧 In progress                |
 
 ---
 
-## Phase 5B — Combat Mode (planned, approved 2026-10-17)
+## Phase 5 — DM Board ✅
+
+### Completed
+
+- Draggable, resizable card board (react-grid-layout v2, layout saved to localStorage, "Reset layout"): combat tracker, conditions, session notes, rules browser and quick tools.
+- Initiative tracker with ties, HP/temp HP, conditions and exhaustion; state persists in IndexedDB.
+- Session notes with markdown, tags, pinning and 2 s autosave; notes can link to map room markers (`dmtk-room:<mapId>/<noteId>`). Clicking a link opens the map and centres the room.
+- Rules browser and Ctrl+K / "/" search (Fuse.js) over the bundled original sample rules, conditions and any imported rules JSON.
+- Quick tools: travel pace and typical DCs.
+
+### Bugs fixed
+
+- Leaving the Map Creator within 0.8 s of an edit lost it: the autosave stop function now flushes a pending save.
+- Returning to the Map Creator re-ran `restoreLastMap()` and could overwrite newer in-memory edits: it now runs once per session.
+
+### Test results
+
+- Previous validation before manual-only combat: `npm test` 94/94; e2e 28/28; lint, formatting, typecheck and build clean. Current manual-combat and character changes are not verified yet.
+- Lint, Prettier, typecheck and `npm run build` are clean. Both react-grid-layout CSS imports resolve.
+
+### Open issues
+
+- No separate "Pinned" section; pinned notes only sort first.
+- The search palette lives in the app shell; rules data is not lazy-loaded. Map Creator chunk is about 990 kB (312 kB gzip).
+- Room-link navigation was checked by code path and type check, not by an e2e test.
+
+---
+
+## Phase 5B — Combat Mode ✅ (stretch goals not done)
+
+Built: linked tokens (combatant owns HP/AC/conditions; map draws them from it), HP bars and condition badges, active-creature highlight, movement tracking with walls and difficult terrain, area templates listing tokens inside, reach/range rings, batch damage with manually entered save outcomes, turn reminders and effect countdowns, concentration prompts, and combat log with undo. Combat is manual-entry only: dice are rolled outside the toolkit. The tracker highlights the next creature and records DM-entered turn notes. Logic is in `src/combat/`.
+
+Decisions: the combatant is the source of truth once linked; movement routes the creature's top-left square only; template squares are picked by their centres; the log undoes combat state only, not map moves. Not done: player view window, line of sight and cover, fog of war.
+
+Original plan (kept for reference):
 
 Runs after Phase 5 (it needs the initiative tracker) and before Phase 6 polish. It mostly reuses data
 the map already stores: tokens, walls, and the terrain movement/sight flags.
@@ -35,7 +70,7 @@ the map already stores: tokens, walls, and the terrain movement/sight flags.
    the affected squares and lists the tokens inside.
 5. **Reach and range rings** around the selected token.
 6. **Batch damage.** Apply damage to several creatures at once, with an optional half for those who saved.
-7. **Group rolls.** Roll initiative or a save for a whole group, each result applied to its own row.
+7. **Group rolls (not used in manual-only combat UI).** The DM rolls externally and enters outcomes.
 8. **Turn reminders.** Start/end-of-turn prompts for conditions and effects, and duration
    countdowns in rounds.
 9. **Automatic concentration prompt** when a concentrating creature takes damage, showing the DC.
@@ -45,6 +80,13 @@ Stretch goals: a player view (a second window showing only what players should s
 and cover estimates, and fog of war. Anything rules-based (template squares, cover, concentration DCs)
 will be labelled as a DM aid and follow SRD 5.1 wording. It must never be presented as an official
 ruling.
+
+## Phase 6 — DM campaign workflow ✅
+
+Implemented local IndexedDB creature templates, reusable encounter rosters, session logs with links,
+character records with initiative integration, party/quest/loot trackers, configurable undoable rest recovery, and campaign-only JSON backup and
+merge import. The rest checklist is intentionally DM-controlled rather than asserting universal
+edition-specific recovery rules. This phase has not been test-verified in this pass.
 
 ## Phase 0 — Scaffold ✅
 

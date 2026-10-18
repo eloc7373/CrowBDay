@@ -2,7 +2,8 @@
 
 import { create } from 'zustand'
 import type { Cell, Rect, ShapeMode } from '../../lib/geometry'
-import type { CreatureSize, LayerId, PropRotation } from '../layers/model'
+import type { CreatureSize, LayerId, PropRotation, TokenInfo } from '../layers/model'
+import type { Template, TemplateShape } from '../../combat/templates'
 import { propFootprint } from '../tools/paint'
 import { getAsset } from '../tilesets/registry'
 import type { DiagonalRule } from '../tools/measure'
@@ -20,6 +21,7 @@ export type ToolId =
   | 'measure'
   | 'pan'
   | 'label'
+  | 'template'
 
 export type WallMode = 'wall' | 'door' | 'secret'
 
@@ -36,6 +38,7 @@ export const TOOL_LAYER: Record<ToolId, LayerId | null> = {
   measure: null,
   pan: null,
   label: 'notes',
+  template: null,
 }
 
 export interface View {
@@ -61,7 +64,18 @@ export type Preview =
   | { kind: 'wall'; edges: string[]; mode: WallMode; remove: boolean }
   | { kind: 'measure'; from: Cell; to: Cell }
   | { kind: 'rubber'; rect: Rect }
-  | { kind: 'move'; dx: number; dy: number }
+  | { kind: 'move'; dx: number; dy: number; trail?: MoveTrail }
+
+/** Route and cost of moving the active creature's token, shown while dragging. */
+export interface MoveTrail {
+  cells: Cell[]
+  feet: number
+  /** Feet already moved this turn, and the creature's speed. */
+  used: number
+  speed: number | null
+  /** No route around walls; the cost is a straight-line estimate. */
+  straight: boolean
+}
 
 export interface LabelDraft {
   /** Existing note id when editing; undefined when creating. */
@@ -99,6 +113,17 @@ export interface EditorState {
   generateOpen: boolean
   exportOpen: boolean
   mapsOpen: boolean
+  /** Area-of-effect template: size/shape settings, and the placed template if any. */
+  templateShape: TemplateShape
+  templateSize: number
+  templateWidth: number
+  template: Template | null
+  /** Reach/range rings (feet) drawn around the selected or active token. */
+  rings: number[]
+  /** Add creature tokens to initiative when they are placed. */
+  autoInitiative: boolean
+  /** Creature data to apply to the next token placed from the DM Board. */
+  pendingTokenTemplate: TokenInfo | null
 
   setTool(tool: ToolId): void
   /** Records an asset as recently used (persisted per browser). */
@@ -112,9 +137,15 @@ export const stampLayer = (stampId: string): 'objects' | 'tokens' =>
   getAsset(stampId)?.kind === 'token' ? 'tokens' : 'objects'
 
 /** Footprint of the armed stamp (tokens are sized by creature size). */
-export function stampFootprint(s: Pick<EditorState, 'stampId' | 'rotation' | 'tokenSize'>) {
+export function stampFootprint(
+  s: Pick<EditorState, 'stampId' | 'rotation' | 'tokenSize' | 'pendingTokenTemplate'>,
+) {
   const isToken = getAsset(s.stampId)?.kind === 'token'
-  return propFootprint(s.stampId, s.rotation, isToken ? { size: s.tokenSize } : null)
+  return propFootprint(
+    s.stampId,
+    s.rotation,
+    isToken ? { size: s.pendingTokenTemplate?.size ?? s.tokenSize } : null,
+  )
 }
 
 const RECENT_KEY = 'dmtk.recentAssets'
@@ -158,6 +189,13 @@ export const useEditorStore = create<EditorState>()((set) => ({
   generateOpen: false,
   exportOpen: false,
   mapsOpen: false,
+  templateShape: 'sphere',
+  templateSize: 20,
+  templateWidth: 5,
+  template: null,
+  rings: [],
+  autoInitiative: false,
+  pendingTokenTemplate: null,
 
   setTool: (tool) =>
     set((s) => ({

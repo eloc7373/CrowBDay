@@ -100,13 +100,11 @@ test.describe('Phase 4 acceptance', () => {
     await page.getByRole('button', { name: 'Maps' }).click()
     const maps = page.getByRole('dialog', { name: 'Maps' })
     const bad = { format: 'dmtk-map', version: 1, name: 'x', tiles: { '0,0': 3 } }
-    await maps
-      .getByLabel('Map file')
-      .setInputFiles({
-        name: 'bad.json',
-        mimeType: 'application/json',
-        buffer: Buffer.from(JSON.stringify(bad)),
-      })
+    await maps.getByLabel('Map file').setInputFiles({
+      name: 'bad.json',
+      mimeType: 'application/json',
+      buffer: Buffer.from(JSON.stringify(bad)),
+    })
     const alert = maps.getByRole('alert')
     await expect(alert).toContainText('could not be imported')
     await expect(alert).toContainText('grid: is required.')

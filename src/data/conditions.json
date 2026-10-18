@@ -1,0 +1,156 @@
+{
+  "notice": "Original placeholder summaries written for DM Toolkit, based on the conditions in the 5e System Reference Document 5.1. NOT official rules text. Verify against SRD 5.1 or your own books.",
+  "source": {
+    "book": "DM Toolkit sample (original placeholder summary of SRD 5.1)",
+    "license": "Original text, CC0-1.0"
+  },
+  "conditions": [
+    {
+      "id": "blinded",
+      "name": "Blinded",
+      "summary": "Can't see.",
+      "effects": [
+        "Automatically fails any ability check that needs sight.",
+        "Attack rolls against it have advantage.",
+        "Its own attack rolls have disadvantage."
+      ]
+    },
+    {
+      "id": "charmed",
+      "name": "Charmed",
+      "summary": "Friendly toward whoever charmed it.",
+      "effects": [
+        "Can't attack the charmer or target them with harmful abilities or magical effects.",
+        "The charmer has advantage on ability checks to interact socially with it."
+      ]
+    },
+    {
+      "id": "deafened",
+      "name": "Deafened",
+      "summary": "Can't hear.",
+      "effects": ["Automatically fails any ability check that needs hearing."]
+    },
+    {
+      "id": "frightened",
+      "name": "Frightened",
+      "summary": "Afraid of a specific source.",
+      "effects": [
+        "Disadvantage on ability checks and attack rolls while the source of its fear is in line of sight.",
+        "Can't willingly move closer to the source of its fear."
+      ]
+    },
+    {
+      "id": "grappled",
+      "name": "Grappled",
+      "summary": "Held in place by another creature.",
+      "effects": [
+        "Speed becomes 0 and can't be increased.",
+        "Ends if the grappler is incapacitated.",
+        "Ends if an effect moves it out of the grappler's reach."
+      ]
+    },
+    {
+      "id": "incapacitated",
+      "name": "Incapacitated",
+      "summary": "Unable to act.",
+      "effects": ["Can't take actions or reactions."]
+    },
+    {
+      "id": "invisible",
+      "name": "Invisible",
+      "summary": "Can't be seen without magic or a special sense.",
+      "effects": [
+        "Counts as heavily obscured for the purpose of hiding; its location can still be given away by noise or tracks.",
+        "Attack rolls against it have disadvantage.",
+        "Its own attack rolls have advantage."
+      ]
+    },
+    {
+      "id": "paralyzed",
+      "name": "Paralyzed",
+      "summary": "Frozen in place.",
+      "effects": [
+        "Incapacitated; can't move or speak.",
+        "Automatically fails Strength and Dexterity saving throws.",
+        "Attack rolls against it have advantage.",
+        "Any hit from an attacker within 5 feet is a critical hit."
+      ]
+    },
+    {
+      "id": "petrified",
+      "name": "Petrified",
+      "summary": "Turned to an inanimate substance such as stone.",
+      "effects": [
+        "Incapacitated; can't move or speak and is unaware of its surroundings. Its weight increases tenfold and it stops aging.",
+        "Attack rolls against it have advantage.",
+        "Automatically fails Strength and Dexterity saving throws.",
+        "Has resistance to all damage.",
+        "Immune to poison and disease (any already affecting it is suspended)."
+      ]
+    },
+    {
+      "id": "poisoned",
+      "name": "Poisoned",
+      "summary": "Weakened by poison.",
+      "effects": ["Disadvantage on attack rolls and ability checks."]
+    },
+    {
+      "id": "prone",
+      "name": "Prone",
+      "summary": "Lying on the ground.",
+      "effects": [
+        "Can only crawl unless it stands up, which costs half its speed.",
+        "Disadvantage on its attack rolls.",
+        "Attacks against it have advantage from within 5 feet and disadvantage from farther away."
+      ]
+    },
+    {
+      "id": "restrained",
+      "name": "Restrained",
+      "summary": "Bound, entangled or otherwise held fast.",
+      "effects": [
+        "Speed becomes 0 and can't be increased.",
+        "Attack rolls against it have advantage.",
+        "Its own attack rolls have disadvantage.",
+        "Disadvantage on Dexterity saving throws."
+      ]
+    },
+    {
+      "id": "stunned",
+      "name": "Stunned",
+      "summary": "Reeling and barely able to respond.",
+      "effects": [
+        "Incapacitated; can't move and can speak only falteringly.",
+        "Automatically fails Strength and Dexterity saving throws.",
+        "Attack rolls against it have advantage."
+      ]
+    },
+    {
+      "id": "unconscious",
+      "name": "Unconscious",
+      "summary": "Knocked out or asleep and unaware.",
+      "effects": [
+        "Incapacitated; can't move or speak and is unaware of its surroundings.",
+        "Drops whatever it is holding and falls prone.",
+        "Automatically fails Strength and Dexterity saving throws.",
+        "Attack rolls against it have advantage.",
+        "Any hit from an attacker within 5 feet is a critical hit."
+      ]
+    }
+  ],
+  "exhaustion": {
+    "id": "exhaustion",
+    "name": "Exhaustion",
+    "summary": "Six cumulative levels; each level includes the effects of the lower ones.",
+    "note": "These levels follow SRD 5.1. The 2024 revision of the core rules handles Exhaustion differently, so use whichever edition your table plays.",
+    "levels": [
+      "Disadvantage on ability checks.",
+      "Speed halved.",
+      "Disadvantage on attack rolls and saving throws.",
+      "Hit point maximum halved.",
+      "Speed reduced to 0.",
+      "Death."
+    ],
+    "recovery": "Finishing a long rest with food and drink reduces exhaustion by one level."
+  }
+}

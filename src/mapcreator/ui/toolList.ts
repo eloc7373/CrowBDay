@@ -6,6 +6,7 @@ import {
   MousePointer2,
   PaintBucket,
   Paintbrush,
+  Radius,
   Ruler,
   Square,
   Stamp,
@@ -25,5 +26,6 @@ export const TOOLS: { id: ToolId; name: string; key: string; icon: LucideIcon }[
   { id: 'select', name: 'Select & move', key: 'V', icon: MousePointer2 },
   { id: 'measure', name: 'Measure', key: 'M', icon: Ruler },
   { id: 'label', name: 'Label / room marker', key: 'T', icon: Type },
+  { id: 'template', name: 'Area template', key: 'A', icon: Radius },
   { id: 'pan', name: 'Pan', key: 'H', icon: Hand },
 ]

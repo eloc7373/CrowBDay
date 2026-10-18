@@ -62,6 +62,7 @@ export const SHORTCUTS: Shortcut[] = [
   tool('m', 'measure', 'Measure'),
   tool('h', 'pan', 'Pan'),
   tool('t', 'label', 'Label / room marker'),
+  tool('a', 'template', 'Area template (combat)'),
   {
     keys: 'F',
     description: 'Mirror the stamp or selected props',
@@ -120,10 +121,10 @@ export const SHORTCUTS: Shortcut[] = [
   },
   {
     keys: 'Escape',
-    description: 'Cancel current operation / clear selection',
+    description: 'Cancel current operation / clear selection / clear area template',
     group: 'Editing',
     match: (e) => e.key === 'Escape',
-    run: () => cancelOperation(),
+    run: () => cancelOperation(true),
   },
   {
     keys: 'Shift (Brush)',

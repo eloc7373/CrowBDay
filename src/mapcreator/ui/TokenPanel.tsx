@@ -3,6 +3,8 @@
 
 import { useState, type KeyboardEvent } from 'react'
 import { Button, inputClass, Panel } from '../../app/ui'
+import { useCombatStore } from '../../board/initiative/store'
+import { addTokenToInitiative, combatantForToken, unlinkToken } from '../../combat/links'
 import { canEdit } from '../canvas/controller'
 import {
   CREATURE_SIZES,
@@ -34,6 +36,21 @@ function commitToken(doc: MapDoc, p: PlacedProp, patch: Partial<TokenInfo>, labe
   next.x = Math.max(0, Math.min(doc.width - r.w, p.x))
   next.y = Math.max(0, Math.min(doc.height - r.h, p.y))
   useMapStore.getState().commit(label, compact([setChange(doc, 'props', p.id, next)]))
+  // Keep a linked creature's name, side and speed in step with the token.
+  const sync: Record<string, unknown> = {}
+  if (patch.name !== undefined) sync.name = patch.name
+  if (patch.side !== undefined) sync.side = patch.side
+  if (patch.speed !== undefined) sync.speed = patch.speed
+  if (Object.keys(sync).length) {
+    const store = useCombatStore.getState()
+    const c = combatantForToken(store.state, doc.id, p.id)
+    if (c) {
+      store.update((s) => ({
+        ...s,
+        combatants: s.combatants.map((x) => (x.id === c.id ? { ...x, ...sync } : x)),
+      }))
+    }
+  }
 }
 
 const parseNum = (s: string): number | null => {
@@ -90,6 +107,8 @@ function TokenForm({ doc, p }: { doc: MapDoc; p: PlacedProp }) {
   const [amount, setAmount] = useState('')
   const update = (patch: Partial<TokenInfo>, label?: string) => commitToken(doc, p, patch, label)
   const hp = t.hp
+  const combat = useCombatStore((s) => s.state)
+  const linked = combatantForToken(combat, doc.id, p.id)
 
   const setHp = (field: 'current' | 'max' | 'temp', v: string) => {
     const n = parseNum(v)
@@ -153,78 +172,109 @@ function TokenForm({ doc, p }: { doc: MapDoc; p: PlacedProp }) {
           </select>
         </label>
       </div>
-      <div className="grid grid-cols-3 gap-2">
-        <CommitInput
-          label="HP"
-          type="number"
-          value={hp ? String(hp.current) : ''}
-          onCommit={(v) => setHp('current', v)}
-        />
-        <CommitInput
-          label="Max HP"
-          type="number"
-          value={hp ? String(hp.max) : ''}
-          onCommit={(v) => setHp('max', v)}
-        />
-        <CommitInput
-          label="Temp HP"
-          type="number"
-          value={hp ? String(hp.temp) : ''}
-          onCommit={(v) => setHp('temp', v)}
-        />
-        <CommitInput
-          label="AC"
-          type="number"
-          value={t.ac?.toString() ?? ''}
-          onCommit={(v) => update({ ac: parseNum(v) })}
-        />
-        <CommitInput
-          label="Speed (ft)"
-          type="number"
-          value={t.speed?.toString() ?? ''}
-          onCommit={(v) => update({ speed: parseNum(v) })}
-        />
-        <CommitInput
-          label="Init bonus"
-          type="number"
-          value={t.initiativeBonus?.toString() ?? ''}
-          onCommit={(v) => update({ initiativeBonus: parseNum(v) })}
-        />
-      </div>
-      {hp && (
-        <div className="flex items-end gap-1">
-          <label className="flex flex-1 flex-col gap-0.5 text-[11px] text-zinc-500 dark:text-zinc-400">
-            Amount
-            <input
-              type="number"
-              min={1}
-              aria-label="Damage or healing amount"
-              className={inputClass}
-              value={amount}
-              onChange={(e) => setAmount(e.target.value)}
-              onKeyDown={(e) => e.key === 'Enter' && applyHp(-1)}
-            />
-          </label>
-          <Button onClick={() => applyHp(-1)} className="text-red-600 dark:text-red-400">
-            Damage
-          </Button>
-          <Button onClick={() => applyHp(1)} className="text-green-700 dark:text-green-400">
-            Heal
+      {linked ? (
+        <div
+          className="rounded-md border border-sky-300 bg-sky-50 p-2 dark:border-sky-700 dark:bg-sky-950"
+          data-testid="token-linked"
+        >
+          <p className="font-semibold">Linked to initiative</p>
+          <p>
+            {linked.hp ? `HP ${linked.hp.current}/${linked.hp.max}` : 'No HP'}
+            {linked.ac !== null ? ` · AC ${linked.ac}` : ''}
+            {linked.conditions.length ? ` · ${linked.conditions.join(', ')}` : ''}
+          </p>
+          <p className="text-zinc-500 dark:text-zinc-400">
+            HP, AC and conditions are edited in the initiative tracker (DM Board).
+          </p>
+          <CommitInput
+            label="Speed (ft)"
+            type="number"
+            value={t.speed?.toString() ?? ''}
+            onCommit={(v) => update({ speed: parseNum(v) })}
+          />
+          <Button className="mt-1 !px-2 !py-0.5 text-xs" onClick={() => unlinkToken(doc.id, p.id)}>
+            Unlink
           </Button>
         </div>
+      ) : (
+        <>
+          <div className="grid grid-cols-3 gap-2">
+            <CommitInput
+              label="HP"
+              type="number"
+              value={hp ? String(hp.current) : ''}
+              onCommit={(v) => setHp('current', v)}
+            />
+            <CommitInput
+              label="Max HP"
+              type="number"
+              value={hp ? String(hp.max) : ''}
+              onCommit={(v) => setHp('max', v)}
+            />
+            <CommitInput
+              label="Temp HP"
+              type="number"
+              value={hp ? String(hp.temp) : ''}
+              onCommit={(v) => setHp('temp', v)}
+            />
+            <CommitInput
+              label="AC"
+              type="number"
+              value={t.ac?.toString() ?? ''}
+              onCommit={(v) => update({ ac: parseNum(v) })}
+            />
+            <CommitInput
+              label="Speed (ft)"
+              type="number"
+              value={t.speed?.toString() ?? ''}
+              onCommit={(v) => update({ speed: parseNum(v) })}
+            />
+            <CommitInput
+              label="Init bonus"
+              type="number"
+              value={t.initiativeBonus?.toString() ?? ''}
+              onCommit={(v) => update({ initiativeBonus: parseNum(v) })}
+            />
+          </div>
+          {hp && (
+            <div className="flex items-end gap-1">
+              <label className="flex flex-1 flex-col gap-0.5 text-[11px] text-zinc-500 dark:text-zinc-400">
+                Amount
+                <input
+                  type="number"
+                  min={1}
+                  aria-label="Damage or healing amount"
+                  className={inputClass}
+                  value={amount}
+                  onChange={(e) => setAmount(e.target.value)}
+                  onKeyDown={(e) => e.key === 'Enter' && applyHp(-1)}
+                />
+              </label>
+              <Button onClick={() => applyHp(-1)} className="text-red-600 dark:text-red-400">
+                Damage
+              </Button>
+              <Button onClick={() => applyHp(1)} className="text-green-700 dark:text-green-400">
+                Heal
+              </Button>
+            </div>
+          )}
+          <CommitInput
+            label="Conditions (comma separated)"
+            value={t.conditions.join(', ')}
+            onCommit={(v) =>
+              update({
+                conditions: v
+                  .split(',')
+                  .map((s) => s.trim())
+                  .filter(Boolean),
+              })
+            }
+          />
+          <Button className="!px-2 !py-0.5 text-xs" onClick={() => addTokenToInitiative(doc.id, p)}>
+            Add to initiative
+          </Button>
+        </>
       )}
-      <CommitInput
-        label="Conditions (comma separated)"
-        value={t.conditions.join(', ')}
-        onCommit={(v) =>
-          update({
-            conditions: v
-              .split(',')
-              .map((s) => s.trim())
-              .filter(Boolean),
-          })
-        }
-      />
       <label className="flex items-center gap-2">
         <input
           type="checkbox"

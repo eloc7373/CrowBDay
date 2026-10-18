@@ -1,0 +1,28 @@
+import { expect, test } from '@playwright/test'
+
+test('compendium shows the 2024 Monster Manual stat block and readable page', async ({ page }) => {
+  const errors: string[] = []
+  page.on('pageerror', (e) => errors.push(e.message))
+  await page.goto('/#/board')
+  const search = page.getByLabel('Search compendium')
+  await search.fill('Aboleth')
+  await page.getByRole('list', { name: 'Compendium results' }).getByRole('button', { name: /Aboleth/ }).first().click()
+  const details = page.getByLabel('Selected entry details')
+  await expect(details.getByRole('heading', { name: 'Aboleth' })).toBeVisible()
+  await expect(details).toContainText('AC 17')
+  await expect(details).toContainText('150 (20d10 + 40)')
+  await expect(details).toContainText('Mucus Cloud')
+  await expect(details).toContainText('Lash. The aboleth makes one Tentacle attack.')
+  await details.getByRole('button', { name: /book page full size/ }).click()
+  const dialog = page.getByRole('dialog', { name: /Aboleth book page/ })
+  await expect(dialog).toBeVisible()
+  const img = dialog.getByRole('img')
+  await expect(img).toBeVisible()
+  expect(await img.evaluate((el: HTMLImageElement) => el.naturalWidth)).toBeGreaterThanOrEqual(1200)
+  await dialog.getByRole('button', { name: 'Close' }).click()
+  await expect(dialog).toBeHidden()
+  await search.fill('Giant Ape')
+  await page.getByRole('list', { name: 'Compendium results' }).getByRole('button', { name: /Giant Ape/ }).first().click()
+  await expect(details).toContainText('Huge')
+  expect(errors).toEqual([])
+})

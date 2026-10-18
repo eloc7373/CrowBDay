@@ -1,6 +1,7 @@
 // Tool previews and selection highlights, drawn in world space. Line widths and
 // text are divided by the zoom scale so they stay a constant size on screen.
 
+import { drawCombat, drawTrail, NO_COMBAT, type CombatOverlay } from '../../combat/draw'
 import { cellLabel, parseCellKey } from '../../lib/geometry'
 import { parseEdgeKey, type MapDoc } from '../layers/model'
 import type { Preview, WallMode } from '../store/editorStore'
@@ -79,7 +80,7 @@ function drawSelection(
   ctx.restore()
 }
 
-function label(ctx: Ctx, text: string, x: number, y: number, px: number) {
+export function label(ctx: Ctx, text: string, x: number, y: number, px: number) {
   ctx.save()
   ctx.font = `600 ${13 * px}px system-ui, sans-serif`
   const w = ctx.measureText(text).width + 12 * px
@@ -102,11 +103,14 @@ export function drawOverlay(
   selection: Selection,
   scale: number,
   diagonalRule: DiagonalRule,
+  combat: CombatOverlay = NO_COMBAT,
 ) {
   const cell = doc.grid.cellSize
   const px = 1 / scale
   const moving = preview?.kind === 'move' ? preview : null
+  drawCombat(ctx, doc, combat, px)
   drawSelection(ctx, doc, selection, cell, px, moving?.dx ?? 0, moving?.dy ?? 0)
+  if (moving?.trail) drawTrail(ctx, moving.trail, cell, px, label)
   if (!preview) return
 
   ctx.save()

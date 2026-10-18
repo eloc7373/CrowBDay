@@ -9,6 +9,9 @@ import { useAssetStore } from '../tilesets/registry'
 import { dropAsset, pointerDown, pointerLeave, pointerMove, pointerUp, wheel } from './controller'
 import { drawNotes, drawProps, drawWalls } from './draw'
 import { drawScreenGrid } from './gridDraw'
+import { useCombatStore } from '../../board/initiative/store'
+import type { CombatOverlay } from '../../combat/draw'
+import { linkedProps, tokenForCombatant } from '../../combat/links'
 import { drawOverlay } from './overlayDraw'
 
 /** MIME type used when dragging assets from the library onto the canvas. */
@@ -39,9 +42,26 @@ function OverlayLayer() {
   const preview = useEditorStore((s) => s.preview)
   const selection = useEditorStore((s) => s.selection)
   const diagonalRule = useEditorStore((s) => s.diagonalRule)
+  const template = useEditorStore((s) => s.template)
+  const rings = useEditorStore((s) => s.rings)
+  const combat = useCombatStore((s) => s.state)
+  const combatOverlay = useMemo<CombatOverlay>(() => {
+    const active = combat.combatants.find((c) => c.id === combat.activeId)
+    const activeTokenId = tokenForCombatant(active, doc.id)
+    // Rings follow the selected token, or the active creature's token.
+    const selected =
+      selection.layer === 'tokens' && selection.ids.length === 1 ? selection.ids[0] : null
+    return {
+      activeTokenId: activeTokenId && doc.props[activeTokenId] ? activeTokenId : null,
+      template,
+      rings,
+      ringTokenId: selected ?? activeTokenId,
+    }
+  }, [combat.combatants, combat.activeId, doc.id, doc.props, selection, template, rings])
   const fn = useMemo<SceneFn>(
-    () => (k) => drawOverlay(k._context, doc, preview, selection, view.scale, diagonalRule),
-    [doc, preview, selection, view.scale, diagonalRule],
+    () => (k) =>
+      drawOverlay(k._context, doc, preview, selection, view.scale, diagonalRule, combatOverlay),
+    [doc, preview, selection, view.scale, diagonalRule, combatOverlay],
   )
   return (
     <Layer {...worldProps(view)}>
@@ -60,6 +80,7 @@ export function MapCanvas() {
   const tool = useEditorStore((s) => s.tool)
   const spaceHeld = useEditorStore((s) => s.spaceHeld)
   const assetsVersion = useAssetStore((s) => s.version)
+  const combatants = useCombatStore((s) => s.state.combatants)
 
   useEffect(() => {
     const el = containerRef.current
@@ -92,11 +113,15 @@ export function MapCanvas() {
   const [objectsFn, tokensFn] = useMemo<SceneFn[]>(() => {
     const all = Object.values(doc.props)
     const objects = all.filter((p) => p.layer === 'objects')
-    const tokens = all.filter((p) => p.layer === 'tokens')
+    const tokens = linkedProps(
+      all.filter((p) => p.layer === 'tokens'),
+      combatants,
+      doc.id,
+    )
     return [(k) => drawProps(k._context, objects, cell), (k) => drawProps(k._context, tokens, cell)]
     // assetsVersion: custom tileset art may have changed.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [doc.props, cell, assetsVersion])
+  }, [doc.props, doc.id, combatants, cell, assetsVersion])
   const notesFn = useMemo<SceneFn>(() => {
     const notes = Object.values(doc.notes)
     return (k) => drawNotes(k._context, notes, cell)
