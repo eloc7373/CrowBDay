@@ -1,0 +1,92 @@
+@@ Flying Sword | 20
+Small construct, unaligned
+Armor Class 17 (natural armor)
+Hit Points 17 (5d6)
+Speed 0 ft., fly 50 ft.
+STR 12 15 11 1 5 1
+Saving Throws Dex +4
+Damage Immunities poison, psychic
+Condition Immunities blinded, charmed, deafened, frightened, paralyzed, petrified, poisoned
+Senses blindsight 60 ft. (blind beyond this radius), passive Perception 7
+Languages —
+Challenge 1/4 (50 XP)
+Antimagic Susceptibility. The sword is incapacitated while in the area of an antimagic field. If targeted by dispel magic, the sword must succeed on a Constitution saving throw against the caster's spell save DC or fall unconscious for 1 minute.
+False Appearance. While the sword remains motionless and isn't flying, it is indistinguishable from a normal sword.
+## ACTIONS
+Longsword. Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 5 (1d8 + 1) slashing damage.
+@@ Rug of Smothering | 20
+Large construct, unaligned
+Armor Class 12
+Hit Points 33 (6d10)
+Speed 10 ft.
+STR 17 14 10 1 3 1
+Damage Immunities poison, psychic
+Condition Immunities blinded, charmed, deafened, frightened, paralyzed, petrified, poisoned
+Senses blindsight 60 ft. (blind beyond this radius), passive Perception 6
+Languages —
+Challenge 2 (450 XP)
+Antimagic Susceptibility. The rug is incapacitated while in the area of an antimagic field. If targeted by dispel magic, the rug must succeed on a Constitution saving throw against the caster's spell save DC or fall unconscious for 1 minute.
+Damage Transfer. While it is grappling a creature, the rug takes only half the damage dealt to it, and the creature grappled by the rug takes the other half.
+False Appearance. While the rug remains motionless, it is indistinguishable from a normal rug.
+## ACTIONS
+Smother. Melee Weapon Attack: +5 to hit, reach 5 ft., one Medium or smaller creature. Hit: The creature is grappled (escape DC 13). Until this grapple ends, the target is restrained, blinded, and at risk of suffocating, and the rug can't smother another target. In addition, at the start of each of the target's turns, the target takes 10 (2d6 + 3) bludgeoning damage.
+@@ Ankheg | 21
+Large monstrosity, unaligned
+Armor Class 14 (natural armor), 11 while prone
+Hit Points 39 (6d10 + 6)
+Speed 30 ft., burrow 10 ft.
+STR 17 11 13 1 13 6
+Senses darkvision 60 ft., tremorsense 60 ft., passive Perception 11
+Languages —
+Challenge 2 (450 XP)
+## ACTIONS
+Bite. Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 9 (2d6 + 3) slashing damage plus 3 (1d6) acid damage. If the target is a Large or smaller creature, it is grappled (escape DC 13). Until this grapple ends, the ankheg can bite only the grappled creature and has advantage on attack rolls to do so.
+Acid Spray (Recharge 6). The ankheg spits acid in a line that is 30 feet long and 5 feet wide, provided that it has no creature grappled. Each creature in that line must make a DC 13 Dexterity saving throw, taking 10 (3d6) acid damage on a failed save, or half as much damage on a successful one.
+@@ Banshee | 23
+Medium undead, chaotic evil
+Armor Class 12
+Hit Points 58 (13d8)
+Speed 0 ft., fly 40 ft. (hover)
+STR 1 14 10 12 11 17
+Saving Throws Wis +2, Cha +4
+Damage Resistances acid, fire, lightning, thunder; bludgeoning, piercing, and slashing from nonmagical weapons
+Damage Immunities cold, necrotic, poison
+Condition Immunities charmed, exhaustion, frightened, grappled, paralyzed, petrified, poisoned, prone, restrained
+Senses darkvision 60 ft., passive Perception 10
+Languages Common, Elvish
+Challenge 4 (1,100 XP)
+Detect Life. The banshee can magically sense the presence of living creatures up to 5 miles away. She knows the general direction they're in but not their exact locations.
+Incorporeal Movement. The banshee can move through other creatures and objects as if they were difficult terrain. She takes 5 (1d10) force damage if she ends her turn inside an object.
+## ACTIONS
+Corrupting Touch. Melee Spell Attack: +4 to hit, reach 5 ft., one target. Hit: 12 (3d6 + 2) necrotic damage.
+Horrifying Visage. Each non-undead creature within 60 feet of the banshee that can see her must succeed on a DC 13 Wisdom saving throw or be frightened for 1 minute. A frightened target can repeat the saving throw at the end of each of its turns, with disadvantage if the banshee is within line of sight, ending the effect on itself on a success. If a target's saving throw is successful or the effect ends for it, the target is immune to the banshee's Horrifying Visage for the next 24 hours.
+Wail (1/Day). The banshee releases a mournful wail, provided that she isn't in sunlight. This wail has no effect on constructs and undead. All other creatures within 30 feet of her that can hear her must make a DC 13 Constitution saving throw. On a failure, a creature drops to 0 hit points. On a success, a creature takes 10 (3d6) psychic damage.
+@@ Basilisk | 24
+Medium monstrosity, unaligned
+Armor Class 15 (natural armor)
+Hit Points 52 (8d8 + 16)
+Speed 20 ft.
+STR 16 8 15 2 8 7
+Senses darkvision 60 ft., passive Perception 9
+Languages —
+Challenge 3 (700 XP)
+Petrifying Gaze. If a creature starts its turn within 30 feet of the basilisk and the two of them can see each other, the basilisk can force the creature to make a DC 12 Constitution saving throw if the basilisk isn't incapacitated. On a failed save, the creature magically begins to turn to stone and is restrained. It must repeat the saving throw at the end of its next turn. On a success, the effect ends. On a failure, the creature is petrified until freed by the greater restoration spell or other magic. ¶ A creature that isn't surprised can avert its eyes to avoid the saving throw at the start of its turn. If it does so, it can't see the basilisk until the start of its next turn, when it can avert its eyes again. If it looks at the basilisk in the meantime, it must immediately make the save. ¶ If the basilisk sees its reflection within 30 feet of it in bright light, it mistakes itself for a rival and targets itself with its gaze.
+## ACTIONS
+Bite. Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 10 (2d6 + 3) piercing damage plus 7 (2d6) poison damage.
+@@ Behir | 25
+Huge monstrosity, neutral evil
+Armor Class 17 (natural armor)
+Hit Points 168 (16d12 + 64)
+Speed 50 ft., climb 40 ft.
+STR 23 16 18 7 14 12
+Skills Perception +6, Stealth +7
+Damage Immunities lightning
+Senses darkvision 90 ft., passive Perception 16
+Languages Draconic
+Challenge 11 (7,200 XP)
+## ACTIONS
+Multiattack. The behir makes two attacks: one with its bite and one to constrict.
+Bite. Melee Weapon Attack: +10 to hit, reach 10 ft., one target. Hit: 22 (3d10 + 6) piercing damage.
+Constrict. Melee Weapon Attack: +10 to hit, reach 5 ft., one Large or smaller creature. Hit: 17 (2d10 + 6) bludgeoning damage plus 17 (2d10 + 6) slashing damage. The target is grappled (escape DC 16) if the behir isn't already constricting a creature, and the target is restrained until this grapple ends.
+Lightning Breath (Recharge 5-6). The behir exhales a line of lightning that is 20 feet long and 5 feet wide. Each creature in that line must make a DC 16 Dexterity saving throw, taking 66 (12d10) lightning damage on a failed save, or half as much damage on a successful one.
+Swallow. The behir makes one bite attack against a Medium or smaller target it is grappling. If the attack hits, the target is also swallowed, and the grapple ends. While swallowed, the target is blinded and restrained, it has total cover against attacks and other effects outside the behir, and it takes 21 (6d6) acid damage at the start of each of the behir's turns. A behir can have only one creature swallowed at a time. ¶ If the behir takes 30 damage or more on a single turn from the swallowed creature, the behir must succeed on a DC 14 Constitution saving throw at the end of that turn or regurgitate the creature, which falls prone in a space within 10 feet of the behir. If the behir dies, a swallowed creature is no longer restrained by it and can escape from the corpse by using 15 feet of movement, exiting prone.

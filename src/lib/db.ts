@@ -49,7 +49,6 @@ export interface CompendiumMonster {
   speed?: string
   /** Initiative bonus printed in the stat block; falls back to Dexterity modifier. */
   initiativeBonus?: number
-  initiativeScore?: number
   dexMod: number
   conMod?: number
   abilityScores?: {

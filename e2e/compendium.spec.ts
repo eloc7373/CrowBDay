@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test'
 
-test('compendium shows the 2024 Monster Manual stat block and readable page', async ({ page }) => {
+test('compendium shows the 2014 Monster Manual stat block and readable page', async ({ page }) => {
   const errors: string[] = []
   page.on('pageerror', (e) => errors.push(e.message))
   await page.goto('/#/board')
@@ -10,9 +10,9 @@ test('compendium shows the 2024 Monster Manual stat block and readable page', as
   const details = page.getByLabel('Selected entry details')
   await expect(details.getByRole('heading', { name: 'Aboleth' })).toBeVisible()
   await expect(details).toContainText('AC 17')
-  await expect(details).toContainText('150 (20d10 + 40)')
-  await expect(details).toContainText('Mucus Cloud')
-  await expect(details).toContainText('Lash. The aboleth makes one Tentacle attack.')
+  await expect(details).toContainText('135 (18d10 + 36)')
+  await expect(details).toContainText('Amphibious')
+  await expect(details).toContainText('Multiattack. The aboleth makes three tentacle attacks.')
   await details.getByRole('button', { name: /book page full size/ }).click()
   const dialog = page.getByRole('dialog', { name: /Aboleth book page/ })
   await expect(dialog).toBeVisible()

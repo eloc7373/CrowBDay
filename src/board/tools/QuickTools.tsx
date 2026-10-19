@@ -105,7 +105,7 @@ export function QuickTools() {
         </table>
       </section>
       <p className="text-[11px] text-zinc-500 italic">
-        Values summarise the SRD 5.1 tables; verify against your rules edition.
+        Values summarise the 2014 Player's Handbook tables.
       </p>
     </div>
   )

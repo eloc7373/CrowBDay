@@ -1,5 +1,5 @@
-// Rules content: the bundled original sample, any SRD JSON dropped into
-// src/data/srd/ at build time, and packs the user imports (kept in IndexedDB).
+// Rules content: the bundled original sample, any rules JSON dropped into
+// src/data/bundled/ at build time, and packs the user imports (kept in IndexedDB).
 
 import { create } from 'zustand'
 import sample from '../../data/rules-sample.json'
@@ -31,9 +31,9 @@ function samplePack(): RulesPack {
   }
 }
 
-/** JSON files in src/data/srd/ are bundled at build time (none are shipped). */
+/** JSON files in src/data/bundled/ are bundled at build time (none are shipped). */
 function bundledPacks(): RulesPack[] {
-  const files = import.meta.glob('../../data/srd/*.json', { eager: true, import: 'default' })
+  const files = import.meta.glob('../../data/bundled/*.json', { eager: true, import: 'default' })
   return Object.entries(files).flatMap(([path, json]) => {
     const v = validateRules(json)
     if (v.errors.length) console.warn(`Rules file ${path} has problems`, v.errors)

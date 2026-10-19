@@ -1,0 +1,151 @@
+@@ Giant Wolf Spider | 330
+Medium beast, unaligned
+Armor Class 13
+Hit Points 11 (2d8 + 2)
+Speed 40 ft., climb 40 ft.
+STR 12 16 13 3 12 4
+Skills Perception +3, Stealth +7
+Senses blindsight 10 ft., darkvision 60 ft., passive Perception 13
+Languages —
+Challenge 1/4 (50 XP)
+Spider Climb. The spider can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check.
+Web Sense. While in contact with a web, the spider knows the exact location of any other creature in contact with the same web.
+Web Walker. The spider ignores movement restrictions caused by webbing.
+## ACTIONS
+Bite. Melee Weapon Attack: +3 to hit, reach 5 ft., one creature. Hit: 4 (1d6 + 1) piercing damage, and the target must make a DC 11 Constitution saving throw, taking 7 (2d6) poison damage on a failed save, or half as much damage on a successful one. If the poison damage reduces the target to 0 hit points, the target is stable but poisoned for 1 hour, even after regaining hit points, and is paralyzed while poisoned in this way.
+@@ Goat | 330
+Medium beast, unaligned
+Armor Class 10
+Hit Points 4 (1d8)
+Speed 40 ft.
+STR 12 10 11 2 10 5
+Senses passive Perception 10
+Languages —
+Challenge 0 (10 XP)
+Charge. If the goat moves at least 20 feet straight toward a target and then hits it with a ram attack on the same turn, the target takes an extra 2 (1d4) bludgeoning damage. If the target is a creature, it must succeed on a DC 10 Strength saving throw or be knocked prone.
+Sure-Footed. The goat has advantage on Strength and Dexterity saving throws made against effects that would knock it prone.
+## ACTIONS
+Ram. Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 3 (1d4 + 1) bludgeoning damage.
+@@ Hawk | 330
+Tiny beast, unaligned
+Armor Class 13
+Hit Points 1 (1d4 - 1)
+Speed 10 ft., fly 60 ft.
+STR 5 16 8 2 14 6
+Skills Perception +4
+Senses passive Perception 14
+Languages —
+Challenge 0 (10 XP)
+Keen Sight. The hawk has advantage on Wisdom (Perception) checks that rely on sight.
+## ACTIONS
+Talons. Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 1 slashing damage.
+@@ Hunter Shark | 330
+Large beast, unaligned
+Armor Class 12 (natural armor)
+Hit Points 45 (6d10 + 12)
+Speed 0 ft., swim 40 ft.
+STR 18 13 15 1 10 4
+Skills Perception +2
+Senses blindsight 30 ft., passive Perception 12
+Languages —
+Challenge 2 (450 XP)
+Blood Frenzy. The shark has advantage on melee attack rolls against any creature that doesn't have all its hit points.
+Water Breathing. The shark can breathe only underwater.
+## ACTIONS
+Bite. Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 13 (2d8 + 4) piercing damage.
+@@ Hyena | 331
+Medium beast, unaligned
+Armor Class 11
+Hit Points 5 (1d8 + 1)
+Speed 50 ft.
+STR 11 13 12 2 12 5
+Skills Perception +3
+Senses passive Perception 13
+Languages —
+Challenge 0 (10 XP)
+Pack Tactics. The hyena has advantage on an attack roll against a creature if at least one of the hyena's allies is within 5 feet of the creature and the ally isn't incapacitated.
+## ACTIONS
+Bite. Melee Weapon Attack: +2 to hit, reach 5 ft., one target. Hit: 3 (1d6) piercing damage.
+@@ Jackal | 331
+Small beast, unaligned
+Armor Class 12
+Hit Points 3 (1d6)
+Speed 40 ft.
+STR 8 15 11 3 12 6
+Skills Perception +3
+Senses passive Perception 13
+Languages —
+Challenge 0 (10 XP)
+Keen Hearing and Smell. The jackal has advantage on Wisdom (Perception) checks that rely on hearing or smell.
+Pack Tactics. The jackal has advantage on an attack roll against a creature if at least one of the jackal's allies is within 5 feet of the creature and the ally isn't incapacitated.
+## ACTIONS
+Bite. Melee Weapon Attack: +1 to hit, reach 5 ft., one target. Hit: 1 (1d4 - 1) piercing damage.
+@@ Killer Whale | 331
+Huge beast, unaligned
+Armor Class 12 (natural armor)
+Hit Points 90 (12d12 + 12)
+Speed 0 ft., swim 60 ft.
+STR 19 10 13 3 12 7
+Skills Perception +3
+Senses blindsight 120 ft., passive Perception 13
+Languages —
+Challenge 3 (700 XP)
+Echolocation. The whale can't use its blindsight while deafened.
+Hold Breath. The whale can hold its breath for 30 minutes.
+Keen Hearing. The whale has advantage on Wisdom (Perception) checks that rely on hearing.
+## ACTIONS
+Bite. Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 21 (5d6 + 4) piercing damage.
+@@ Lion | 331
+Large beast, unaligned
+Armor Class 12
+Hit Points 26 (4d10 + 4)
+Speed 50 ft.
+STR 17 15 13 3 12 8
+Skills Perception +3, Stealth +6
+Senses passive Perception 13
+Languages —
+Challenge 1 (200 XP)
+Keen Smell. The lion has advantage on Wisdom (Perception) checks that rely on smell.
+Pack Tactics. The lion has advantage on an attack roll against a creature if at least one of the lion's allies is within 5 feet of the creature and the ally isn't incapacitated.
+Pounce. If the lion moves at least 20 feet straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 13 Strength saving throw or be knocked prone. If the target is prone, the lion can make one bite attack against it as a bonus action.
+Running Leap. With a 10-foot running start, the lion can long jump up to 25 feet.
+## ACTIONS
+Bite. Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 7 (1d8 + 3) piercing damage.
+Claw. Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 6 (1d6 + 3) slashing damage.
+@@ Lizard | 332
+Tiny beast, unaligned
+Armor Class 10
+Hit Points 2 (1d4)
+Speed 20 ft., climb 20 ft.
+STR 2 11 10 1 8 3
+Senses darkvision 30 ft., passive Perception 9
+Languages —
+Challenge 0 (10 XP)
+## ACTIONS
+Bite. Melee Weapon Attack: +0 to hit, reach 5 ft., one target. Hit: 1 piercing damage.
+@@ Mammoth | 332
+Huge beast, unaligned
+Armor Class 13 (natural armor)
+Hit Points 126 (11d12 + 55)
+Speed 40 ft.
+STR 24 9 21 3 11 6
+Senses passive Perception 10
+Languages —
+Challenge 6 (2,300 XP)
+Trampling Charge. If the mammoth moves at least 20 feet straight toward a creature and then hits it with a gore attack on the same turn, that target must succeed on a DC 18 Strength saving throw or be knocked prone. If the target is prone, the mammoth can make one stomp attack against it as a bonus action.
+## ACTIONS
+Gore. Melee Weapon Attack: +10 to hit, reach 10 ft., one target. Hit: 25 (4d8 + 7) piercing damage.
+Stomp. Melee Weapon Attack: +10 to hit, reach 5 ft., one prone creature. Hit: 29 (4d10 + 7) bludgeoning damage.
+@@ Mastiff | 332
+Medium beast, unaligned
+Armor Class 12
+Hit Points 5 (1d8 + 1)
+Speed 40 ft.
+STR 13 14 12 3 12 7
+Skills Perception +3
+Senses passive Perception 13
+Languages —
+Challenge 1/8 (25 XP)
+Keen Hearing and Smell. The mastiff has advantage on Wisdom (Perception) checks that rely on hearing or smell.
+## ACTIONS
+Bite. Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 4 (1d6 + 1) piercing damage. If the target is a creature, it must succeed on a DC 11 Strength saving throw or be knocked prone.

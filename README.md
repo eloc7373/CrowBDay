@@ -114,16 +114,16 @@ Open **DM Board** in the top bar. Cards can be dragged and resized; **Reset layo
 - **Monster & player options**: import a personal JSON compendium, search monsters and player features together, and add monsters directly to initiative. Imported entries stay in this browser's IndexedDB.
 - **Combat**: enter initiative and battle results manually; the turn tracker highlights who's acting and who's next, and the combat log records turns, map movement, damage, healing, conditions, and DM-entered action notes. Roll dice outside the toolkit.
 - **Session notes**: markdown, autosaved every 2 s. Use "Link a map room" to insert a link that opens the map and centres that room marker.
-- **Rules**: press Ctrl+K or `/` to search. The bundled rules are original placeholder summaries.
-- **Importing rules**: Rules → Import rules JSON, using `{ "name", "notice", "entries": [ ... ] }`. The entry format is in `src/data/srd/README.md`. Imported content stays in your browser.
+- **Rules**: press Ctrl+K or `/` to search. The bundled rules are condensed summaries of the 2014 Player's Handbook.
+- **Importing rules**: Rules → Import rules JSON, using `{ "name", "notice", "entries": [ ... ] }`. The entry format is in `src/data/bundled/README.md`. Imported content stays in your browser.
 - **Campaign**: save reusable creature templates, encounter rosters, dated session recaps, player character sheets, quests and loot. Character sheets include identity, ability scores, proficiencies, combat resources, equipment, features and spells, and can be edited or added to initiative. Session logs can link to notes, map rooms, campaign records and encounters. Rest recovery is a DM-controlled, undoable checklist; it does not enforce edition-specific rest rules.
 - **Campaign backup**: use JSON / Import in the Campaign card to export or merge campaign templates, encounters, sessions and records. Data remains in this browser's IndexedDB; backups do not include maps, tilesets, rules or standalone session notes.
 
-The compendium's JSON format is documented in [docs/compendium-json.md](docs/compendium-json.md). The app does not bundle material from the Player's Handbook or Monster Manual; import personal-use data you have prepared, or use SRD data under its license.
+The compendium's JSON format is documented in [docs/compendium-json.md](docs/compendium-json.md). The bundled compendium is the 2014 Monster Manual (428 stat blocks), transcribed from the PDF. The page images it links to are not in the repository: render them from your own PDF with `python tools/render_mm_pages.py "Monster Manual.pdf"`. You can import more personal-use data as extra packs.
 
-Personal use only: if you import text from a book you own (e.g. the Player's Handbook), it stays in your browser and must not be redistributed. SRD 5.1 content is CC-BY-4.0; if you add it, include the SRD attribution statement.
+Personal use only: the bundled stat blocks, rules and condition summaries come from 2014 D&D books and must not be redistributed.
 
 ## Licensing notes
 
 - All bundled tile art is generated procedurally by this app. No third-party art is included.
-- Rules content (Phase 5) will use SRD 5.1 (CC-BY-4.0) or files you supply yourself. No Player's Handbook text ships with the app.
+- Rules, conditions and monster stat blocks are 2014 Player's Handbook and Monster Manual material (personal use only).

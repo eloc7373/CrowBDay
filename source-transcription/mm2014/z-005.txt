@@ -1,0 +1,149 @@
+@@ Giant Owl | 327
+Large beast, neutral
+Armor Class 12
+Hit Points 19 (3d10 + 3)
+Speed 5 ft., fly 60 ft.
+STR 13 15 12 8 13 10
+Skills Perception +5, Stealth +4
+Senses darkvision 120 ft., passive Perception 15
+Languages Giant Owl, understands Common, Elvish, and Sylvan but can't speak them
+Challenge 1/4 (50 XP)
+Flyby. The owl doesn't provoke opportunity attacks when it flies out of an enemy's reach.
+Keen Hearing and Sight. The owl has advantage on Wisdom (Perception) checks that rely on hearing or sight.
+## ACTIONS
+Talons. Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 8 (2d6 + 1) slashing damage.
+@@ Giant Poisonous Snake | 327
+Medium beast, unaligned
+Armor Class 14
+Hit Points 11 (2d8 + 2)
+Speed 30 ft., swim 30 ft.
+STR 10 18 13 2 10 3
+Skills Perception +2
+Senses blindsight 10 ft., passive Perception 12
+Languages —
+Challenge 1/4 (50 XP)
+## ACTIONS
+Bite. Melee Weapon Attack: +6 to hit, reach 10 ft., one target. Hit: 6 (1d4 + 4) piercing damage, and the target must make a DC 11 Constitution saving throw, taking 10 (3d6) poison damage on a failed save, or half as much damage on a successful one.
+@@ Giant Rat | 327
+Small beast, unaligned
+Armor Class 12
+Hit Points 7 (2d6)
+Speed 30 ft.
+STR 7 15 11 2 10 4
+Senses darkvision 60 ft., passive Perception 10
+Languages —
+Challenge 1/8 (25 XP)
+Keen Smell. The rat has advantage on Wisdom (Perception) checks that rely on smell.
+Pack Tactics. The rat has advantage on an attack roll against a creature if at least one of the rat's allies is within 5 feet of the creature and the ally isn't incapacitated.
+## ACTIONS
+Bite. Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 4 (1d4 + 2) piercing damage.
+@@ Giant Scorpion | 327
+Large beast, unaligned
+Armor Class 15 (natural armor)
+Hit Points 52 (7d10 + 14)
+Speed 40 ft.
+STR 15 13 15 1 9 3
+Senses blindsight 60 ft., passive Perception 9
+Languages —
+Challenge 3 (700 XP)
+## ACTIONS
+Multiattack. The scorpion makes three attacks: two with its claws and one with its sting.
+Claw. Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 6 (1d8 + 2) bludgeoning damage, and the target is grappled (escape DC 12). The scorpion has two claws, each of which can grapple only one target.
+Sting. Melee Weapon Attack: +4 to hit, reach 5 ft., one creature. Hit: 7 (1d10 + 2) piercing damage, and the target must make a DC 12 Constitution saving throw, taking 22 (4d10) poison damage on a failed save, or half as much damage on a successful one.
+@@ Giant Sea Horse | 328
+Large beast, unaligned
+Armor Class 13 (natural armor)
+Hit Points 16 (3d10)
+Speed 0 ft., swim 40 ft.
+STR 12 15 11 2 12 5
+Senses passive Perception 11
+Languages —
+Challenge 1/2 (100 XP)
+Charge. If the sea horse moves at least 20 feet straight toward a target and then hits it with a ram attack on the same turn, the target takes an extra 7 (2d6) bludgeoning damage. If the target is a creature, it must succeed on a DC 11 Strength saving throw or be knocked prone.
+Water Breathing. The sea horse can breathe only underwater.
+## ACTIONS
+Ram. Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 4 (1d6 + 1) bludgeoning damage.
+@@ Giant Shark | 328
+Huge beast, unaligned
+Armor Class 13 (natural armor)
+Hit Points 126 (11d12 + 55)
+Speed 0 ft., swim 50 ft.
+STR 23 11 21 1 10 5
+Skills Perception +3
+Senses blindsight 60 ft., passive Perception 13
+Languages —
+Challenge 5 (1,800 XP)
+Blood Frenzy. The shark has advantage on melee attack rolls against any creature that doesn't have all its hit points.
+Water Breathing. The shark can breathe only underwater.
+## ACTIONS
+Bite. Melee Weapon Attack: +9 to hit, reach 5 ft., one target. Hit: 22 (3d10 + 6) piercing damage.
+@@ Giant Spider | 328
+Large beast, unaligned
+Armor Class 14 (natural armor)
+Hit Points 26 (4d10 + 4)
+Speed 30 ft., climb 30 ft.
+STR 14 16 12 2 11 4
+Skills Stealth +7
+Senses blindsight 10 ft., darkvision 60 ft., passive Perception 10
+Languages —
+Challenge 1 (200 XP)
+Spider Climb. The spider can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check.
+Web Sense. While in contact with a web, the spider knows the exact location of any other creature in contact with the same web.
+Web Walker. The spider ignores movement restrictions caused by webbing.
+## ACTIONS
+Bite. Melee Weapon Attack: +5 to hit, reach 5 ft., one creature. Hit: 7 (1d8 + 3) piercing damage, and the target must make a DC 11 Constitution saving throw, taking 9 (2d8) poison damage on a failed save, or half as much damage on a successful one. If the poison damage reduces the target to 0 hit points, the target is stable but poisoned for 1 hour, even after regaining hit points, and is paralyzed while poisoned in this way.
+Web (Recharge 5–6). Ranged Weapon Attack: +5 to hit, range 30/60 ft., one creature. Hit: The target is restrained by webbing. As an action, the restrained target can make a DC 12 Strength check, bursting the webbing on a success. The webbing can also be attacked and destroyed (AC 10; hp 5; vulnerability to fire damage; immunity to bludgeoning, poison, and psychic damage).
+@@ Giant Toad | 329
+Large beast, unaligned
+Armor Class 11
+Hit Points 39 (6d10 + 6)
+Speed 20 ft., swim 40 ft.
+STR 15 13 13 2 10 3
+Senses darkvision 30 ft., passive Perception 10
+Languages —
+Challenge 1 (200 XP)
+Amphibious. The toad can breathe air and water.
+Standing Leap. The toad's long jump is up to 20 feet and its high jump is up to 10 feet, with or without a running start.
+## ACTIONS
+Bite. Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 7 (1d10 + 2) piercing damage plus 5 (1d10) poison damage, and the target is grappled (escape DC 13). Until this grapple ends, the target is restrained, and the toad can't bite another target.
+Swallow. The toad makes one bite attack against a Medium or smaller target it is grappling. If the attack hits, the target is swallowed, and the grapple ends. The swallowed target is blinded and restrained, it has total cover against attacks and other effects outside the toad, and it takes 10 (3d6) acid damage at the start of each of the toad's turns. The toad can have only one target swallowed at a time. ¶ If the toad dies, a swallowed creature is no longer restrained by it and can escape from the corpse using 5 feet of movement, exiting prone.
+@@ Giant Vulture | 329
+Large beast, neutral evil
+Armor Class 10
+Hit Points 22 (3d10 + 6)
+Speed 10 ft., fly 60 ft.
+STR 15 10 15 6 12 7
+Skills Perception +3
+Senses passive Perception 13
+Languages understands Common but can't speak
+Challenge 1 (200 XP)
+Keen Sight and Smell. The vulture has advantage on Wisdom (Perception) checks that rely on sight or smell.
+Pack Tactics. The vulture has advantage on an attack roll against a creature if at least one of the vulture's allies is within 5 feet of the creature and the ally isn't incapacitated.
+## ACTIONS
+Multiattack. The vulture makes two attacks: one with its beak and one with its talons.
+Beak. Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 7 (2d4 + 2) piercing damage.
+Talons. Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 9 (2d6 + 2) slashing damage.
+@@ Giant Wasp | 329
+Medium beast, unaligned
+Armor Class 12
+Hit Points 13 (3d8)
+Speed 10 ft., fly 50 ft.
+STR 10 14 10 1 10 3
+Senses passive Perception 10
+Languages —
+Challenge 1/2 (100 XP)
+## ACTIONS
+Sting. Melee Weapon Attack: +4 to hit, reach 5 ft., one creature. Hit: 5 (1d6 + 2) piercing damage, and the target must make a DC 11 Constitution saving throw, taking 10 (3d6) poison damage on a failed save, or half as much damage on a successful one. If the poison damage reduces the target to 0 hit points, the target is stable but poisoned for 1 hour, even after regaining hit points, and is paralyzed while poisoned in this way.
+@@ Giant Weasel | 329
+Medium beast, unaligned
+Armor Class 13
+Hit Points 9 (2d8)
+Speed 40 ft.
+STR 11 16 10 4 12 5
+Skills Perception +3, Stealth +5
+Senses darkvision 60 ft., passive Perception 13
+Languages —
+Challenge 1/8 (25 XP)
+Keen Hearing and Smell. The weasel has advantage on Wisdom (Perception) checks that rely on hearing or smell.
+## ACTIONS
+Bite. Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 5 (1d4 + 3) piercing damage.

@@ -1,0 +1,114 @@
+@@ Drow | 128
+Medium humanoid (elf), neutral evil
+Armor Class 15 (chain shirt)
+Hit Points 13 (3d8)
+Speed 30 ft.
+STR 10 14 10 11 11 12
+Skills Perception +2, Stealth +4
+Senses darkvision 120 ft., passive Perception 12
+Languages Elvish, Undercommon
+Challenge 1/4 (50 XP)
+Fey Ancestry. The drow has advantage on saving throws against being charmed, and magic can't put the drow to sleep.
+Innate Spellcasting. The drow's spellcasting ability is Charisma (spell save DC 11). It can innately cast the following spells, requiring no material components: ¶ At will: dancing lights ¶ 1/day each: darkness, faerie fire
+Sunlight Sensitivity. While in sunlight, the drow has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight.
+## ACTIONS
+Shortsword. Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) piercing damage.
+Hand Crossbow. Ranged Weapon Attack: +4 to hit, range 30/120 ft., one target. Hit: 5 (1d6 + 2) piercing damage, and the target must succeed on a DC 13 Constitution saving throw or be poisoned for 1 hour. If the saving throw fails by 5 or more, the target is also unconscious while poisoned in this way. The target wakes up if it takes damage or if another creature takes an action to shake it awake.
+@@ Drow Elite Warrior | 128
+Medium humanoid (elf), neutral evil
+Armor Class 18 (studded leather, shield)
+Hit Points 71 (11d8 + 22)
+Speed 30 ft.
+STR 13 18 14 11 13 12
+Saving Throws Dex +7, Con +5, Wis +4
+Skills Perception +4, Stealth +10
+Senses darkvision 120 ft., passive Perception 14
+Languages Elvish, Undercommon
+Challenge 5 (1,800 XP)
+Fey Ancestry. The drow has advantage on saving throws against being charmed, and magic can't put the drow to sleep.
+Innate Spellcasting. The drow's spellcasting ability is Charisma (spell save DC 12). It can innately cast the following spells, requiring no material components: ¶ At will: dancing lights ¶ 1/day each: darkness, faerie fire, levitate (self only)
+Sunlight Sensitivity. While in sunlight, the drow has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight.
+## ACTIONS
+Multiattack. The drow makes two shortsword attacks.
+Shortsword. Melee Weapon Attack: +7 to hit, reach 10 ft., one target. Hit: 7 (1d6 + 4) piercing damage plus 10 (3d6) poison damage.
+Hand Crossbow. Ranged Weapon Attack: +7 to hit, range 30/120 ft., one target. Hit: 7 (1d6 + 4) piercing damage, and the target must succeed on a DC 13 Constitution saving throw or be poisoned for 1 hour. If the saving throw fails by 5 or more, the target is also unconscious while poisoned in this way. The target wakes up if it takes damage or another creature takes an action to shake it awake.
+## REACTIONS
+Parry. The drow adds 3 to its AC against one melee attack that would hit it. To do so, the drow must see the attacker and be wielding a melee weapon.
+@@ Drow Mage | 129
+Medium humanoid (elf), neutral evil
+Armor Class 12 (15 with mage armor)
+Hit Points 45 (10d8)
+Speed 30 ft.
+STR 9 14 10 17 13 12
+Skills Arcana +6, Deception +5, Perception +4, Stealth +5
+Senses darkvision 120 ft., passive Perception 14
+Languages Elvish, Undercommon
+Challenge 7 (2,900 XP)
+Fey Ancestry. The drow has advantage on saving throws against being charmed, and magic can't put the drow to sleep.
+Innate Spellcasting. The drow's innate spellcasting ability is Charisma (spell save DC 12). It can innately cast the following spells, requiring no material components: ¶ At will: dancing lights ¶ 1/day each: darkness, faerie fire, levitate (self only)
+Spellcasting. The drow is a 10th-level spellcaster. Its spellcasting ability is Intelligence (spell save DC 14, +6 to hit with spell attacks). The drow has the following wizard spells prepared: ¶ Cantrips (at will): mage hand, minor illusion, poison spray, ray of frost ¶ 1st level (4 slots): mage armor, magic missile, shield, witch bolt ¶ 2nd level (3 slots): alter self, misty step, web ¶ 3rd level (3 slots): fly, lightning bolt ¶ 4th level (3 slots): Evard's black tentacles, greater invisibility ¶ 5th level (2 slots): cloudkill
+Sunlight Sensitivity. While in sunlight, the drow has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight.
+## ACTIONS
+Staff. Melee Weapon Attack: +2 to hit, reach 5 ft., one target. Hit: 2 (1d6 - 1) bludgeoning damage, or 3 (1d8 - 1) bludgeoning damage if used with two hands, plus 3 (1d6) poison damage.
+Summon Demon (1/Day). The drow magically summons a quasit, or attempts to summon a shadow demon with a 50 percent chance of success. The summoned demon appears in an unoccupied space within 60 feet of its summoner, acts as an ally of its summoner, and can't summon other demons. It remains for 10 minutes, until it or its summoner dies, or until its summoner dismisses it as an action.
+@@ Drow Priestess of Lolth | 129
+Medium humanoid (elf), neutral evil
+Armor Class 16 (scale mail)
+Hit Points 71 (13d8 + 13)
+Speed 30 ft.
+STR 10 14 12 13 17 18
+Saving Throws Con +4, Wis +6, Cha +7
+Skills Insight +6, Perception +6, Religion +4, Stealth +5
+Senses darkvision 120 ft., passive Perception 16
+Languages Elvish, Undercommon
+Challenge 8 (3,900 XP)
+Fey Ancestry. The drow has advantage on saving throws against being charmed, and magic can't put the drow to sleep.
+Innate Spellcasting. The drow's innate spellcasting ability is Charisma (spell save DC 15). She can innately cast the following spells, requiring no material components: ¶ At will: dancing lights ¶ 1/day each: darkness, faerie fire, levitate (self only)
+Spellcasting. The drow is a 10th-level spellcaster. Her spellcasting ability is Wisdom (save DC 14, +6 to hit with spell attacks). The drow has the following cleric spells prepared: ¶ Cantrips (at will): guidance, poison spray, resistance, spare the dying, thaumaturgy ¶ 1st level (4 slots): animal friendship, cure wounds, detect poison and disease, ray of sickness ¶ 2nd level (3 slots): lesser restoration, protection from poison, web ¶ 3rd level (3 slots): conjure animals (2 giant spiders), dispel magic ¶ 4th level (3 slots): divination, freedom of movement ¶ 5th level (2 slots): insect plague, mass cure wounds
+Sunlight Sensitivity. While in sunlight, the drow has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight.
+## ACTIONS
+Multiattack. The drow makes two scourge attacks.
+Scourge. Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) piercing damage plus 17 (5d6) poison damage.
+Summon Demon (1/Day). The drow attempts to magically summon a yochlol with a 30 percent chance of success. If the attempt fails, the drow takes 5 (1d10) psychic damage. Otherwise, the summoned demon appears in an unoccupied space within 60 feet of its summoner, acts as an ally of its summoner, and can't summon other demons. It remains for 10 minutes, until it or its summoner dies, or until its summoner dismisses it as an action.
+@@ Empyrean | 130
+Huge celestial (titan), chaotic good (75%) or neutral evil (25%)
+Armor Class 22 (natural armor)
+Hit Points 313 (19d12 + 190)
+Speed 50 ft., fly 50 ft., swim 50 ft.
+STR 30 21 30 21 22 27
+Saving Throws Str +17, Int +12, Wis +13, Cha +15
+Skills Insight +13, Persuasion +15
+Damage Immunities bludgeoning, piercing, and slashing from nonmagical weapons
+Senses truesight 120 ft., passive Perception 16
+Languages all
+Challenge 23 (50,000 XP)
+Innate Spellcasting. The empyrean's innate spellcasting ability is Charisma (spell save DC 23, +15 to hit with spell attacks). It can innately cast the following spells, requiring no material components: ¶ At will: greater restoration, pass without trace, water breathing, water walk ¶ 1/day each: commune, dispel evil and good, earthquake, fire storm, plane shift (self only)
+Legendary Resistance (3/Day). If the empyrean fails a saving throw, it can choose to succeed instead.
+Magic Resistance. The empyrean has advantage on saving throws against spells and other magical effects.
+Magic Weapons. The empyrean's weapon attacks are magical.
+## ACTIONS
+Maul. Melee Weapon Attack: +17 to hit, reach 10 ft., one target. Hit: 31 (6d6 + 10) bludgeoning damage. If the target is a creature, it must succeed on a DC 15 Constitution saving throw or be stunned until the end of the empyrean's next turn.
+Bolt. Ranged Spell Attack: +15 to hit, range 600 ft., one target. Hit: 24 (7d6) damage of one of the following types (empyrean's choice): acid, cold, fire, force, lightning, radiant, or thunder.
+## LEGENDARY ACTIONS
+The empyrean can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The empyrean regains spent legendary actions at the start of its turn.
+Attack. The empyrean makes one attack.
+Bolster. The empyrean bolsters all nonhostile creatures within 120 feet of itself until the end of its next turn. Bolstered creatures can't be charmed or frightened, and they gain advantage on ability checks and saving throws until the end of the empyrean's next turn.
+Trembling Strike (Costs 2 Actions). The empyrean strikes the ground with its maul, triggering an earth tremor. All other creatures on the ground within 60 feet of the empyrean must succeed on a DC 25 Strength saving throw or be knocked prone.
+@@ Ettercap | 131
+Medium monstrosity, neutral evil
+Armor Class 13 (natural armor)
+Hit Points 44 (8d8 + 8)
+Speed 30 ft., climb 30 ft.
+STR 14 15 13 7 12 8
+Skills Perception +3, Stealth +4, Survival +3
+Senses darkvision 60 ft., passive Perception 13
+Languages —
+Challenge 2 (450 XP)
+Spider Climb. The ettercap can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check.
+Web Sense. While in contact with a web, the ettercap knows the exact location of any other creature in contact with the same web.
+Web Walker. The ettercap ignores movement restrictions caused by webbing.
+## ACTIONS
+Multiattack. The ettercap makes two attacks: one with its bite and one with its claws.
+Bite. Melee Weapon Attack: +4 to hit, reach 5 ft., one creature. Hit: 6 (1d8 + 2) piercing damage plus 4 (1d8) poison damage. The target must succeed on a DC 11 Constitution saving throw or be poisoned for 1 minute. The creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.
+Claws. Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 7 (2d4 + 2) slashing damage.
+Web (Recharge 5–6). Ranged Weapon Attack: +4 to hit, range 30/60 ft., one Large or smaller creature. Hit: The creature is restrained by webbing. As an action, the restrained creature can make a DC 11 Strength check, escaping from the webbing on a success. The effect ends if the webbing is destroyed. The webbing has AC 10, 5 hit points, resistance to bludgeoning damage, and immunity to poison and psychic damage.

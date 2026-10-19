@@ -78,7 +78,7 @@ the map already stores: tokens, walls, and the terrain movement/sight flags.
 
 Stretch goals: a player view (a second window showing only what players should see), line of sight
 and cover estimates, and fog of war. Anything rules-based (template squares, cover, concentration DCs)
-will be labelled as a DM aid and follow SRD 5.1 wording. It must never be presented as an official
+will be labelled as a DM aid and follow 2014 Player's Handbook wording. It must never be presented as an official
 ruling.
 
 ## Phase 6 — DM campaign workflow ✅

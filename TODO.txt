@@ -56,7 +56,7 @@ Updated 2026-10-17. Phases 0-5B are implemented in the current worktree.
 [ ] Verify current Foundry, Roll20 and Owlbear Rodeo import steps.
 [ ] Test experimental Foundry scene JSON in a real Foundry installation.
 [ ] Check placeholder rule, condition, spell, travel and DC summaries against
-    the table's chosen edition/SRD. Quick-add monster stats are original.
+    the 2014 Player's Handbook (condition summaries and the 2014 PHB checks are done).
 
 5. OTHER OPEN ISSUES
 --------------------

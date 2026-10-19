@@ -1,0 +1,126 @@
+@@ Needle Blight | 32
+Medium plant, neutral evil
+Armor Class 12 (natural armor)
+Hit Points 11 (2d8 + 2)
+Speed 30 ft.
+STR 12 12 13 4 8 3
+Condition Immunities blinded, deafened
+Senses blindsight 60 ft. (blind beyond this radius), passive Perception 9
+Languages understands Common but can't speak
+Challenge 1/4 (50 XP)
+## ACTIONS
+Claws. Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 6 (2d4 + 1) piercing damage.
+Needles. Ranged Weapon Attack: +3 to hit, range 30/60 ft., one target. Hit: 8 (2d6 + 1) piercing damage.
+@@ Twig Blight | 32
+Small plant, neutral evil
+Armor Class 13 (natural armor)
+Hit Points 4 (1d6 + 1)
+Speed 20 ft.
+STR 6 13 12 4 8 3
+Skills Stealth +3
+Damage Vulnerabilities fire
+Condition Immunities blinded, deafened
+Senses blindsight 60 ft. (blind beyond this radius), passive Perception 9
+Languages understands Common but can't speak
+Challenge 1/8 (25 XP)
+False Appearance. While the blight remains motionless, it is indistinguishable from a dead shrub.
+## ACTIONS
+Claws. Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 3 (1d4 + 1) piercing damage.
+@@ Vine Blight | 32
+Medium plant, neutral evil
+Armor Class 12 (natural armor)
+Hit Points 26 (4d8 + 8)
+Speed 10 ft.
+STR 15 8 14 5 10 3
+Skills Stealth +1
+Condition Immunities blinded, deafened
+Senses blindsight 60 ft. (blind beyond this radius), passive Perception 10
+Languages Common
+Challenge 1/2 (100 XP)
+False Appearance. While the blight remains motionless, it is indistinguishable from a tangle of vines.
+## ACTIONS
+Constrict. Melee Weapon Attack: +4 to hit, reach 10 ft., one target. Hit: 9 (2d6 + 2) bludgeoning damage, and a Large or smaller target is grappled (escape DC 12). Until this grapple ends, the target is restrained, and the blight can't constrict another target.
+Entangling Plants (Recharge 5–6). Grasping roots and vines sprout in a 15-foot radius centered on the blight, withering away after 1 minute. For the duration, that area is difficult terrain for nonplant creatures. In addition, each creature of the blight's choice in that area when the plants appear must succeed on a DC 12 Strength saving throw or become restrained. A creature can use its action to make a DC 12 Strength check, freeing itself or another entangled creature within reach on a success.
+@@ Bugbear | 33
+Medium humanoid (goblinoid), chaotic evil
+Armor Class 16 (hide armor, shield)
+Hit Points 27 (5d8 + 5)
+Speed 30 ft.
+STR 15 14 13 8 11 9
+Skills Stealth +6, Survival +2
+Senses darkvision 60 ft., passive Perception 10
+Languages Common, Goblin
+Challenge 1 (200 XP)
+Brute. A melee weapon deals one extra die of its damage when the bugbear hits with it (included in the attack).
+Surprise Attack. If the bugbear surprises a creature and hits it with an attack during the first round of combat, the target takes an extra 7 (2d6) damage from the attack.
+## ACTIONS
+Morningstar. Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 11 (2d8 + 2) piercing damage.
+Javelin. Melee or Ranged Weapon Attack: +4 to hit, reach 5 ft. or range 30/120 ft., one target. Hit: 9 (2d6 + 2) piercing damage in melee or 5 (1d6 + 2) piercing damage at range.
+@@ Bugbear Chief | 33
+Medium humanoid (goblinoid), chaotic evil
+Armor Class 17 (chain shirt, shield)
+Hit Points 65 (10d8 + 20)
+Speed 30 ft.
+STR 17 14 14 11 12 11
+Skills Intimidation +2, Stealth +6, Survival +3
+Senses darkvision 60 ft., passive Perception 11
+Languages Common, Goblin
+Challenge 3 (700 XP)
+Brute. A melee weapon deals one extra die of its damage when the bugbear hits with it (included in the attack).
+Heart of Hruggek. The bugbear has advantage on saving throws against being charmed, frightened, paralyzed, poisoned, stunned, or put to sleep.
+Surprise Attack. If the bugbear surprises a creature and hits it with an attack during the first round of combat, the target takes an extra 7 (2d6) damage from the attack.
+## ACTIONS
+Multiattack. The bugbear makes two melee attacks.
+Morningstar. Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 12 (2d8 + 3) piercing damage.
+Javelin. Melee or Ranged Weapon Attack: +5 to hit, reach 5 ft. or range 30/120 ft., one target. Hit: 10 (2d6 + 3) piercing damage in melee or 6 (1d6 + 3) piercing damage at range.
+@@ Bulette | 34
+Large monstrosity, unaligned
+Armor Class 17 (natural armor)
+Hit Points 94 (9d10 + 45)
+Speed 40 ft., burrow 40 ft.
+STR 19 11 21 2 10 5
+Skills Perception +6
+Senses darkvision 60 ft., tremorsense 60 ft., passive Perception 16
+Languages —
+Challenge 5 (1,800 XP)
+Standing Leap. The bulette's long jump is up to 30 feet and its high jump is up to 15 feet, with or without a running start.
+## ACTIONS
+Bite. Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 30 (4d12 + 4) piercing damage.
+Deadly Leap. If the bulette jumps at least 15 feet as part of its movement, it can then use this action to land on its feet in a space that contains one or more other creatures. Each of those creatures must succeed on a DC 16 Strength or Dexterity saving throw (target's choice) or be knocked prone and take 14 (3d6 + 4) bludgeoning damage plus 14 (3d6 + 4) slashing damage. On a successful save, the creature takes only half damage, isn't knocked prone, and is pushed 5 feet out of the bulette's space into an unoccupied space of the creature's choice. If no unoccupied space is within range, the creature instead falls prone in the bulette's space.
+@@ Bullywug | 35
+Medium humanoid (bullywug), neutral evil
+Armor Class 15 (hide armor, shield)
+Hit Points 11 (2d8 + 2)
+Speed 20 ft., swim 40 ft.
+STR 12 12 13 7 10 7
+Skills Stealth +3
+Senses passive Perception 10
+Languages Bullywug
+Challenge 1/4 (50 XP)
+Amphibious. The bullywug can breathe air and water.
+Speak with Frogs and Toads. The bullywug can communicate simple concepts to frogs and toads when it speaks in Bullywug.
+Swamp Camouflage. The bullywug has advantage on Dexterity (Stealth) checks made to hide in swampy terrain.
+Standing Leap. The bullywug's long jump is up to 20 feet and its high jump is up to 10 feet, with or without a running start.
+## ACTIONS
+Multiattack. The bullywug makes two melee attacks: one with its bite and one with its spear.
+Bite. Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 3 (1d4 + 1) bludgeoning damage.
+Spear. Melee or Ranged Weapon Attack: +3 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 4 (1d6 + 1) piercing damage, or 5 (1d8 + 1) piercing damage if used with two hands to make a melee attack.
+@@ Cambion | 36
+Medium fiend, any evil alignment
+Armor Class 19 (scale mail)
+Hit Points 82 (11d8 + 33)
+Speed 30 ft., fly 60 ft.
+STR 18 18 16 14 12 16
+Saving Throws Str +7, Con +6, Int +5, Cha +6
+Skills Deception +6, Intimidation +6, Perception +4, Stealth +7
+Damage Resistances cold, fire, lightning, poison; bludgeoning, piercing, and slashing from nonmagical weapons
+Senses darkvision 60 ft., passive Perception 14
+Languages Abyssal, Common, Infernal
+Challenge 5 (1,800 XP)
+Fiendish Blessing. The AC of the cambion includes its Charisma bonus.
+Innate Spellcasting. The cambion's spellcasting ability is Charisma (spell save DC 14). The cambion can innately cast the following spells, requiring no material components: ¶ 3/day each: alter self, command, detect magic ¶ 1/day: plane shift (self only)
+## ACTIONS
+Multiattack. The cambion makes two melee attacks or uses its Fire Ray twice.
+Spear. Melee or Ranged Weapon Attack: +7 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 7 (1d6 + 4) piercing damage, or 8 (1d8 + 4) piercing damage if used with two hands to make a melee attack, plus 3 (1d6) fire damage.
+Fire Ray. Ranged Spell Attack: +7 to hit, range 120 ft., one target. Hit: 10 (3d6) fire damage.
+Fiendish Charm. One humanoid the cambion can see within 30 feet of it must succeed on a DC 14 Wisdom saving throw or be magically charmed for 1 day. The charmed target obeys the cambion's spoken commands. If the target suffers any harm from the cambion or another creature or receives a suicidal command from the cambion, the target can repeat the saving throw, ending the effect on itself on a success. If a target's saving throw is successful, or if the effect ends for it, the creature is immune to the cambion's Fiendish Charm for the next 24 hours.

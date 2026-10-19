@@ -1,0 +1,72 @@
+@@ Sahuagin Priestess | 264
+Medium humanoid (sahuagin), lawful evil
+Armor Class 12 (natural armor)
+Hit Points 33 (6d8 + 6)
+Speed 30 ft., swim 40 ft.
+STR 13 11 12 12 14 13
+Skills Perception +6, Religion +3
+Senses darkvision 120 ft., passive Perception 16
+Languages Sahuagin
+Challenge 2 (450 XP)
+Blood Frenzy. The sahuagin has advantage on melee attack rolls against any creature that doesn't have all its hit points.
+Limited Amphibiousness. The sahuagin can breathe air and water, but she needs to be submerged at least once every 4 hours to avoid suffocating.
+Shark Telepathy. The sahuagin can magically command any shark within 120 feet of her, using a limited telepathy.
+Spellcasting. The sahuagin is a 6th-level spellcaster. Her spellcasting ability is Wisdom (spell save DC 12, +4 to hit with spell attacks). She has the following cleric spells prepared: ¶ Cantrips (at will): guidance, thaumaturgy ¶ 1st level (4 slots): bless, detect magic, guiding bolt ¶ 2nd level (3 slots): hold person, spiritual weapon (trident) ¶ 3rd level (3 slots): mass healing word, tongues
+## ACTIONS
+Multiattack. The sahuagin makes two attacks: one with her bite and one with her claws.
+Bite. Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 3 (1d4 + 1) piercing damage.
+Claws. Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 3 (1d4 + 1) slashing damage.
+@@ Sahuagin Baron | 264
+Large humanoid (sahuagin), lawful evil
+Armor Class 16 (breastplate)
+Hit Points 76 (9d10 + 27)
+Speed 30 ft., swim 50 ft.
+STR 19 15 16 14 13 17
+Saving Throws Dex +5, Con +6, Int +5, Wis +4
+Skills Perception +7
+Senses darkvision 120 ft., passive Perception 17
+Languages Sahuagin
+Challenge 5 (1,800 XP)
+Blood Frenzy. The sahuagin has advantage on melee attack rolls against any creature that doesn't have all its hit points.
+Limited Amphibiousness. The sahuagin can breathe air and water, but he needs to be submerged at least once every 4 hours to avoid suffocating.
+Shark Telepathy. The sahuagin can magically command any shark within 120 feet of him, using a limited telepathy.
+## ACTIONS
+Multiattack. The sahuagin makes three attacks: one with his bite and two with his claws or trident.
+Bite. Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 9 (2d4 + 4) piercing damage.
+Claws. Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 11 (2d6 + 4) slashing damage.
+Trident. Melee or Ranged Weapon Attack: +7 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 11 (2d6 + 4) piercing damage, or 13 (2d8 + 4) piercing damage if used with two hands to make a melee attack.
+@@ Fire Snake | 265
+Medium elemental, neutral evil
+Armor Class 14 (natural armor)
+Hit Points 22 (5d8)
+Speed 30 ft.
+STR 12 14 11 7 10 8
+Damage Vulnerabilities cold
+Damage Resistances bludgeoning, piercing, and slashing from nonmagical weapons
+Damage Immunities fire
+Senses darkvision 60 ft., passive Perception 10
+Languages understands Ignan but can't speak
+Challenge 1 (200 XP)
+Heated Body. A creature that touches the snake or hits it with a melee attack while within 5 feet of it takes 3 (1d6) fire damage.
+## ACTIONS
+Multiattack. The snake makes two attacks: one with its bite and one with its tail.
+Bite. Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 3 (1d4 + 1) piercing damage plus 3 (1d6) fire damage.
+Tail. Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 3 (1d4 + 1) bludgeoning damage plus 3 (1d6) fire damage.
+@@ Salamander | 266
+Large elemental, neutral evil
+Armor Class 15 (natural armor)
+Hit Points 90 (12d10 + 24)
+Speed 30 ft.
+STR 18 14 15 11 10 12
+Damage Vulnerabilities cold
+Damage Resistances bludgeoning, piercing, and slashing from nonmagical weapons
+Damage Immunities fire
+Senses darkvision 60 ft., passive Perception 10
+Languages Ignan
+Challenge 5 (1,800 XP)
+Heated Body. A creature that touches the salamander or hits it with a melee attack while within 5 feet of it takes 7 (2d6) fire damage.
+Heated Weapons. Any metal melee weapon the salamander wields deals an extra 3 (1d6) fire damage on a hit (included in the attack).
+## ACTIONS
+Multiattack. The salamander makes two attacks: one with its spear and one with its tail.
+Spear. Melee or Ranged Weapon Attack: +7 to hit, reach 5 ft. or range 20 ft./60 ft., one target. Hit: 11 (2d6 + 4) piercing damage, or 13 (2d8 + 4) piercing damage if used with two hands to make a melee attack, plus 3 (1d6) fire damage.
+Tail. Melee Weapon Attack: +7 to hit, reach 10 ft., one target. Hit: 11 (2d6 + 4) bludgeoning damage plus 7 (2d6) fire damage, and the target is grappled (escape DC 14). Until this grapple ends, the target is restrained, the salamander can automatically hit the target with its tail, and the salamander can't make tail attacks against other targets.

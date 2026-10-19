@@ -1,0 +1,78 @@
+@@ Orc | 246
+Medium humanoid (orc), chaotic evil
+Armor Class 13 (hide armor)
+Hit Points 15 (2d8 + 6)
+Speed 30 ft.
+STR 16 12 16 7 11 10
+Skills Intimidation +2
+Senses darkvision 60 ft., passive Perception 10
+Languages Common, Orc
+Challenge 1/2 (100 XP)
+Aggressive. As a bonus action, the orc can move up to its speed toward a hostile creature that it can see.
+## ACTIONS
+Greataxe. Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 9 (1d12 + 3) slashing damage.
+Javelin. Melee or Ranged Weapon Attack: +5 to hit, reach 5 ft. or range 30/120 ft., one target. Hit: 6 (1d6 + 3) piercing damage.
+@@ Orc War Chief | 246
+Medium humanoid (orc), chaotic evil
+Armor Class 16 (chain mail)
+Hit Points 93 (11d8 + 44)
+Speed 30 ft.
+STR 18 12 18 11 11 16
+Saving Throws Str +6, Con +6, Wis +2
+Skills Intimidation +5
+Senses darkvision 60 ft., passive Perception 10
+Languages Common, Orc
+Challenge 4 (1,100 XP)
+Aggressive. As a bonus action, the orc can move up to its speed toward a hostile creature that it can see.
+Gruumsh's Fury. The orc deals an extra 4 (1d8) damage when it hits with a weapon attack (included in the attacks).
+## ACTIONS
+Multiattack. The orc makes two attacks with its greataxe or its spear.
+Greataxe. Melee Weapon Attack: +6 to hit, reach 5 ft., one creature. Hit: 14 (1d12 + 4 plus 1d8) slashing damage.
+Spear. Melee or Ranged Weapon Attack: +6 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 12 (1d6 + 4 plus 1d8) piercing damage, or 13 (2d8 + 4) piercing damage if used with two hands to make a melee attack.
+Battle Cry (1/Day). Each creature of the war chief's choice that is within 30 feet of it, can hear it, and not already affected by Battle Cry gain advantage on attack rolls until the start of the war chief's next turn. The war chief can then make one attack as a bonus action.
+@@ Orc Eye of Gruumsh | 247
+Medium humanoid (orc), chaotic evil
+Armor Class 16 (ring mail, shield)
+Hit Points 45 (6d8 + 18)
+Speed 30 ft.
+STR 16 12 16 9 13 12
+Skills Intimidation +3, Religion +1
+Senses darkvision 60 ft., passive Perception 11
+Languages Common, Orc
+Challenge 2 (450 XP)
+Aggressive. As a bonus action, the orc can move up to its speed toward a hostile creature that it can see.
+Gruumsh's Fury. The orc deals an extra 4 (1d8) damage when it hits with a weapon attack (included in the attack).
+Spellcasting. The orc is a 3rd-level spellcaster. Its spellcasting ability is Wisdom (spell save DC 11, +3 to hit with spell attacks). The orc has the following cleric spells prepared: ¶ Cantrips (at-will): guidance, resistance, thaumaturgy ¶ 1st level (4 slots): bless, command ¶ 2nd level (2 slots): augury, spiritual weapon (spear)
+## ACTIONS
+Spear. Melee or Ranged Weapon Attack: +5 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 11 (1d6 + 3 plus 1d8) piercing damage, or 12 (2d8 + 3) piercing damage if used with two hands to make a melee attack.
+@@ Orog | 247
+Medium humanoid (orc), chaotic evil
+Armor Class 18 (plate)
+Hit Points 42 (5d8 + 20)
+Speed 30 ft.
+STR 18 12 18 12 11 12
+Skills Intimidation +5, Survival +2
+Senses darkvision 60 ft., passive Perception 10
+Languages Common, Orc
+Challenge 2 (450 XP)
+Aggressive. As a bonus action, the orog can move up to its speed toward a hostile creature that it can see.
+## ACTIONS
+Multiattack. The orog makes two greataxe attacks.
+Greataxe. Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 10 (1d12 + 4) slashing damage.
+Javelin. Melee or Ranged Weapon Attack: +6 to hit, reach 5 ft. or range 30/120 ft., one target. Hit: 7 (1d6 + 4) piercing damage.
+@@ Otyugh | 248
+Large aberration, neutral
+Armor Class 14 (natural armor)
+Hit Points 114 (12d10 + 48)
+Speed 30 ft.
+STR 16 11 19 6 13 6
+Saving Throws Con +7
+Senses darkvision 120 ft., passive Perception 11
+Languages Otyugh
+Challenge 5 (1,800 XP)
+Limited Telepathy. The otyugh can magically transmit simple messages and images to any creature within 120 feet of it that can understand a language. This form of telepathy doesn't allow the receiving creature to telepathically respond.
+## ACTIONS
+Multiattack. The otyugh makes three attacks: one with its bite and two with its tentacles.
+Bite. Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 12 (2d8 + 3) piercing damage. If the target is a creature, it must succeed on a DC 15 Constitution saving throw against disease or become poisoned until the disease is cured. Every 24 hours that elapse, the target must repeat the saving throw, reducing its hit point maximum by 5 (1d10) on a failure. The disease is cured on a success. The target dies if the disease reduces its hit point maximum to 0. This reduction to the target's hit point maximum lasts until the disease is cured.
+Tentacle. Melee Weapon Attack: +6 to hit, reach 10 ft., one target. Hit: 7 (1d8 + 3) bludgeoning damage plus 4 (1d8) piercing damage. If the target is Medium or smaller, it is grappled (escape DC 13) and restrained until the grapple ends. The otyugh has two tentacles, each of which can grapple one target.
+Tentacle Slam. The otyugh slams creatures grappled by it into each other or a solid surface. Each creature must succeed on a DC 14 Strength saving throw or take 10 (2d6 + 3) bludgeoning damage and be stunned until the end of the otyugh's next turn. On a successful save, the target takes half the bludgeoning damage and isn't stunned.

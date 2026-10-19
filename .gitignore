@@ -30,3 +30,6 @@ playwright-report
 # Source books and page scans (personal copies, not redistributed)
 *.pdf
 /Monster Manual/
+
+# Page images rendered from your own PDF: python tools/render_mm_pages.py "Monster Manual.pdf"
+/public/monster-manual-2014/

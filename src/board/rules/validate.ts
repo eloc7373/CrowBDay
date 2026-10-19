@@ -1,4 +1,4 @@
-// Validation for rules content (bundled SRD files or user imports). Accepts
+// Validation for rules content (bundled files or user imports). Accepts
 // either an array of entries or `{ name?, notice?, entries: [...] }`. Invalid
 // entries are skipped and reported; valid ones are kept.
 

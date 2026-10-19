@@ -1,0 +1,99 @@
+@@ Barlgura | 56
+Large fiend (demon), chaotic evil
+Armor Class 15 (natural armor)
+Hit Points 68 (8d10 + 24)
+Speed 30 ft., climb 30 ft.
+STR 18 15 16 7 14 9
+Saving Throws Dex +5, Con +6
+Skills Perception +5, Stealth +5
+Damage Resistances cold, fire, lightning
+Damage Immunities poison
+Condition Immunities poisoned
+Senses blindsight 30 ft., darkvision 120 ft., passive Perception 15
+Languages Abyssal, telepathy 120 ft.
+Challenge 5 (1,800 XP)
+Innate Spellcasting. The barlgura's spellcasting ability is Wisdom (spell save DC 13). The barlgura can innately cast the following spells, requiring no material components: ¶ 1/day each: entangle, phantasmal force ¶ 2/day each: disguise self, invisibility (self only)
+Reckless. At the start of its turn, the barlgura can gain advantage on all melee weapon attack rolls it makes during that turn, but attack rolls against it have advantage until the start of its next turn.
+Running Leap. The barlgura's long jump is up to 40 feet and its high jump is up to 20 feet when it has a running start.
+## ACTIONS
+Multiattack. The barlgura makes three attacks: one with its bite and two with its fists.
+Bite. Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 11 (2d6 + 4) piercing damage.
+Fist. Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 9 (1d10 + 4) bludgeoning damage.
+@@ Chasme | 57
+Large fiend (demon), chaotic evil
+Armor Class 15 (natural armor)
+Hit Points 84 (13d10 + 13)
+Speed 20 ft., fly 60 ft.
+STR 15 15 12 11 14 10
+Saving Throws Dex +5, Wis +5
+Skills Perception +5
+Damage Resistances cold, fire, lightning
+Damage Immunities poison
+Condition Immunities poisoned
+Senses blindsight 10 ft., darkvision 120 ft., passive Perception 15
+Languages Abyssal, telepathy 120 ft.
+Challenge 6 (2,300 XP)
+Drone. The chasme produces a horrid droning sound to which demons are immune. Any other creature that starts its turn within 30 feet of the chasme must succeed on a DC 12 Constitution saving throw or fall unconscious for 10 minutes. A creature that can't hear the drone automatically succeeds on the save. The effect on the creature ends if it takes damage or if another creature takes an action to splash it with holy water. If a creature's saving throw is successful or the effect ends for it, it is immune to the drone for the next 24 hours.
+Magic Resistance. The chasme has advantage on saving throws against spells and other magical effects.
+Spider Climb. The chasme can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check.
+## ACTIONS
+Proboscis. Melee Weapon Attack: +5 to hit, reach 5 ft., one creature. Hit: 16 (4d6 + 2) piercing damage plus 24 (7d6) necrotic damage, and the target's hit point maximum is reduced by an amount equal to the necrotic damage taken. If this effect reduces a creature's hit point maximum to 0, the creature dies. This reduction to a creature's hit point maximum lasts until the creature finishes a long rest or until it is affected by a spell like greater restoration.
+@@ Dretch | 57
+Small fiend (demon), chaotic evil
+Armor Class 11 (natural armor)
+Hit Points 18 (4d6 + 4)
+Speed 20 ft.
+STR 11 11 12 5 8 3
+Damage Resistances cold, fire, lightning
+Damage Immunities poison
+Condition Immunities poisoned
+Senses darkvision 60 ft., passive Perception 9
+Languages Abyssal, telepathy 60 ft. (works only with creatures that understand Abyssal)
+Challenge 1/4 (50 XP)
+## ACTIONS
+Multiattack. The dretch makes two attacks: one with its bite and one with its claws.
+Bite. Melee Weapon Attack: +2 to hit, reach 5 ft., one target. Hit: 3 (1d6) piercing damage.
+Claws. Melee Weapon Attack: +2 to hit, reach 5 ft., one target. Hit: 5 (2d4) slashing damage.
+Fetid Cloud (1/Day). A 10-foot radius of disgusting green gas extends out from the dretch. The gas spreads around corners, and its area is lightly obscured. It lasts for 1 minute or until a strong wind disperses it. Any creature that starts its turn in that area must succeed on a DC 11 Constitution saving throw or be poisoned until the start of its next turn. While poisoned in this way, the target can take either an action or a bonus action on its turn, not both, and can't take reactions.
+@@ Glabrezu | 58
+Large fiend (demon), chaotic evil
+Armor Class 17 (natural armor)
+Hit Points 157 (15d10 + 75)
+Speed 40 ft.
+STR 20 15 21 19 17 16
+Saving Throws Str +9, Con +9, Wis +7, Cha +7
+Damage Resistances cold, fire, lightning; bludgeoning, piercing, and slashing from nonmagical weapons
+Damage Immunities poison
+Condition Immunities poisoned
+Senses truesight 120 ft., passive Perception 13
+Languages Abyssal, telepathy 120 ft.
+Challenge 9 (5,000 XP)
+Innate Spellcasting. The glabrezu's spellcasting ability is Intelligence (spell save DC 16). The glabrezu can innately cast the following spells, requiring no material components: ¶ At will: darkness, detect magic, dispel magic ¶ 1/day each: confusion, fly, power word stun
+Magic Resistance. The glabrezu has advantage on saving throws against spells and other magical effects.
+## ACTIONS
+Multiattack. The glabrezu makes four attacks: two with its pincers and two with its fists. Alternatively, it makes two attacks with its pincers and casts one spell.
+Pincer. Melee Weapon Attack: +9 to hit, reach 10 ft., one target. Hit: 16 (2d10 + 5) bludgeoning damage. If the target is a Medium or smaller creature, it is grappled (escape DC 15). The glabrezu has two pincers, each of which can grapple only one target.
+Fist. Melee Weapon Attack: +9 to hit, reach 5 ft., one target. Hit: 7 (2d4 + 2) bludgeoning damage.
+@@ Goristro | 59
+Huge fiend (demon), chaotic evil
+Armor Class 19 (natural armor)
+Hit Points 310 (23d12 + 161)
+Speed 40 ft.
+STR 25 11 25 6 13 14
+Saving Throws Str +13, Dex +6, Con +13, Wis +7
+Skills Perception +7
+Damage Resistances cold, fire, lightning; bludgeoning, piercing, and slashing from nonmagical weapons
+Damage Immunities poison
+Condition Immunities poisoned
+Senses darkvision 120 ft., passive Perception 17
+Languages Abyssal
+Challenge 17 (18,000 XP)
+Charge. If the goristro moves at least 15 feet straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 38 (7d10) piercing damage. If the target is a creature, it must succeed on a DC 21 Strength saving throw or be pushed up to 20 feet away and knocked prone.
+Labyrinthine Recall. The goristro can perfectly recall any path it has traveled.
+Magic Resistance. The goristro has advantage on saving throws against spells and other magical effects.
+Siege Monster. The goristro deals double damage to objects and structures.
+## ACTIONS
+Multiattack. The goristro makes three attacks: two with its fists and one with its hoof.
+Fist. Melee Weapon Attack: +13 to hit, reach 10 ft., one target. Hit: 20 (3d8 + 7) bludgeoning damage.
+Hoof. Melee Weapon Attack: +13 to hit, reach 5 ft., one target. Hit: 23 (3d10 + 7) bludgeoning damage. If the target is a creature, it must succeed on a DC 21 Strength saving throw or be knocked prone.
+Gore. Melee Weapon Attack: +13 to hit, reach 10 ft., one target. Hit: 45 (7d10 + 7) piercing damage.

@@ -1,0 +1,99 @@
+@@ Zombie | 316
+Medium undead, neutral evil
+Armor Class 8
+Hit Points 22 (3d8 + 9)
+Speed 20 ft.
+STR 13 6 16 3 6 5
+Saving Throws Wis +0
+Damage Immunities poison
+Condition Immunities poisoned
+Senses darkvision 60 ft., passive Perception 8
+Languages understands the languages it knew in life but can't speak
+Challenge 1/4 (50 XP)
+Undead Fortitude. If damage reduces the zombie to 0 hit points, it must make a Constitution saving throw with a DC of 5 + the damage taken, unless the damage is radiant or from a critical hit. On a success, the zombie drops to 1 hit point instead.
+## ACTIONS
+Slam. Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 4 (1d6 + 1) bludgeoning damage.
+@@ Ogre Zombie | 316
+Large undead, neutral evil
+Armor Class 8
+Hit Points 85 (9d10 + 36)
+Speed 30 ft.
+STR 19 6 18 3 6 5
+Saving Throws Wis +0
+Damage Immunities poison
+Condition Immunities poisoned
+Senses darkvision 60 ft., passive Perception 8
+Languages understands Common and Giant but can't speak
+Challenge 2 (450 XP)
+Undead Fortitude. If damage reduces the zombie to 0 hit points, it must make a Constitution saving throw with a DC of 5 + the damage taken, unless the damage is radiant or from a critical hit. On a success, the zombie drops to 1 hit point instead.
+## ACTIONS
+Morningstar. Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 13 (2d8 + 4) bludgeoning damage.
+@@ Beholder Zombie | 316
+Large undead, neutral evil
+Armor Class 15 (natural armor)
+Hit Points 93 (11d10 + 33)
+Speed 0 ft., fly 20 ft. (hover)
+STR 10 8 16 3 8 5
+Saving Throws Wis +2
+Damage Immunities poison
+Condition Immunities poisoned
+Senses darkvision 60 ft., passive Perception 9
+Languages understands Deep Speech and Undercommon but can't speak
+Challenge 5 (1,800 XP)
+Undead Fortitude. If damage reduces the zombie to 0 hit points, it must make a Constitution saving throw with a DC of 5 + the damage taken, unless the damage is radiant or from a critical hit. On a success, the zombie drops to 1 hit point instead.
+## ACTIONS
+Bite. Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 14 (4d6) piercing damage.
+Eye Ray. The zombie uses a random magical eye ray, choosing a target that it can see within 60 feet of it. ¶ 1. Paralyzing Ray. The targeted creature must succeed on a DC 14 Constitution saving throw or be paralyzed for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. ¶ 2. Fear Ray. The targeted creature must succeed on a DC 14 Wisdom saving throw or be frightened for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. ¶ 3. Enervation Ray. The targeted creature must make a DC 14 Constitution saving throw, taking 36 (8d8) necrotic damage on a failed save, or half as much damage on a successful one. ¶ 4. Disintegration Ray. If the target is a creature, it must succeed on a DC 14 Dexterity saving throw or take 45 (10d8) force damage. If this damage reduces the creature to 0 hit points, its body becomes a pile of fine gray dust. ¶ If the target is a Large or smaller nonmagical object or creation of magical force, it is disintegrated without a saving throw. If the target is a Huge or larger nonmagical object or creation of magical force, this ray disintegrates a 10-foot cube of it.
+@@ Ape | 317
+Medium beast, unaligned
+Armor Class 12
+Hit Points 19 (3d8 + 6)
+Speed 30 ft., climb 30 ft.
+STR 16 14 14 6 12 7
+Skills Athletics +5, Perception +3
+Senses passive Perception 13
+Languages —
+Challenge 1/2 (100 XP)
+## ACTIONS
+Multiattack. The ape makes two fist attacks.
+Fist. Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 6 (1d6 + 3) bludgeoning damage.
+Rock. Ranged Weapon Attack: +5 to hit, range 25/50 ft., one target. Hit: 6 (1d6 + 3) bludgeoning damage.
+@@ Awakened Shrub | 317
+Small plant, unaligned
+Armor Class 9
+Hit Points 10 (3d6)
+Speed 20 ft.
+STR 3 8 11 10 10 6
+Damage Vulnerabilities fire
+Damage Resistances piercing
+Senses passive Perception 10
+Languages one language known by its creator
+Challenge 0 (10 XP)
+False Appearance. While the shrub remains motionless, it is indistinguishable from a normal shrub.
+## ACTIONS
+Rake. Melee Weapon Attack: +1 to hit, reach 5 ft., one target. Hit: 1 (1d4 - 1) slashing damage.
+@@ Awakened Tree | 317
+Huge plant, unaligned
+Armor Class 13 (natural armor)
+Hit Points 59 (7d12 + 14)
+Speed 20 ft.
+STR 19 6 15 10 10 7
+Damage Vulnerabilities fire
+Damage Resistances bludgeoning, piercing
+Senses passive Perception 10
+Languages one language known by its creator
+Challenge 2 (450 XP)
+False Appearance. While the tree remains motionless, it is indistinguishable from a normal tree.
+## ACTIONS
+Slam. Melee Weapon Attack: +6 to hit, reach 10 ft., one target. Hit: 14 (3d6 + 4) bludgeoning damage.
+@@ Axe Beak | 317
+Large beast, unaligned
+Armor Class 11
+Hit Points 19 (3d10 + 3)
+Speed 50 ft.
+STR 14 12 12 2 10 5
+Senses passive Perception 10
+Languages —
+Challenge 1/4 (50 XP)
+## ACTIONS
+Beak. Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 6 (1d8 + 2) slashing damage.

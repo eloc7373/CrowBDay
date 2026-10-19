@@ -59,7 +59,6 @@ export function validateCompendium(input: unknown): CompendiumImportResult {
       size: optionalString(item.size), type: optionalString(item.type),
       ac: Number(item.ac), hp: Number(item.hp), speed: optionalString(item.speed),
       initiativeBonus: Number.isFinite(item.initiativeBonus) ? Number(item.initiativeBonus) : undefined,
-      initiativeScore: Number.isFinite(item.initiativeScore) ? Number(item.initiativeScore) : undefined,
       dexMod: Number.isFinite(item.dexMod)
         ? Number(item.dexMod)
         : isObject(abilities) && Number.isFinite(abilities.dex) ? Math.floor((Number(abilities.dex) - 10) / 2) : 0,
@@ -108,7 +107,7 @@ export function validateCompendium(input: unknown): CompendiumImportResult {
   return { monsters, options, errors, name, notice }
 }
 
-const bundledPackId = 'monster-manual-2024'
+const bundledPackId = 'monster-manual-2014'
 const retiredPackIds = ['aidedd-legacy-5e-monsters']
 
 interface CompendiumState {
@@ -133,7 +132,7 @@ export const useCompendiumStore = create<CompendiumState>()((set, get) => ({
         if (result.monsters.length) {
           await db.compendiumPacks.put({
             id: bundledPackId,
-            name: result.name ?? 'Monster Manual (2024)',
+            name: result.name ?? 'Monster Manual (2014)',
             notice: result.notice,
             monsters: result.monsters,
             options: result.options,

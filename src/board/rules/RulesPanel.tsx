@@ -43,7 +43,7 @@ function PackManager() {
             checked={sampleEnabled}
             onChange={(e) => setSampleEnabled(e.target.checked)}
           />
-          Show the built-in sample rules (original placeholders, not official text)
+          Show the built-in core rules (2014 Player's Handbook summaries)
         </label>
         {packs
           .filter((p) => p.origin !== 'sample')
@@ -52,7 +52,7 @@ function PackManager() {
               <span>
                 {p.name} · {p.entries.length} entries{' '}
                 <span className="text-zinc-500">
-                  ({p.origin === 'bundled' ? 'bundled from src/data/srd' : 'imported'})
+                  ({p.origin === 'bundled' ? 'bundled from src/data/bundled' : 'imported'})
                 </span>
               </span>
               {p.origin === 'imported' && (
@@ -82,7 +82,7 @@ function PackManager() {
           />
         </label>
         <p className="text-zinc-500">
-          Use SRD 5.1 content (CC-BY-4.0) or text you own for personal use. Imported content stays
+          Use text from books you own, for personal use. Imported content stays
           in this browser and is never bundled into the app. The format is described in the README.
         </p>
         {report.ok && <p className="text-green-700 dark:text-green-400">{report.ok}</p>}

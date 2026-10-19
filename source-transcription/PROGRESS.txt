@@ -1,0 +1,7 @@
+2014 Monster Manual transcription (source: ../Monster Manual.pdf, 354 pdf pages; printed page = pdf page - 1)
+Page images rendered at scratchpad/img/pNNN.jpg (pymupdf, 125dpi). Pages to view = scratchpad/pages_todo.json (OCR-detected stat pages) plus check pdf 23, 27, 32-ish via the book index (pdf 352-354 'Index of Stat Blocks').
+Format: mm2014/*.txt, '@@ Name | printedPage[,printedPage2]'; build with: python build_mm2014.py [--write]
+ALL STAT BLOCKS TRANSCRIBED (through printed 350, Veteran). Next: cross-check vs Index of Stat Blocks (pdf 352-354), then --write. Frog CR 0 (0 XP), Sea Horse CR 0 (0 XP), Warhorse +4 hit are printed so.
+Rules: type printed text as-is; ## ACTIONS / ## REACTIONS / ## LEGENDARY ACTIONS / ## BONUS ACTIONS section lines; ' ¶ ' = paragraph break; ability line 'STR a b c d e f' (scores only); sidebars/variants skipped for now.
+Warnings that were checked and are printed in the book: Deva Insight, Ankheg dmg, Banshee Cha save, Carrion Crawler/Couatl/Quasit/Chain Devil to-hit, Demilich HP.
+NOTE: lair actions/regional effects (dragons, Kraken, etc.) are not yet transcribed; format has no section for them.

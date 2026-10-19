@@ -3,9 +3,9 @@ import { validateCompendium } from '../board/compendium/store'
 import rawText from '../../public/monster-manual-compendium.json?raw'
 
 const raw = JSON.parse(rawText)
-const pageImages = new Set(Object.keys(import.meta.glob('/public/monster-manual-2024/*.jpg', { query: '?url' })))
+const pageImages = new Set(Object.keys(import.meta.glob('/public/monster-manual-2014/*.jpg', { query: '?url' })))
 
-describe('bundled Monster Manual (2024) compendium', () => {
+describe('bundled Monster Manual (2014) compendium', () => {
   const result = validateCompendium(raw)
 
   it('imports every monster without errors', () => {
@@ -34,7 +34,7 @@ describe('bundled Monster Manual (2024) compendium', () => {
 
   it('matches the printed Aboleth stat block', () => {
     const a = result.monsters.find((m) => m.name === 'Aboleth')
-    expect(a).toMatchObject({ ac: 17, hp: 150, hpFormula: '20d10 + 40', initiativeBonus: 7, challenge: '10', bookPage: 12, imagePage: 15 })
+    expect(a).toMatchObject({ ac: 17, hp: 135, hpFormula: '18d10 + 36', initiativeBonus: -1, challenge: '10', bookPage: 13, imagePage: 14 })
     expect(a?.abilityScores).toEqual({ str: 21, dex: 9, con: 15, int: 18, wis: 15, cha: 18 })
   })
 })

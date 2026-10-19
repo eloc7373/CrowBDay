@@ -1,0 +1,52 @@
+@@ Satyr | 267
+Medium fey, chaotic neutral
+Armor Class 14 (leather armor)
+Hit Points 31 (7d8)
+Speed 40 ft.
+STR 12 16 11 12 10 14
+Skills Perception +2, Performance +6, Stealth +5
+Senses passive Perception 12
+Languages Common, Elvish, Sylvan
+Challenge 1/2 (100 XP)
+Magic Resistance. The satyr has advantage on saving throws against spells and other magical effects.
+## ACTIONS
+Ram. Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 6 (2d4 + 1) bludgeoning damage.
+Shortsword. Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 6 (1d6 + 3) piercing damage.
+Shortbow. Ranged Weapon Attack: +5 to hit, range 80/320 ft., one target. Hit: 6 (1d6 + 3) piercing damage.
+@@ Scarecrow | 268
+Medium construct, chaotic evil
+Armor Class 11
+Hit Points 36 (8d8)
+Speed 30 ft.
+STR 11 13 11 10 10 13
+Damage Vulnerabilities fire
+Damage Resistances bludgeoning, piercing, and slashing from nonmagical weapons
+Damage Immunities poison
+Condition Immunities charmed, exhaustion, frightened, paralyzed, poisoned, unconscious
+Senses darkvision 60 ft., passive Perception 10
+Languages understands the languages of its creator but can't speak
+Challenge 1 (200 XP)
+False Appearance. While the scarecrow remains motionless, it is indistinguishable from an ordinary, inanimate scarecrow.
+## ACTIONS
+Multiattack. The scarecrow makes two claw attacks.
+Claw. Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 6 (2d4 + 1) slashing damage. If the target is a creature, it must succeed on a DC 11 Wisdom saving throw or be frightened until the end of the scarecrow's next turn.
+Terrifying Glare. The scarecrow targets one creature it can see within 30 feet of it. If the target can see the scarecrow, it must succeed on a DC 11 Wisdom saving throw or be magically frightened until the end of the scarecrow's next turn. The frightened target is paralyzed.
+@@ Shadow | 269
+Medium undead, chaotic evil
+Armor Class 12
+Hit Points 16 (3d8 + 3)
+Speed 40 ft.
+STR 6 14 13 6 10 8
+Skills Stealth +4 (+6 in dim light or darkness)
+Damage Vulnerabilities radiant
+Damage Resistances acid, cold, fire, lightning, thunder; bludgeoning, piercing, and slashing from nonmagical weapons
+Damage Immunities necrotic, poison
+Condition Immunities exhaustion, frightened, grappled, paralyzed, petrified, poisoned, prone, restrained
+Senses darkvision 60 ft., passive Perception 10
+Languages —
+Challenge 1/2 (100 XP)
+Amorphous. The shadow can move through a space as narrow as 1 inch wide without squeezing.
+Shadow Stealth. While in dim light or darkness, the shadow can take the Hide action as a bonus action.
+Sunlight Weakness. While in sunlight, the shadow has disadvantage on attack rolls, ability checks, and saving throws.
+## ACTIONS
+Strength Drain. Melee Weapon Attack: +4 to hit, reach 5 ft., one creature. Hit: 9 (2d6 + 2) necrotic damage, and the target's Strength score is reduced by 1d4. The target dies if this reduces its Strength to 0. Otherwise, the reduction lasts until the target finishes a short or long rest. ¶ If a non-evil humanoid dies from this attack, a new shadow rises from the corpse 1d4 hours later.

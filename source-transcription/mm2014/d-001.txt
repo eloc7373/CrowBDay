@@ -1,0 +1,46 @@
+@@ Death Knight | 47
+Medium undead, chaotic evil
+Armor Class 20 (plate, shield)
+Hit Points 180 (19d8 + 95)
+Speed 30 ft.
+STR 20 11 20 12 16 18
+Saving Throws Dex +6, Wis +9, Cha +10
+Damage Immunities necrotic, poison
+Condition Immunities exhaustion, frightened, poisoned
+Senses darkvision 120 ft., passive Perception 13
+Languages Abyssal, Common
+Challenge 17 (18,000 XP)
+Magic Resistance. The death knight has advantage on saving throws against spells and other magical effects.
+Marshal Undead. Unless the death knight is incapacitated, it and undead creatures of its choice within 60 feet of it have advantage on saving throws against features that turn undead.
+Spellcasting. The death knight is a 19th-level spellcaster. Its spellcasting ability is Charisma (spell save DC 18, +10 to hit with spell attacks). It has the following paladin spells prepared: ¶ 1st level (4 slots): command, compelled duel, searing smite ¶ 2nd level (3 slots): hold person, magic weapon ¶ 3rd level (3 slots): dispel magic, elemental weapon ¶ 4th level (3 slots): banishment, staggering smite ¶ 5th level (2 slots): destructive wave (necrotic)
+## ACTIONS
+Multiattack. The death knight makes three longsword attacks.
+Longsword. Melee Weapon Attack: +11 to hit, reach 5 ft., one target. Hit: 9 (1d8 + 5) slashing damage, or 10 (1d10 + 5) slashing damage if used with two hands, plus 18 (4d8) necrotic damage.
+Hellfire Orb (1/Day). The death knight hurls a magical ball of fire that explodes at a point it can see within 120 feet of it. Each creature in a 20-foot-radius sphere centered on that point must make a DC 18 Dexterity saving throw. The sphere spreads around corners. A creature takes 35 (10d6) fire damage and 35 (10d6) necrotic damage on a failed save, or half as much damage on a successful one.
+## REACTIONS
+Parry. The death knight adds 6 to its AC against one melee attack that would hit it. To do so, the death knight must see the attacker and be wielding a melee weapon.
+@@ Demilich | 48
+Tiny undead, neutral evil
+Armor Class 20 (natural armor)
+Hit Points 80 (20d4)
+Speed 0 ft., fly 30 ft. (hover)
+STR 1 20 10 20 17 20
+Saving Throws Con +6, Int +11, Wis +9, Cha +11
+Damage Resistances bludgeoning, piercing, and slashing from magic weapons
+Damage Immunities necrotic, poison, psychic; bludgeoning, piercing, and slashing from nonmagical weapons
+Condition Immunities charmed, deafened, exhaustion, frightened, paralyzed, petrified, poisoned, prone, stunned
+Senses truesight 120 ft., passive Perception 13
+Languages —
+Challenge 18 (20,000 XP)
+Avoidance. If the demilich is subjected to an effect that allows it to make a saving throw to take only half damage, it instead takes no damage if it succeeds on the saving throw, and only half damage if it fails.
+Legendary Resistance (3/Day). If the demilich fails a saving throw, it can choose to succeed instead.
+Turn Immunity. The demilich is immune to effects that turn undead.
+## ACTIONS
+Howl (Recharge 5–6). The demilich emits a bloodcurdling howl. Each creature within 30 feet of the demilich that can hear the howl must succeed on a DC 15 Constitution saving throw or drop to 0 hit points. On a successful save, the creature is frightened until the end of its next turn.
+Life Drain. The demilich targets up to three creatures that it can see within 10 feet of it. Each target must succeed on a DC 19 Constitution saving throw or take 21 (6d6) necrotic damage, and the demilich regains hit points equal to the total damage dealt to all targets.
+## LEGENDARY ACTIONS
+The demilich can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The demilich regains spent legendary actions at the start of its turn.
+Flight. The demilich flies up to half its flying speed.
+Cloud of Dust. The demilich magically swirls its dusty remains. Each creature within 10 feet of the demilich, including around a corner, must succeed on a DC 15 Constitution saving throw or be blinded until the end of the demilich's next turn. A creature that succeeds on the saving throw is immune to this effect until the end of the demilich's next turn.
+Energy Drain (Costs 2 Actions). Each creature within 30 feet of the demilich must make a DC 15 Constitution saving throw. On a failed save, the creature's hit point maximum is magically reduced by 10 (3d6). If a creature's hit point maximum is reduced to 0 by this effect, the creature dies. A creature's hit point maximum can be restored with the greater restoration spell or similar magic.
+Vile Curse (Costs 3 Actions). The demilich targets one creature it can see within 30 feet of it. The target must succeed on a DC 15 Wisdom saving throw or be magically cursed. Until the curse ends, the target has disadvantage on attack rolls and saving throws. The target can repeat the saving throw at the end of each of its turns, ending the curse on a success.

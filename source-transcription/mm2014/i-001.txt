@@ -1,0 +1,51 @@
+@@ Invisible Stalker | 192
+Medium elemental, neutral
+Armor Class 14
+Hit Points 104 (16d8 + 32)
+Speed 50 ft., fly 50 ft. (hover)
+STR 16 19 14 10 15 11
+Skills Perception +8, Stealth +10
+Damage Resistances bludgeoning, piercing, and slashing from nonmagical weapons
+Damage Immunities poison
+Condition Immunities exhaustion, grappled, paralyzed, petrified, poisoned, prone, restrained, unconscious
+Senses darkvision 60 ft., passive Perception 18
+Languages Auran, understands Common but doesn't speak it
+Challenge 6 (2,300 XP)
+Invisibility. The stalker is invisible.
+Faultless Tracker. The stalker is given a quarry by its summoner. The stalker knows the direction and distance to its quarry as long as the two of them are on the same plane of existence. The stalker also knows the location of its summoner.
+## ACTIONS
+Multiattack. The stalker makes two slam attacks.
+Slam. Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 10 (2d6 + 3) bludgeoning damage.
+@@ Jackalwere | 193
+Medium humanoid (shapechanger), chaotic evil
+Armor Class 12
+Hit Points 18 (4d8)
+Speed 40 ft.
+STR 11 15 11 13 11 10
+Skills Deception +4, Perception +2, Stealth +4
+Damage Immunities bludgeoning, piercing, and slashing damage from nonmagical weapons that aren't silvered
+Senses passive Perception 12
+Languages Common (can't speak in jackal form)
+Challenge 1/2 (100 XP)
+Shapechanger. The jackalwere can use its action to polymorph into a specific Medium human or a jackal-humanoid hybrid, or back into its true form (that of a Small jackal). Other than its size, its statistics are the same in each form. Any equipment it is wearing or carrying isn't transformed. It reverts to its true form if it dies.
+Keen Hearing and Smell. The jackalwere has advantage on Wisdom (Perception) checks that rely on hearing or smell.
+Pack Tactics. The jackalwere has advantage on an attack roll against a creature if at least one of the jackalwere's allies is within 5 feet of the creature and the ally isn't incapacitated.
+## ACTIONS
+Bite (Jackal or Hybrid Form Only). Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 4 (1d4 + 2) piercing damage.
+Scimitar (Human or Hybrid Form Only). Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) slashing damage.
+Sleep Gaze. The jackalwere gazes at one creature it can see within 30 feet of it. The target must make a DC 10 Wisdom saving throw. On a failed save, the target succumbs to a magical slumber, falling unconscious for 10 minutes or until someone uses an action to shake the target awake. A creature that successfully saves against the effect is immune to this jackalwere's gaze for the next 24 hours. Undead and creatures immune to being charmed aren't affected by it.
+@@ Kenku | 194
+Medium humanoid (kenku), chaotic neutral
+Armor Class 13
+Hit Points 13 (3d8)
+Speed 30 ft.
+STR 10 16 10 11 10 10
+Skills Deception +4, Perception +2, Stealth +5
+Senses passive Perception 12
+Languages understands Auran and Common but speaks only through the use of its Mimicry trait
+Challenge 1/4 (50 XP)
+Ambusher. The kenku has advantage on attack rolls against any creature it has surprised.
+Mimicry. The kenku can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful DC 14 Wisdom (Insight) check.
+## ACTIONS
+Shortsword. Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 6 (1d6 + 3) piercing damage.
+Shortbow. Ranged Weapon Attack: +5 to hit, range 80/320 ft., one target. Hit: 6 (1d6 + 3) piercing damage.

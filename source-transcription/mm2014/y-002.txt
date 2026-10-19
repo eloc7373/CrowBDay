@@ -1,0 +1,46 @@
+@@ Yuan-ti Malison | 309
+Medium monstrosity (shapechanger, yuan-ti), neutral evil
+Armor Class 12
+Hit Points 66 (12d8 + 12)
+Speed 30 ft.
+STR 16 14 13 14 12 16
+Skills Deception +5, Stealth +4
+Damage Immunities poison
+Condition Immunities poisoned
+Senses darkvision 60 ft., passive Perception 11
+Languages Abyssal, Common, Draconic
+Challenge 3 (700 XP)
+Shapechanger. The yuan-ti can use its action to polymorph into a Medium snake, or back into its true form. Its statistics are the same in each form. Any equipment it is wearing or carrying isn't transformed. It doesn't change form if it dies.
+Innate Spellcasting (Yuan-ti Form Only). The yuan-ti's innate spellcasting ability is Charisma (spell save DC 13). The yuan-ti can innately cast the following spells, requiring no material components: ¶ At will: animal friendship (snakes only) ¶ 3/day: suggestion
+Magic Resistance. The yuan-ti has advantage on saving throws against spells and other magical effects.
+Malison Type. The yuan-ti has one of the following types: ¶ Type 1: Human body with snake head ¶ Type 2: Human head and body with snakes for arms ¶ Type 3: Human head and upper body with a serpentine lower body instead of legs
+## ACTIONS
+Actions for Type 1 — Multiattack (Yuan-ti Form Only). The yuan-ti makes two ranged attacks or two melee attacks, but can use its bite only once.
+Actions for Type 1 — Bite. Melee Weapon Attack: +5 to hit, reach 5 ft., one creature. Hit: 5 (1d4 + 3) piercing damage plus 7 (2d6) poison damage.
+Actions for Type 1 — Scimitar (Yuan-ti Form Only). Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 6 (1d6 + 3) slashing damage.
+Actions for Type 1 — Longbow (Yuan-ti Form Only). Ranged Weapon Attack: +4 to hit, range 150/600 ft., one target. Hit: 6 (1d8 + 2) piercing damage plus 7 (2d6) poison damage.
+Actions for Type 2 — Multiattack (Yuan-ti Form Only). The yuan-ti makes two bite attacks using its snake arms.
+Actions for Type 2 — Bite. Melee Weapon Attack: +5 to hit, reach 5 ft., one creature. Hit: 5 (1d4 + 3) piercing damage plus 7 (2d6) poison damage.
+Actions for Type 3 — Multiattack (Yuan-ti Form Only). The yuan-ti makes two ranged attacks or two melee attacks, but can constrict only once.
+Actions for Type 3 — Bite (Snake Form Only). Melee Weapon Attack: +5 to hit, reach 5 ft., one creature. Hit: 5 (1d4 + 3) piercing damage plus 7 (2d6) poison damage.
+Actions for Type 3 — Constrict. Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 10 (2d6 + 3) bludgeoning damage, and the target is grappled (escape DC 13). Until this grapple ends, the target is restrained, and the yuan-ti can't constrict another target.
+Actions for Type 3 — Scimitar (Yuan-ti Form Only). Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 6 (1d6 + 3) slashing damage.
+Actions for Type 3 — Longbow (Yuan-ti Form Only). Ranged Weapon Attack: +4 to hit, range 150/600 ft., one target. Hit: 6 (1d8 + 2) piercing damage.
+@@ Yuan-ti Pureblood | 310
+Medium humanoid (yuan-ti), neutral evil
+Armor Class 11
+Hit Points 40 (9d8)
+Speed 30 ft.
+STR 11 12 11 13 12 14
+Skills Deception +6, Perception +3, Stealth +3
+Damage Immunities poison
+Condition Immunities poisoned
+Senses darkvision 60 ft., passive Perception 13
+Languages Abyssal, Common, Draconic
+Challenge 1 (200 XP)
+Innate Spellcasting. The yuan-ti's spellcasting ability is Charisma (spell save DC 12). The yuan-ti can innately cast the following spells, requiring no material components: ¶ At will: animal friendship (snakes only) ¶ 3/day each: poison spray, suggestion
+Magic Resistance. The yuan-ti has advantage on saving throws against spells and other magical effects.
+## ACTIONS
+Multiattack. The yuan-ti makes two melee attacks.
+Scimitar. Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 4 (1d6 + 1) slashing damage.
+Shortbow. Ranged Weapon Attack: +3 to hit, range 80/320 ft., one target. Hit: 4 (1d6 + 1) piercing damage plus 7 (2d6) poison damage.

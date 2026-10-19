@@ -35,4 +35,4 @@ Open **DM Board → Monster & player options → Import JSON**. Imports are save
 
 Monsters appear in search and can be added directly to initiative. Player options can be searched and copied into a character's **Features & traits** field. Search checks names, summaries, types, traits, and descriptions. Import a corrected JSON file as another pack, then remove an older pack under **Manage imported packs**.
 
-The import is a data loader, not a PDF converter. Keep imported book material for personal use and do not redistribute it. For SRD entries, follow the license and attribution terms of the source you use.
+The import is a data loader, not a PDF converter. Keep imported book material for personal use and do not redistribute it. The bundled compendium is the 2014 Monster Manual; `source-transcription/build_mm2014.py` builds it from hand-transcribed stat blocks.

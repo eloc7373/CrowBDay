@@ -11,7 +11,6 @@ export function EntryViewer() {
   const open = useBoardUi((s) => s.openEntry)
   const doc = useRulesStore((s) => (id ? s.docs.find((d) => d.id === id) : undefined))
   const docs = useRulesStore((s) => s.docs)
-  const placeholder = doc && /placeholder/i.test(doc.source.book)
 
   return (
     <Modal open={!!id} title={doc?.title ?? 'Entry not found'} onClose={close} wide>
@@ -56,12 +55,6 @@ export function EntryViewer() {
           <footer className="mt-4 border-t border-zinc-200 pt-2 text-xs text-zinc-500 dark:border-zinc-800 dark:text-zinc-400">
             Source: {doc.source.book}
             {doc.source.page !== undefined ? `, p. ${doc.source.page}` : ''} · {doc.source.license}
-            {placeholder && (
-              <p className="mt-1 font-medium text-amber-700 dark:text-amber-400">
-                Original placeholder summary, not official rules text. Verify against the SRD 5.1 or
-                your books.
-              </p>
-            )}
           </footer>
         </article>
       ) : (

@@ -30,7 +30,7 @@ export interface RulesPack {
   name: string
   notice?: string
   entries: RuleEntry[]
-  /** Where it came from: bundled sample, src/data/srd at build time, or a user import. */
+  /** Where it came from: bundled sample, src/data/bundled at build time, or a user import. */
   origin: 'sample' | 'bundled' | 'imported'
 }
 

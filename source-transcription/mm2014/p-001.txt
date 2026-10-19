@@ -1,0 +1,46 @@
+@@ Owlbear | 249
+Large monstrosity, unaligned
+Armor Class 13 (natural armor)
+Hit Points 59 (7d10 + 21)
+Speed 40 ft.
+STR 20 12 17 3 12 7
+Skills Perception +3
+Senses darkvision 60 ft., passive Perception 13
+Languages —
+Challenge 3 (700 XP)
+Keen Sight and Smell. The owlbear has advantage on Wisdom (Perception) checks that rely on sight or smell.
+## ACTIONS
+Multiattack. The owlbear makes two attacks: one with its beak and one with its claws.
+Beak. Melee Weapon Attack: +7 to hit, reach 5 ft., one creature. Hit: 10 (1d10 + 5) piercing damage.
+Claws. Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 14 (2d8 + 5) slashing damage.
+@@ Pegasus | 250
+Large celestial, chaotic good
+Armor Class 12
+Hit Points 59 (7d10 + 21)
+Speed 60 ft., fly 90 ft.
+STR 18 15 16 10 15 13
+Saving Throws Dex +4, Wis +4, Cha +3
+Skills Perception +6
+Senses passive Perception 16
+Languages understands Celestial, Common, Elvish, and Sylvan but can't speak
+Challenge 2 (450 XP)
+## ACTIONS
+Hooves. Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 11 (2d6 + 4) bludgeoning damage.
+@@ Peryton | 251
+Medium monstrosity, chaotic evil
+Armor Class 13 (natural armor)
+Hit Points 33 (6d8 + 6)
+Speed 20 ft., fly 60 ft.
+STR 16 12 13 9 12 10
+Skills Perception +5
+Damage Resistances bludgeoning, piercing, and slashing from nonmagical weapons
+Senses passive Perception 15
+Languages understands Common and Elvish but can't speak
+Challenge 2 (450 XP)
+Dive Attack. If the peryton is flying and dives at least 30 feet straight toward a target and then hits it with a melee weapon attack, the attack deals an extra 9 (2d8) damage to the target.
+Flyby. The peryton doesn't provoke an opportunity attack when it flies out of an enemy's reach.
+Keen Sight and Smell. The peryton has advantage on Wisdom (Perception) checks that rely on sight or smell.
+## ACTIONS
+Multiattack. The peryton makes one gore attack and one talon attack.
+Gore. Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 7 (1d8 + 3) piercing damage.
+Talons. Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 8 (2d4 + 3) piercing damage.

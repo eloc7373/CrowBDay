@@ -1,5 +1,5 @@
-// Travel pace calculator. Values follow the SRD 5.1 travel pace table
-// (summarised in the sample rules); verify against your rules edition.
+// Travel pace calculator. Values follow the 2014 Player's Handbook travel pace table
+// (Player's Handbook p. 182, summarised in the core rules).
 
 export type Pace = 'fast' | 'normal' | 'slow'
 
@@ -30,7 +30,7 @@ export interface TravelResult {
 }
 
 /**
- * The SRD day assumes 8 hours of travel, and its "per day" figures round the
+ * The book's day assumes 8 hours of travel, and its "per day" figures round the
  * fast pace (4 mph × 8 h = 32) down to 30 miles. So the daily figure is scaled
  * from the table for other hours rather than computed as mph × hours.
  */

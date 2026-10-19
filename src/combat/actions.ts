@@ -1,7 +1,7 @@
 // Combat Mode rules helpers. Pure functions over CombatState: each returns a new
 // state, and the ones that change the game record a log entry that can be undone.
 //
-// These are DM aids that follow the SRD 5.1 wording; the DM has the final say.
+// These are DM aids that follow the 2014 Player's Handbook wording; the DM has the final say.
 
 import {
   applyHp,
@@ -16,7 +16,7 @@ import { newId } from '../lib/id'
 
 const LOG_MAX = 80
 
-/** Concentration save DC: 10, or half the damage taken if that is higher (SRD 5.1). */
+/** Concentration save DC: 10, or half the damage taken if that is higher (Player's Handbook). */
 export const concentrationDc = (damage: number) => Math.max(10, Math.floor(damage / 2))
 
 const find = (s: CombatState, id: string) => s.combatants.find((c) => c.id === id)

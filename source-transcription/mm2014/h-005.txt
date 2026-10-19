@@ -1,0 +1,50 @@
+@@ Hook Horror | 189
+Large monstrosity, neutral
+Armor Class 15 (natural armor)
+Hit Points 75 (10d10 + 20)
+Speed 30 ft., climb 30 ft.
+STR 18 10 15 6 12 7
+Skills Perception +3
+Senses blindsight 60 ft., darkvision 10 ft., passive Perception 13
+Languages Hook Horror
+Challenge 3 (700 XP)
+Echolocation. The hook horror can't use its blindsight while deafened.
+Keen Hearing. The hook horror has advantage on Wisdom (Perception) checks that rely on hearing.
+## ACTIONS
+Multiattack. The hook horror makes two hook attacks.
+Hook. Melee Weapon Attack: +6 to hit, reach 10 ft., one target. Hit: 11 (2d6 + 4) piercing damage.
+@@ Hydra | 190
+Huge monstrosity, unaligned
+Armor Class 15 (natural armor)
+Hit Points 172 (15d12 + 75)
+Speed 30 ft., swim 30 ft.
+STR 20 12 20 2 10 7
+Skills Perception +6
+Senses darkvision 60 ft., passive Perception 16
+Languages —
+Challenge 8 (3,900 XP)
+Hold Breath. The hydra can hold its breath for 1 hour.
+Multiple Heads. The hydra has five heads. While it has more than one head, the hydra has advantage on saving throws against being blinded, charmed, deafened, frightened, stunned, and knocked unconscious. ¶ Whenever the hydra takes 25 or more damage in a single turn, one of its heads dies. If all its heads die, the hydra dies. ¶ At the end of its turn, it grows two heads for each of its heads that died since its last turn, unless it has taken fire damage since its last turn. The hydra regains 10 hit points for each head regrown in this way.
+Reactive Heads. For each head the hydra has beyond one, it gets an extra reaction that can be used only for opportunity attacks.
+Wakeful. While the hydra sleeps, at least one of its heads is awake.
+## ACTIONS
+Multiattack. The hydra makes as many bite attacks as it has heads.
+Bite. Melee Weapon Attack: +8 to hit, reach 10 ft., one target. Hit: 10 (1d10 + 5) piercing damage.
+@@ Intellect Devourer | 191
+Tiny aberration, lawful evil
+Armor Class 12
+Hit Points 21 (6d4 + 6)
+Speed 40 ft.
+STR 6 14 13 12 11 10
+Skills Perception +2, Stealth +4
+Damage Resistances bludgeoning, piercing, and slashing from nonmagical weapons
+Condition Immunities blinded
+Senses blindsight 60 ft. (blind beyond this radius), passive Perception 12
+Languages understands Deep Speech but can't speak, telepathy 60 ft.
+Challenge 2 (450 XP)
+Detect Sentience. The intellect devourer can sense the presence and location of any creature within 300 feet of it that has an Intelligence of 3 or higher, regardless of interposing barriers, unless the creature is protected by a mind blank spell.
+## ACTIONS
+Multiattack. The intellect devourer makes one attack with its claws and uses Devour Intellect.
+Claws. Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 7 (2d4 + 2) slashing damage.
+Devour Intellect. The intellect devourer targets one creature it can see within 10 feet of it that has a brain. The target must succeed on a DC 12 Intelligence saving throw against this magic or take 11 (2d10) psychic damage. Also on a failure, roll 3d6: If the total equals or exceeds the target's Intelligence score, that score is reduced to 0. The target is stunned until it regains at least one point of Intelligence.
+Body Thief. The intellect devourer initiates an Intelligence contest with an incapacitated humanoid within 5 feet of it. If it wins the contest, the intellect devourer magically consumes the target's brain, teleports into the target's skull, and takes control of the target's body. While inside a creature, the intellect devourer has total cover against attacks and other effects originating outside its host. The intellect devourer retains its Intelligence, Wisdom, and Charisma scores, as well as its understanding of Deep Speech, its telepathy, and its traits. It otherwise adopts the target's statistics. It knows everything the creature knew, including spells and languages. ¶ If the host body drops to 0 hit points, the intellect devourer must leave it. A protection from evil and good spell cast on the body drives the intellect devourer out. The intellect devourer is also forced out if the target regains its devoured brain by means of a wish. By spending 5 feet of its movement, the intellect devourer can voluntarily leave the body, teleporting to the nearest unoccupied space within 5 feet of it. The body then dies, unless its brain is restored within 1 round.

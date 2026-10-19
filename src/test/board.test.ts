@@ -176,11 +176,11 @@ describe('rules search', () => {
   const search = createSearch([...ruleDocs(v.entries), ...conditionDocs()])
   const ids = (q: string) => search(q).map((d) => d.id)
 
-  it('sample rules are valid and clearly marked as original placeholders', () => {
+  it("sample rules are valid and sourced to the 2014 Player's Handbook", () => {
     expect(v.errors).toEqual([])
     expect(v.entries.length).toBeGreaterThanOrEqual(30)
     for (const e of v.entries) {
-      expect(e.source.book).toMatch(/original placeholder/i)
+      expect(e.source.book).toMatch(/Player's Handbook \(2014\)/)
       for (const r of e.related)
         expect(
           v.entries.some((x) => x.id === r),

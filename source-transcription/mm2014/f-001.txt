@@ -1,0 +1,76 @@
+@@ Gas Spore | 138
+Large plant, unaligned
+Armor Class 5
+Hit Points 1 (1d10 - 4)
+Speed 0 ft., fly 10 ft. (hover)
+STR 5 1 3 1 1 1
+Damage Immunities poison
+Condition Immunities blinded, deafened, frightened, paralyzed, poisoned, prone
+Senses blindsight 30 ft. (blind beyond this radius), passive Perception 5
+Languages —
+Challenge 1/2 (100 XP)
+Death Burst. The gas spore explodes when it drops to 0 hit points. Each creature within 20 feet of it must succeed on a DC 15 Constitution saving throw or take 10 (3d6) poison damage and become infected with a disease on a failed save. Creatures immune to the poisoned condition are immune to this disease. ¶ Spores invade an infected creature's system, killing the creature in a number of hours equal to 1d12 + the creature's Constitution score, unless the disease is removed. In half that time, the creature becomes poisoned for the rest of the duration. After the creature dies, it sprouts 2d4 Tiny gas spores that grow to full size in 7 days.
+Eerie Resemblance. The gas spore resembles a beholder. A creature that can see the gas spore can discern its true nature with a successful DC 15 Intelligence (Nature) check.
+## ACTIONS
+Touch. Melee Weapon Attack: +0 to hit, reach 5 ft., one creature. Hit: 1 poison damage, and the creature must succeed on a DC 10 Constitution saving throw or become infected with the disease described in the Death Burst trait.
+@@ Shrieker | 138
+Medium plant, unaligned
+Armor Class 5
+Hit Points 13 (3d8)
+Speed 0 ft.
+STR 1 1 10 1 3 1
+Condition Immunities blinded, deafened, frightened
+Senses blindsight 30 ft. (blind beyond this radius), passive Perception 6
+Languages —
+Challenge 0 (10 XP)
+False Appearance. While the shrieker remains motionless, it is indistinguishable from an ordinary fungus.
+## REACTIONS
+Shriek. When bright light or a creature is within 30 feet of the shrieker, it emits a shriek audible within 300 feet of it. The shrieker continues to shriek until the disturbance moves out of range and for 1d4 of the shrieker's turns afterward.
+@@ Violet Fungus | 138
+Medium plant, unaligned
+Armor Class 5
+Hit Points 18 (4d8)
+Speed 5 ft.
+STR 3 1 10 1 3 1
+Condition Immunities blinded, deafened, frightened
+Senses blindsight 30 ft. (blind beyond this radius), passive Perception 6
+Languages —
+Challenge 1/4 (50 XP)
+False Appearance. While the violet fungus remains motionless, it is indistinguishable from an ordinary fungus.
+## ACTIONS
+Multiattack. The fungus makes 1d4 Rotting Touch attacks.
+Rotting Touch. Melee Weapon Attack: +2 to hit, reach 10 ft., one creature. Hit: 4 (1d8) necrotic damage.
+@@ Galeb Duhr | 139
+Medium elemental, neutral
+Armor Class 16 (natural armor)
+Hit Points 85 (9d8 + 45)
+Speed 15 ft. (30 ft. when rolling, 60 ft. rolling downhill)
+STR 20 14 20 11 12 11
+Damage Resistances bludgeoning, piercing, and slashing from nonmagical weapons
+Damage Immunities poison
+Condition Immunities exhaustion, paralyzed, poisoned, petrified
+Senses darkvision 60 ft., tremorsense 60 ft., passive Perception 11
+Languages Terran
+Challenge 6 (2,300 XP)
+False Appearance. While the galeb duhr remains motionless, it is indistinguishable from a normal boulder.
+Rolling Charge. If the galeb duhr rolls at least 20 feet straight toward a target and then hits it with a slam attack on the same turn, the target takes an extra 7 (2d6) bludgeoning damage. If the target is a creature, it must succeed on a DC 16 Strength saving throw or be knocked prone.
+## ACTIONS
+Slam. Melee Weapon Attack: +8 to hit, reach 5 ft., one target. Hit: 12 (2d6 + 5) bludgeoning damage.
+Animate Boulders (1/Day). The galeb duhr magically animates up to two boulders it can see within 60 feet of it. A boulder has statistics like those of a galeb duhr, except it has Intelligence 1 and Charisma 1, it can't be charmed or frightened, and it lacks this action option. A boulder remains animated as long as the galeb duhr maintains concentration, up to 1 minute (as if concentrating on a spell).
+@@ Gargoyle | 140
+Medium elemental, chaotic evil
+Armor Class 15 (natural armor)
+Hit Points 52 (7d8 + 21)
+Speed 30 ft., fly 60 ft.
+STR 15 11 16 6 11 7
+Damage Resistances bludgeoning, piercing, and slashing from nonmagical weapons that aren't adamantine
+Damage Immunities poison
+Condition Immunities exhaustion, petrified, poisoned
+Senses darkvision 60 ft., passive Perception 10
+Languages Terran
+Challenge 2 (450 XP)
+False Appearance. While the gargoyle remains motionless, it is indistinguishable from an inanimate statue.
+## ACTIONS
+Multiattack. The gargoyle makes two attacks: one with its bite and one with its claws.
+Bite. Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) piercing damage.
+Claws. Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) slashing damage.

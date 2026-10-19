@@ -1,0 +1,47 @@
+@@ Deep Gnome (Svirfneblin) | 164
+Small humanoid (gnome), neutral good
+Armor Class 15 (chain shirt)
+Hit Points 16 (3d6 + 6)
+Speed 20 ft.
+STR 15 14 14 12 10 9
+Skills Investigation +3, Perception +2, Stealth +4
+Senses darkvision 120 ft., passive Perception 12
+Languages Gnomish, Terran, Undercommon
+Challenge 1/2 (100 XP)
+Stone Camouflage. The gnome has advantage on Dexterity (Stealth) checks made to hide in rocky terrain.
+Gnome Cunning. The gnome has advantage on Intelligence, Wisdom, and Charisma saving throws against magic.
+Innate Spellcasting. The gnome's innate spellcasting ability is Intelligence (spell save DC 11). It can innately cast the following spells, requiring no material components: ¶ At will: nondetection (self only) ¶ 1/day each: blindness/deafness, blur, disguise self
+## ACTIONS
+War Pick. Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 6 (1d8 + 2) piercing damage.
+Poisoned Dart. Ranged Weapon Attack: +4 to hit, range 30/120 ft., one creature. Hit: 4 (1d4 + 2) piercing damage, and the target must succeed on a DC 12 Constitution saving throw or be poisoned for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.
+@@ Goblin | 166
+Small humanoid (goblinoid), neutral evil
+Armor Class 15 (leather armor, shield)
+Hit Points 7 (2d6)
+Speed 30 ft.
+STR 8 14 10 10 8 8
+Skills Stealth +6
+Senses darkvision 60 ft., passive Perception 9
+Languages Common, Goblin
+Challenge 1/4 (50 XP)
+Nimble Escape. The goblin can take the Disengage or Hide action as a bonus action on each of its turns.
+## ACTIONS
+Scimitar. Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) slashing damage.
+Shortbow. Ranged Weapon Attack: +4 to hit, range 80/320 ft., one target. Hit: 5 (1d6 + 2) piercing damage.
+@@ Goblin Boss | 166
+Small humanoid (goblinoid), neutral evil
+Armor Class 17 (chain shirt, shield)
+Hit Points 21 (6d6)
+Speed 30 ft.
+STR 10 14 10 10 8 10
+Skills Stealth +6
+Senses darkvision 60 ft., passive Perception 9
+Languages Common, Goblin
+Challenge 1 (200 XP)
+Nimble Escape. The goblin can take the Disengage or Hide action as a bonus action on each of its turns.
+## ACTIONS
+Multiattack. The goblin makes two attacks with its scimitar. The second attack has disadvantage.
+Scimitar. Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) slashing damage.
+Javelin. Melee or Ranged Weapon Attack: +4 to hit, reach 5 ft. or range 30/120 ft., one target. Hit: 5 (1d6 + 2) piercing damage.
+## REACTIONS
+Redirect Attack. When a creature the goblin can see targets it with an attack, the goblin chooses another goblin within 5 feet of it. The two goblins swap places, and the chosen goblin becomes the target instead.

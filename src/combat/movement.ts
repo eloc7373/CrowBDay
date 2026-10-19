@@ -1,6 +1,6 @@
 // Movement cost for a creature walking between two cells, in feet.
 //
-// Costs follow the SRD 5.1: every square costs one grid step (5 ft by default),
+// Costs follow the 2014 Player's Handbook: every square costs one grid step (5 ft by default),
 // and each square of difficult terrain costs one extra step. Diagonals follow
 // the chosen rule. Walls (and secret doors) block, open doors do not, and so do
 // terrain or objects flagged "blocks movement". Only the creature's anchor

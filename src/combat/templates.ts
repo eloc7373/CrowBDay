@@ -1,5 +1,5 @@
 // Area-of-effect templates on a square grid. Cells are chosen by their centres,
-// which is how most tables do it. This is a DM aid: shapes follow the SRD 5.1
+// which is how most tables do it. This is a DM aid: shapes follow the 2014 Player's Handbook
 // definitions (a cone is as wide as it is long, a line is 5 ft wide unless
 // stated), but edge cases are the DM's call.
 

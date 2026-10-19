@@ -1,0 +1,170 @@
+@@ Baboon | 318
+Small beast, unaligned
+Armor Class 12
+Hit Points 3 (1d6)
+Speed 30 ft., climb 30 ft.
+STR 8 14 11 4 12 6
+Senses passive Perception 11
+Languages —
+Challenge 0 (10 XP)
+Pack Tactics. The baboon has advantage on an attack roll against a creature if at least one of the baboon's allies is within 5 feet of the creature and the ally isn't incapacitated.
+## ACTIONS
+Bite. Melee Weapon Attack: +1 to hit, reach 5 ft., one target. Hit: 1 (1d4 - 1) piercing damage.
+@@ Badger | 318
+Tiny beast, unaligned
+Armor Class 10
+Hit Points 3 (1d4 + 1)
+Speed 20 ft., burrow 5 ft.
+STR 4 11 12 2 12 5
+Senses darkvision 30 ft., passive Perception 11
+Languages —
+Challenge 0 (10 XP)
+Keen Smell. The badger has advantage on Wisdom (Perception) checks that rely on smell.
+## ACTIONS
+Bite. Melee Weapon Attack: +2 to hit, reach 5 ft., one target. Hit: 1 piercing damage.
+@@ Bat | 318
+Tiny beast, unaligned
+Armor Class 12
+Hit Points 1 (1d4 - 1)
+Speed 5 ft., fly 30 ft.
+STR 2 15 8 2 12 4
+Senses blindsight 60 ft., passive Perception 11
+Languages —
+Challenge 0 (10 XP)
+Echolocation. The bat can't use its blindsight while deafened.
+Keen Hearing. The bat has advantage on Wisdom (Perception) checks that rely on hearing.
+## ACTIONS
+Bite. Melee Weapon Attack: +0 to hit, reach 5 ft., one creature. Hit: 1 piercing damage.
+@@ Black Bear | 318
+Medium beast, unaligned
+Armor Class 11 (natural armor)
+Hit Points 19 (3d8 + 6)
+Speed 40 ft., climb 30 ft.
+STR 15 10 14 2 12 7
+Skills Perception +3
+Senses passive Perception 13
+Languages —
+Challenge 1/2 (100 XP)
+Keen Smell. The bear has advantage on Wisdom (Perception) checks that rely on smell.
+## ACTIONS
+Multiattack. The bear makes two attacks: one with its bite and one with its claws.
+Bite. Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) piercing damage.
+Claws. Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 7 (2d4 + 2) slashing damage.
+@@ Blink Dog | 318
+Medium fey, lawful good
+Armor Class 13
+Hit Points 22 (4d8 + 4)
+Speed 40 ft.
+STR 12 17 12 10 13 11
+Skills Perception +3, Stealth +5
+Senses passive Perception 13
+Languages Blink Dog, understands Sylvan but can't speak it
+Challenge 1/4 (50 XP)
+Keen Hearing and Smell. The dog has advantage on Wisdom (Perception) checks that rely on hearing or smell.
+## ACTIONS
+Bite. Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 4 (1d6 + 1) piercing damage.
+Teleport (Recharge 4–6). The dog magically teleports, along with any equipment it is wearing or carrying, up to 40 feet to an unoccupied space it can see. Before or after teleporting, the dog can make one bite attack.
+@@ Blood Hawk | 319
+Small beast, unaligned
+Armor Class 12
+Hit Points 7 (2d6)
+Speed 10 ft., fly 60 ft.
+STR 6 14 10 3 14 5
+Skills Perception +4
+Senses passive Perception 14
+Languages —
+Challenge 1/8 (25 XP)
+Keen Sight. The hawk has advantage on Wisdom (Perception) checks that rely on sight.
+Pack Tactics. The hawk has advantage on an attack roll against a creature if at least one of the hawk's allies is within 5 feet of the creature and the ally isn't incapacitated.
+## ACTIONS
+Beak. Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 4 (1d4 + 2) piercing damage.
+@@ Boar | 319
+Medium beast, unaligned
+Armor Class 11 (natural armor)
+Hit Points 11 (2d8 + 2)
+Speed 40 ft.
+STR 13 11 12 2 9 5
+Senses passive Perception 9
+Languages —
+Challenge 1/4 (50 XP)
+Charge. If the boar moves at least 20 feet straight toward a target and then hits it with a tusk attack on the same turn, the target takes an extra 3 (1d6) slashing damage. If the target is a creature, it must succeed on a DC 11 Strength saving throw or be knocked prone.
+Relentless (Recharges after a Short or Long Rest). If the boar takes 7 damage or less that would reduce it to 0 hit points, it is reduced to 1 hit point instead.
+## ACTIONS
+Tusk. Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 4 (1d6 + 1) slashing damage.
+@@ Brown Bear | 319
+Large beast, unaligned
+Armor Class 11 (natural armor)
+Hit Points 34 (4d10 + 12)
+Speed 40 ft., climb 30 ft.
+STR 19 10 16 2 13 7
+Skills Perception +3
+Senses passive Perception 13
+Languages —
+Challenge 1 (200 XP)
+Keen Smell. The bear has advantage on Wisdom (Perception) checks that rely on smell.
+## ACTIONS
+Multiattack. The bear makes two attacks: one with its bite and one with its claws.
+Bite. Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 8 (1d8 + 4) piercing damage.
+Claws. Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 11 (2d6 + 4) slashing damage.
+@@ Camel | 320
+Large beast, unaligned
+Armor Class 9
+Hit Points 15 (2d10 + 4)
+Speed 50 ft.
+STR 16 8 14 2 8 5
+Senses passive Perception 9
+Languages —
+Challenge 1/8 (25 XP)
+## ACTIONS
+Bite. Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 2 (1d4) bludgeoning damage.
+@@ Cat | 320
+Tiny beast, unaligned
+Armor Class 12
+Hit Points 2 (1d4)
+Speed 40 ft., climb 30 ft.
+STR 3 15 10 3 12 7
+Skills Perception +3, Stealth +4
+Senses passive Perception 13
+Languages —
+Challenge 0 (10 XP)
+Keen Smell. The cat has advantage on Wisdom (Perception) checks that rely on smell.
+## ACTIONS
+Claws. Melee Weapon Attack: +0 to hit, reach 5 ft., one target. Hit: 1 slashing damage.
+@@ Constrictor Snake | 320
+Large beast, unaligned
+Armor Class 12
+Hit Points 13 (2d10 + 2)
+Speed 30 ft., swim 30 ft.
+STR 15 14 12 1 10 3
+Senses blindsight 10 ft., passive Perception 10
+Languages —
+Challenge 1/4 (50 XP)
+## ACTIONS
+Bite. Melee Weapon Attack: +4 to hit, reach 5 ft., one creature. Hit: 5 (1d6 + 2) piercing damage.
+Constrict. Melee Weapon Attack: +4 to hit, reach 5 ft., one creature. Hit: 6 (1d8 + 2) bludgeoning damage, and the target is grappled (escape DC 14). Until this grapple ends, the creature is restrained, and the snake can't constrict another target.
+@@ Crab | 320
+Tiny beast, unaligned
+Armor Class 11 (natural armor)
+Hit Points 2 (1d4)
+Speed 20 ft., swim 20 ft.
+STR 2 11 10 1 8 2
+Skills Stealth +2
+Senses blindsight 30 ft., passive Perception 9
+Languages —
+Challenge 0 (10 XP)
+Amphibious. The crab can breathe air and water.
+## ACTIONS
+Claw. Melee Weapon Attack: +0 to hit, reach 5 ft., one target. Hit: 1 bludgeoning damage.
+@@ Crocodile | 320
+Large beast, unaligned
+Armor Class 12 (natural armor)
+Hit Points 19 (3d10 + 3)
+Speed 20 ft., swim 30 ft.
+STR 15 10 13 2 10 5
+Skills Stealth +2
+Senses passive Perception 10
+Languages —
+Challenge 1/2 (100 XP)
+Hold Breath. The crocodile can hold its breath for 15 minutes.
+## ACTIONS
+Bite. Melee Weapon Attack: +4 to hit, reach 5 ft., one creature. Hit: 7 (1d10 + 2) piercing damage, and the target is grappled (escape DC 12). Until this grapple ends, the target is restrained, and the crocodile can't bite another target.

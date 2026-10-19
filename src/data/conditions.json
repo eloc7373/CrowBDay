@@ -1,8 +1,8 @@
 {
-  "notice": "Original placeholder summaries written for DM Toolkit, based on the conditions in the 5e System Reference Document 5.1. NOT official rules text. Verify against SRD 5.1 or your own books.",
+  "notice": "Condensed summaries of the conditions in Appendix A of the 2014 Player's Handbook (pp. 290-292), checked against the book. Check the book for exact wording.",
   "source": {
-    "book": "DM Toolkit sample (original placeholder summary of SRD 5.1)",
-    "license": "Original text, CC0-1.0"
+    "book": "Player's Handbook (2014), Appendix A: Conditions",
+    "license": "Summary for personal use"
   },
   "conditions": [
     {
@@ -142,7 +142,7 @@
     "id": "exhaustion",
     "name": "Exhaustion",
     "summary": "Six cumulative levels; each level includes the effects of the lower ones.",
-    "note": "These levels follow SRD 5.1. The 2024 revision of the core rules handles Exhaustion differently, so use whichever edition your table plays.",
+    "note": "Player's Handbook (2014), p. 291.",
     "levels": [
       "Disadvantage on ability checks.",
       "Speed halved.",

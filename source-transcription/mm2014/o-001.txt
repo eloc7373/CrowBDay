@@ -1,0 +1,43 @@
+@@ Ogre | 237
+Large giant, chaotic evil
+Armor Class 11 (hide armor)
+Hit Points 59 (7d10 + 21)
+Speed 40 ft.
+STR 19 8 16 5 7 7
+Senses darkvision 60 ft., passive Perception 8
+Languages Common, Giant
+Challenge 2 (450 XP)
+## ACTIONS
+Greatclub. Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 13 (2d8 + 4) bludgeoning damage.
+Javelin. Melee or Ranged Weapon Attack: +6 to hit, reach 5 ft. or range 30/120 ft., one target. Hit: 11 (2d6 + 4) piercing damage.
+@@ Half-Ogre | 238
+Large giant, any chaotic alignment
+Armor Class 12 (hide armor)
+Hit Points 30 (4d10 + 8)
+Speed 30 ft.
+STR 17 10 14 7 9 10
+Senses darkvision 60 ft., passive Perception 9
+Languages Common, Giant
+Challenge 1 (200 XP)
+## ACTIONS
+Battleaxe. Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 12 (2d8 + 3) slashing damage, or 14 (2d10 + 3) slashing damage if used with two hands.
+Javelin. Melee or Ranged Weapon Attack: +5 to hit, reach 5 ft. or range 30/120 ft., one target. Hit: 10 (2d6 + 3) piercing damage.
+@@ Oni | 239
+Large giant, lawful evil
+Armor Class 16 (chain mail)
+Hit Points 110 (13d10 + 39)
+Speed 30 ft., fly 30 ft.
+STR 19 11 16 14 12 15
+Saving Throws Dex +3, Con +6, Wis +4, Cha +5
+Skills Arcana +5, Deception +8, Perception +4
+Senses darkvision 60 ft., passive Perception 14
+Languages Common, Giant
+Challenge 7 (2,900 XP)
+Innate Spellcasting. The oni's innate spellcasting ability is Charisma (spell save DC 13). The oni can innately cast the following spells, requiring no material components: ¶ At will: darkness, invisibility ¶ 1/day each: charm person, cone of cold, gaseous form, sleep
+Magic Weapons. The oni's weapon attacks are magical.
+Regeneration. The oni regains 10 hit points at the start of its turn if it has at least 1 hit point.
+## ACTIONS
+Multiattack. The oni makes two attacks, either with its claws or its glaive.
+Claw (Oni Form Only). Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 8 (1d8 + 4) slashing damage.
+Glaive. Melee Weapon Attack: +7 to hit, reach 10 ft., one target. Hit: 15 (2d10 + 4) slashing damage, or 9 (1d10 + 4) slashing damage in Small or Medium form.
+Change Shape. The oni magically polymorphs into a Small or Medium humanoid, into a Large giant, or back into its true form. Other than its size, its statistics are the same in each form. The only equipment that is transformed is its glaive, which shrinks so that it can be wielded in humanoid form. If the oni dies, it reverts to its true form, and its glaive reverts to its normal size.

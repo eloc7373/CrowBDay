@@ -1,0 +1,127 @@
+@@ Yochlol | 65
+Medium fiend (demon, shapechanger), chaotic evil
+Armor Class 15 (natural armor)
+Hit Points 136 (16d8 + 64)
+Speed 30 ft., climb 30 ft.
+STR 15 14 18 13 15 15
+Saving Throws Dex +6, Int +5, Wis +6, Cha +6
+Skills Deception +10, Insight +6
+Damage Resistances cold, fire, lightning; bludgeoning, piercing, and slashing from nonmagical weapons
+Damage Immunities poison
+Condition Immunities poisoned
+Senses darkvision 120 ft., passive Perception 12
+Languages Abyssal, Elvish, Undercommon
+Challenge 10 (5,900 XP)
+Shapechanger. The yochlol can use its action to polymorph into a form that resembles a female drow or giant spider, or back into its true form. Its statistics are the same in each form. Any equipment it is wearing or carrying isn't transformed. It reverts to its true form if it dies.
+Magic Resistance. The yochlol has advantage on saving throws against spells and other magical effects.
+Spider Climb. The yochlol can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check.
+Innate Spellcasting. The yochlol's spellcasting ability is Charisma (spell save DC 14). The yochlol can innately cast the following spells, requiring no material components: ¶ At will: detect thoughts, web ¶ 1/day: dominate person
+Web Walker. The yochlol ignores movement restrictions caused by webbing.
+## ACTIONS
+Multiattack. The yochlol makes two melee attacks.
+Slam (Bite in Spider Form). Melee Weapon Attack: +6 to hit, reach 5 ft. (10 ft. in demon form), one target. Hit: 5 (1d6 + 2) bludgeoning (piercing in spider form) damage plus 21 (6d6) poison damage.
+Mist Form. The yochlol transforms into toxic mist or reverts to its true form. Any equipment it is wearing or carrying is also transformed. It reverts to its true form if it dies. ¶ While in mist form, the yochlol is incapacitated and can't speak. It has a flying speed of 30 feet, can hover, and can pass through any space that isn't airtight. It has advantage on Strength, Dexterity, and Constitution saving throws, and it is immune to nonmagical damage. ¶ While in mist form, the yochlol can enter a creature's space and stop there. Each time that creature starts its turn with the yochlol in its space, the creature must succeed on a DC 14 Constitution saving throw or be poisoned until the start of its next turn. While poisoned in this way, the target is incapacitated.
+@@ Barbed Devil | 70
+Medium fiend (devil), lawful evil
+Armor Class 15 (natural armor)
+Hit Points 110 (13d8 + 52)
+Speed 30 ft.
+STR 16 17 18 12 14 14
+Saving Throws Str +6, Con +7, Wis +5, Cha +5
+Skills Deception +5, Insight +5, Perception +8
+Damage Resistances cold; bludgeoning, piercing, and slashing from nonmagical weapons that aren't silvered
+Damage Immunities fire, poison
+Condition Immunities poisoned
+Senses darkvision 120 ft., passive Perception 18
+Languages Infernal, telepathy 120 ft.
+Challenge 5 (1,800 XP)
+Barbed Hide. At the start of each of its turns, the barbed devil deals 5 (1d10) piercing damage to any creature grappling it.
+Devil's Sight. Magical darkness doesn't impede the devil's darkvision.
+Magic Resistance. The devil has advantage on saving throws against spells and other magical effects.
+## ACTIONS
+Multiattack. The devil makes three melee attacks: one with its tail and two with its claws. Alternatively, it can use Hurl Flame twice.
+Claw. Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 6 (1d6 + 3) piercing damage.
+Tail. Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 10 (2d6 + 3) piercing damage.
+Hurl Flame. Ranged Spell Attack: +5 to hit, range 150 ft., one target. Hit: 10 (3d6) fire damage. If the target is a flammable object that isn't being worn or carried, it also catches fire.
+@@ Bearded Devil | 70
+Medium fiend (devil), lawful evil
+Armor Class 13 (natural armor)
+Hit Points 52 (8d8 + 16)
+Speed 30 ft.
+STR 16 15 15 9 11 11
+Saving Throws Str +5, Con +4, Wis +2
+Damage Resistances cold; bludgeoning, piercing, and slashing from nonmagical weapons that aren't silvered
+Damage Immunities fire, poison
+Condition Immunities poisoned
+Senses darkvision 120 ft., passive Perception 10
+Languages Infernal, telepathy 120 ft.
+Challenge 3 (700 XP)
+Devil's Sight. Magical darkness doesn't impede the devil's darkvision.
+Magic Resistance. The devil has advantage on saving throws against spells and other magical effects.
+Steadfast. The devil can't be frightened while it can see an allied creature within 30 feet of it.
+## ACTIONS
+Multiattack. The devil makes two attacks: one with its beard and one with its glaive.
+Beard. Melee Weapon Attack: +5 to hit, reach 5 ft., one creature. Hit: 6 (1d8 + 2) piercing damage, and the target must succeed on a DC 12 Constitution saving throw or be poisoned for 1 minute. While poisoned in this way, the target can't regain hit points. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.
+Glaive. Melee Weapon Attack: +5 to hit, reach 10 ft., one target. Hit: 8 (1d10 + 3) slashing damage. If the target is a creature other than an undead or a construct, it must succeed on a DC 12 Constitution saving throw or lose 5 (1d10) hit points at the start of each of its turns due to an infernal wound. Each time the devil hits the wounded target with this attack, the damage dealt by the wound increases by 5 (1d10). Any creature can take an action to stanch the wound with a successful DC 12 Wisdom (Medicine) check. The wound also closes if the target receives magical healing.
+@@ Bone Devil | 71
+Large fiend (devil), lawful evil
+Armor Class 19 (natural armor)
+Hit Points 142 (15d10 + 60)
+Speed 40 ft., fly 40 ft.
+STR 18 16 18 13 14 16
+Saving Throws Int +5, Wis +6, Cha +7
+Skills Deception +7, Insight +6
+Damage Resistances cold; bludgeoning, piercing, and slashing from nonmagical weapons that aren't silvered
+Damage Immunities fire, poison
+Condition Immunities poisoned
+Senses darkvision 120 ft., passive Perception 12
+Languages Infernal, telepathy 120 ft.
+Challenge 9 (5,000 XP)
+Devil's Sight. Magical darkness doesn't impede the devil's darkvision.
+Magic Resistance. The devil has advantage on saving throws against spells and other magical effects.
+## ACTIONS
+Multiattack. The devil makes three attacks: two with its claws and one with its sting.
+Claw. Melee Weapon Attack: +8 to hit, reach 10 ft., one target. Hit: 8 (1d8 + 4) slashing damage.
+Sting. Melee Weapon Attack: +8 to hit, reach 10 ft., one target. Hit: 13 (2d8 + 4) piercing damage plus 17 (5d6) poison damage, and the target must succeed on a DC 14 Constitution saving throw or become poisoned for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.
+@@ Chain Devil | 72
+Medium fiend (devil), lawful evil
+Armor Class 16 (natural armor)
+Hit Points 85 (10d8 + 40)
+Speed 30 ft.
+STR 18 15 18 11 12 14
+Saving Throws Con +7, Wis +4, Cha +5
+Damage Resistances cold; bludgeoning, piercing, and slashing from nonmagical weapons that aren't silvered
+Damage Immunities fire, poison
+Condition Immunities poisoned
+Senses darkvision 120 ft., passive Perception 11
+Languages Infernal, telepathy 120 ft.
+Challenge 8 (3,900 XP)
+Devil's Sight. Magical darkness doesn't impede the devil's darkvision.
+Magic Resistance. The devil has advantage on saving throws against spells and other magical effects.
+## ACTIONS
+Multiattack. The devil makes two attacks with its chains.
+Chain. Melee Weapon Attack: +8 to hit, reach 10 ft., one target. Hit: 11 (2d6 + 4) slashing damage. The target is grappled (escape DC 14) if the devil isn't already grappling a creature. Until this grapple ends, the target is restrained and takes 7 (2d6) piercing damage at the start of each of its turns.
+Animate Chains (Recharges after a Short or Long Rest). Up to four chains the devil can see within 60 feet of it magically sprout razor-edged barbs and animate under the devil's control, provided that the chains aren't being worn or carried. ¶ Each animated chain is an object with AC 20, 20 hit points, resistance to piercing damage, and immunity to psychic and thunder damage. When the devil uses Multiattack on its turn, it can use each animated chain to make one additional chain attack. An animated chain can grapple one creature of its own but can't make attacks while grappling. An animated chain reverts to its inanimate state if reduced to 0 hit points or if the devil is incapacitated or dies.
+## REACTIONS
+Unnerving Mask. When a creature the devil can see starts its turn within 30 feet of the devil, the devil can create the illusion that it looks like one of the creature's departed loved ones or bitter enemies. If the creature can see the devil, it must succeed on a DC 14 Wisdom saving throw or be frightened until the end of its turn.
+@@ Erinyes | 73
+Medium fiend (devil), lawful evil
+Armor Class 18 (plate)
+Hit Points 153 (18d8 + 72)
+Speed 30 ft., fly 60 ft.
+STR 18 16 18 14 14 18
+Saving Throws Dex +7, Con +8, Wis +6, Cha +8
+Damage Resistances cold; bludgeoning, piercing, and slashing from nonmagical weapons that aren't silvered
+Damage Immunities fire, poison
+Condition Immunities poisoned
+Senses truesight 120 ft., passive Perception 12
+Languages Infernal, telepathy 120 ft.
+Challenge 12 (8,400 XP)
+Hellish Weapons. The erinyes's weapon attacks are magical and deal an extra 13 (3d8) poison damage on a hit (included in the attacks).
+Magic Resistance. The erinyes has advantage on saving throws against spells and other magical effects.
+## ACTIONS
+Multiattack. The erinyes makes three attacks.
+Longsword. Melee Weapon Attack: +8 to hit, reach 5 ft., one target. Hit: 8 (1d8 + 4) slashing damage, or 9 (1d10 + 4) slashing damage if used with two hands, plus 13 (3d8) poison damage.
+Longbow. Ranged Weapon Attack: +7 to hit, range 150/600 ft., one target. Hit: 7 (1d8 + 3) piercing damage plus 13 (3d8) poison damage, and the target must succeed on a DC 14 Constitution saving throw or be poisoned. The poison lasts until it is removed by the lesser restoration spell or similar magic.
+## REACTIONS
+Parry. The erinyes adds 4 to its AC against one melee attack that would hit it. To do so, the erinyes must see the attacker and be wielding a melee weapon.

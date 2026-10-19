@@ -1,0 +1,51 @@
+@@ Thri-kreen | 288
+Medium humanoid (thri-kreen), chaotic neutral
+Armor Class 15 (natural armor)
+Hit Points 33 (6d8 + 6)
+Speed 40 ft.
+STR 12 15 13 8 12 7
+Skills Perception +3, Stealth +4, Survival +3
+Senses darkvision 60 ft., passive Perception 13
+Languages Thri-kreen
+Challenge 1 (200 XP)
+Chameleon Carapace. The thri-kreen can change the color of its carapace to match the color and texture of its surroundings. As a result, it has advantage on Dexterity (Stealth) checks made to hide.
+Standing Leap. The thri-kreen's long jump is up to 30 feet and its high jump is up to 15 feet, with or without a running start.
+## ACTIONS
+Multiattack. The thri-kreen makes two attacks: one with its bite and one with its claws.
+Bite. Melee Weapon Attack: +3 to hit, reach 5 ft., one creature. Hit: 4 (1d6 + 1) piercing damage, and the target must succeed on a DC 11 Constitution saving throw or be poisoned for 1 minute. If the saving throw fails by 5 or more, the target is also paralyzed while poisoned in this way. The poisoned target can repeat the saving throw on each of its turns, ending the effect on itself on a success.
+Claws. Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 6 (2d4 + 1) slashing damage.
+@@ Treant | 289
+Huge plant, chaotic good
+Armor Class 16 (natural armor)
+Hit Points 138 (12d12 + 60)
+Speed 30 ft.
+STR 23 8 21 12 16 12
+Damage Resistances bludgeoning, piercing
+Damage Vulnerabilities fire
+Senses passive Perception 13
+Languages Common, Druidic, Elvish, Sylvan
+Challenge 9 (5,000 XP)
+False Appearance. While the treant remains motionless, it is indistinguishable from a normal tree.
+Siege Monster. The treant deals double damage to objects and structures.
+## ACTIONS
+Multiattack. The treant makes two slam attacks.
+Slam. Melee Weapon Attack: +10 to hit, reach 5 ft., one target. Hit: 16 (3d6 + 6) bludgeoning damage.
+Rock. Ranged Weapon Attack: +10 to hit, range 60/180 ft., one target. Hit: 28 (4d10 + 6) bludgeoning damage.
+Animate Trees (1/Day). The treant magically animates one or two trees it can see within 60 feet of it. These trees have the same statistics as a treant, except they have Intelligence and Charisma scores of 1, they can't speak, and they have only the Slam action option. An animated tree acts as an ally of the treant. The tree remains animate for 1 day or until it dies; until the treant dies or is more than 120 feet from the tree; or until the treant takes a bonus action to turn it back into an inanimate tree. The tree then takes root if possible.
+@@ Troglodyte | 290
+Medium humanoid (troglodyte), chaotic evil
+Armor Class 11 (natural armor)
+Hit Points 13 (2d8 + 4)
+Speed 30 ft.
+STR 14 10 14 6 10 6
+Skills Stealth +2
+Senses darkvision 60 ft., passive Perception 10
+Languages Troglodyte
+Challenge 1/4 (50 XP)
+Chameleon Skin. The troglodyte has advantage on Dexterity (Stealth) checks made to hide.
+Stench. Any creature other than a troglodyte that starts its turn within 5 feet of the troglodyte must succeed on a DC 12 Constitution saving throw or be poisoned until the start of the creature's next turn. On a successful saving throw, the creature is immune to the stench of all troglodytes for 1 hour.
+Sunlight Sensitivity. While in sunlight, the troglodyte has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight.
+## ACTIONS
+Multiattack. The troglodyte makes three attacks: one with its bite and two with its claws.
+Bite. Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 4 (1d4 + 2) piercing damage.
+Claw. Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 4 (1d4 + 2) slashing damage.
